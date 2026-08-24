@@ -35,55 +35,45 @@ $("#game_window")[0].style.backgroundColor = "#F3C1BD"
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#C74C60"  
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#808080" 
 
-// 1948Dawn: restrained stock-TCT styling. TTS provides the scope; Dawn provides the visual logic.
-document.head.innerHTML += "<style>#results_container { color: #211C2B; } .inner_window_w_desc { background-color: #F3C1BD !important; }</style>";
+// 1948Dawn: restrained stock-TCT styling with a light Dawn tint.
+document.head.innerHTML += "<style>#results_container { color: #000000; } .inner_window_w_desc { background-color: #F3C1BD !important; }</style>";
 
 let dawnStyle = document.createElement("style")
 dawnStyle.type = "text/css"
 dawnStyle.id = "1948-dawn-style"
 dawnStyle.innerHTML = `
-  /* Warm horizon accents */
   .campaign_trail_start_emphasis {
-    background-color: #C74C60;
-    color: #FFFFFF;
+    background-color: #B95E73;
   }
 
   #state_info h3,
   #state_result h3,
   #overall_result h3,
-  .overlay_window h3 {
-    background-color: #B95E73;
-    color: #FFFFFF;
-  }
-
+  .overlay_window h3,
   .inner_window_question h3 {
-    background-color: #C74C60;
-    color: #FFFFFF;
-  }
-
-  /* Dawn-lit interior surfaces */
-  #overall_result_container,
-  #state_result_container {
-    background-color: #F3C1BD;
-    color: #211C2B;
+    background-color: #9B8F9F;
   }
 
   #map_footer {
     padding-top: 3em;
   }
 
-  /* Warm sign against the cooler twilight frame */
+  #overall_result_container,
+  #state_result_container {
+    background-color: #E6D2D5;
+  }
+
   #campaign_sign {
-    background-color: #C74C60;
+    background-color: #B95E73;
     border-color: #38478F;
   }
 
   #map_container {
-    background: #F8E4DF;
+    background: #F8F8F8;
     border-radius: 1px;
     box-shadow:
       inset 0 0 4px rgba(0, 0, 0, 0.08),
-      0 0 0 2px rgba(56, 71, 143, 0.08);
+      0 0 0 2px rgba(0, 0, 0, 0.04);
     overflow: hidden;
   }
 
@@ -91,22 +81,12 @@ dawnStyle.innerHTML = `
     height: auto;
   }
 
-  /* Keep one clearly cool predawn surface in the interface */
   #menu_container {
-    background-color: #4B4F9D !important;
+    background-color: #5B5F99 !important;
   }
 
   a:-webkit-any-link {
-    color: #38478F;
-  }
-
-  /* Very slight dawn-blush hover, without changing the stock button shape */
-  button {
-    transition: background-color 0.12s ease;
-  }
-
-  button:hover {
-    background-color: #E7CED4;
+    color: #000000;
   }
 `
 document.head.appendChild(dawnStyle)
