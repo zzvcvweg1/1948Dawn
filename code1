@@ -2,7 +2,7 @@ campaignTrail_temp.modBoxTheme = {
     "header_color" : "#C74C60",
     "header_text_color" : "#FFFFFF",
     "description_text_color" : "#FFFFFF",
-    "description_background_color" : "#B95E73",
+    "description_background_color" : "#C74C60",
     "main_color" : "#808080",
     "secondary_color" : "#4B4F9D",
     "ui_text_color": "#FFFFFF"
@@ -43,7 +43,7 @@ dawnStyle.type = "text/css"
 dawnStyle.id = "1948-dawn-style"
 dawnStyle.innerHTML = `
   .campaign_trail_start_emphasis {
-    background-color: #B95E73;
+    background-color: #C74C60;
   }
 
   #state_info h3,
@@ -64,7 +64,7 @@ dawnStyle.innerHTML = `
   }
 
   #campaign_sign {
-    background-color: #B95E73;
+    background-color: #C74C60;
     border-color: #38478F;
   }
 
