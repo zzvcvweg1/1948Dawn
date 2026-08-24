@@ -60,7 +60,7 @@ dawnStyle.innerHTML = `
 
   #overall_result_container,
   #state_result_container {
-    background-color: #E6D2D5;
+    background-color: #F3C1BD;
   }
 
   #campaign_sign {
@@ -82,7 +82,7 @@ dawnStyle.innerHTML = `
   }
 
   #menu_container {
-    background-color: #5B5F99 !important;
+    background-color: #F3C1BD !important;
   }
 
   a:-webkit-any-link {
