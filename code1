@@ -1,10 +1,10 @@
 campaignTrail_temp.modBoxTheme = {
-    "header_color" : "#BC3823",
-    "header_text_color" : "#FFFFFF",
-    "description_text_color" : "#FFFFFF",
-    "description_background_color" : "#B7554D",
-    "main_color" : "#808080",
-    "secondary_color" : "#962D1C",
+    "header_color" : "#5D637B",
+    "header_text_color" : "#FFF8EB",
+    "description_text_color" : "#FFF8EB",
+    "description_background_color" : "#9B6169",
+    "main_color" : "#88898F",
+    "secondary_color" : "#6F687A",
     "ui_text_color": "#FFFFFF"
 }
 
@@ -12,8 +12,8 @@ campaignTrail_temp.election_json = JSON.parse("[{\"model\": \"campaign_trail.ele
 campaignTrail_temp.running_mate_json = JSON.parse("[{\"model\": \"campaign_trail.running_mate\", \"pk\": 250, \"fields\": {\"candidate\": 24, \"running_mate\": 58}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 251, \"fields\": {\"candidate\": 24, \"running_mate\": 59}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 2510, \"fields\": {\"candidate\": 24, \"running_mate\": 69}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 2510, \"fields\": {\"candidate\": 24, \"running_mate\": 70}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 253, \"fields\": {\"candidate\": 23, \"running_mate\": 55}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 254, \"fields\": {\"candidate\": 23, \"running_mate\": 56}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 255, \"fields\": {\"candidate\": 23, \"running_mate\": 44}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 256, \"fields\": {\"candidate\": 25, \"running_mate\": 62}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 257, \"fields\": {\"candidate\": 25, \"running_mate\": 63}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 258, \"fields\": {\"candidate\": 25, \"running_mate\": 64}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 259, \"fields\": {\"candidate\": 312, \"running_mate\": 313}}, {\"model\": \"campaign_trail.running_mate\", \"pk\": 195, \"fields\": {\"candidate\": 23, \"running_mate\": 40}}]"); 
 campaignTrail_temp.opponents_default_json = JSON.parse("[{\"election\": 20, \"candidates\": [201, 202, 203, 200]}, {\"election\": 4, \"candidates\": [23, 25, 312, 24]}]"); 
 campaignTrail_temp.opponents_weighted_json = JSON.parse("[{\"election\": 20, \"candidates\": [201, 200, 202, 203]}, {\"election\": 4, \"candidates\": [23, 24, 25, 312]}]"); 
-campaignTrail_temp.global_parameter_json = JSON.parse("[{\"model\": \"campaign_trail.global_parameter\", \"pk\": 1, \"fields\": {\"vote_variable\": 1.125, \"max_swing\": 0.12, \"start_point\": 0.94, \"candidate_issue_weight\": 10.0, \"running_mate_issue_weight\": 3.0, \"issue_stance_1_max\": -0.71, \"issue_stance_2_max\": -0.3, \"issue_stance_3_max\": -0.125, \"issue_stance_4_max\": 0.125, \"issue_stance_5_max\": 0.3, \"issue_stance_6_max\": 0.71, \"global_variance\": 0.01, \"state_variance\": 0.005, \"question_count\": 30, \"default_map_color_hex\": \"#C9C9C9\", \"no_state_map_color_hex\": \"#999999\"}}]"); 
-campaignTrail_temp.temp_election_list = [{"id": 4, "year": 1948, "is_premium": 0, "display_year": "1948Red"}]; 
+campaignTrail_temp.global_parameter_json = JSON.parse("[{\"model\": \"campaign_trail.global_parameter\", \"pk\": 1, \"fields\": {\"vote_variable\": 1.125, \"max_swing\": 0.12, \"start_point\": 0.94, \"candidate_issue_weight\": 10.0, \"running_mate_issue_weight\": 3.0, \"issue_stance_1_max\": -0.71, \"issue_stance_2_max\": -0.3, \"issue_stance_3_max\": -0.125, \"issue_stance_4_max\": 0.125, \"issue_stance_5_max\": 0.3, \"issue_stance_6_max\": 0.71, \"global_variance\": 0.01, \"state_variance\": 0.005, \"question_count\": 30, \"default_map_color_hex\": \"#CDCBD0\", \"no_state_map_color_hex\": \"#96949C\"}}]"); 
+campaignTrail_temp.temp_election_list = [{"id": 4, "year": 1948, "is_premium": 0, "display_year": "1948Dawn"}]; 
 campaignTrail_temp.credits = "<button onclick='credits()'>Tom and Aiden!</button>";
 
 RecReading=true
@@ -28,14 +28,161 @@ RecReading=true
 
 HistHexcolour=["#c64e48","#0026ae","#ff880b","#ff0000"]; HistName=[" Harold Stassen"," Henry Wallace"," Richard Russell"," Norman Thomas/Other"]; HistEV=[301,171,59,0]; HistPV=["23,366,892","22,568,557","2,014,903","110,022"]; HistPVP=["48.6%","47.0%","4.2%","0.2%"];
 
-$("#game_window")[0].style.borderColor = "#aa0b1c" 
-$(".container")[0].style.backgroundColor = "#962d1c"
-$("#game_window")[0].style.backgroundColor = "#d1fccc"
+$("#game_window")[0].style.borderColor = "#545A73" 
+$(".container")[0].style.backgroundColor = "#6F687A"
+$("#game_window")[0].style.backgroundColor = "#E5DEAE"
 
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#BC3823"  
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#808080" 
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#9B6169"  
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#88898F" 
 document.getElementById("header").src = "https://i.imgur.com/dUAp5Xe.png"
 document.body.background = "https://i.imgur.com/7Wbnwbi.jpg" 
+
+// 1948Dawn visual theme
+// Dawn is treated as a transition rather than a single "sunrise" color:
+// cool sky/frame, a small coral horizon band, gray utility surfaces,
+// and a deliberately odd pale-straw playfield in the spirit of 1948Red.
+let dawnStyle = document.createElement("style")
+dawnStyle.id = "1948-dawn-theme"
+
+dawnStyle.innerHTML = `
+:root {
+    --dawn-sky: #5D637B;
+    --dawn-deep: #545A73;
+    --dawn-violet: #6F687A;
+    --dawn-horizon: #9B6169;
+    --dawn-gray: #88898F;
+    --dawn-mist: #D7D8DC;
+    --dawn-paper: #E8E2C6;
+    --dawn-field: #E5DEAE;
+    --dawn-gold: #C49A5B;
+    --dawn-ink: #2F3037;
+    --dawn-cream: #FFF8EB;
+}
+
+body {
+    background-color: #747A90 !important;
+    background-blend-mode: soft-light;
+}
+
+.container {
+    background-color: var(--dawn-violet) !important;
+    border-color: var(--dawn-deep) !important;
+}
+
+#game_window {
+    background-color: var(--dawn-field) !important;
+    background-image: linear-gradient(
+        180deg,
+        rgba(84, 90, 115, 0.09) 0%,
+        rgba(255, 255, 255, 0.00) 43%,
+        rgba(196, 154, 91, 0.10) 100%
+    ) !important;
+    border-color: var(--dawn-deep) !important;
+}
+
+.game_header {
+    background-color: var(--dawn-horizon) !important;
+    border-bottom: 3px solid var(--dawn-gold) !important;
+}
+
+.campaign_trail_start_emphasis {
+    background-color: #85899A !important;
+}
+
+.inner_window_w_desc,
+.inner_window_question,
+.overlay_window,
+#overall_result_container,
+#state_result_container,
+#menu_container {
+    background-color: var(--dawn-mist) !important;
+}
+
+.inner_window_front,
+.person_description_window,
+#election_description_window,
+.inner_window_sign_display {
+    background-color: var(--dawn-paper) !important;
+}
+
+#state_info h3,
+#state_result h3,
+#overall_result h3,
+.overlay_window h3,
+.inner_window_question h3 {
+    background-color: var(--dawn-horizon) !important;
+    color: var(--dawn-cream) !important;
+    border-bottom: 2px solid var(--dawn-gold) !important;
+}
+
+#campaign_sign {
+    background-color: var(--dawn-sky) !important;
+    border-color: var(--dawn-gold) !important;
+}
+
+#map_container {
+    background-color: #D0CED1 !important;
+    border-color: var(--dawn-gray) !important;
+}
+
+.person_image,
+#election_image,
+#candidate_pic,
+#running_mate_pic {
+    border-color: var(--dawn-deep) !important;
+}
+
+a:-webkit-any-link {
+    color: #4D536B;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+select {
+    background-color: #D2CFBF;
+    color: var(--dawn-ink);
+    border-color: var(--dawn-deep);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    background-color: #D9C6B0;
+}
+
+#question_form label {
+    transition: background-color 0.12s ease;
+}
+
+#question_form label:hover {
+    background-color: rgba(155, 97, 105, 0.11) !important;
+}
+
+#question_form input[type="radio"]:checked + label {
+    background-color: rgba(196, 154, 91, 0.16) !important;
+    border-left: 3px solid var(--dawn-gold);
+}
+
+::-webkit-scrollbar-track {
+    background: #C9C8CB;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dawn-violet);
+    border: 1px solid var(--dawn-deep);
+}
+
+#trackSel {
+    background-color: #8F9097 !important;
+}
+
+#header {
+    filter: saturate(0.84) contrast(0.96) brightness(0.97);
+}
+`
+
+document.head.appendChild(dawnStyle)
 
 quotes = ["“Scare the hell out of the American people.” ~ Arthur H. Vandenberg, ", "“Wars are won in the mind before they can be won on the field.” ~ Christopher Morley"]
 customquote = quotes[Math.floor((Math.random() * quotes.length))]
@@ -84,7 +231,7 @@ musicMode = () => {
   border-width:3px;
   height:150px;
   width:200px;
-  background-color:#999999;
+  background-color:#8F9097;
   float:right;
   padding: 10px;
   `
@@ -181,7 +328,7 @@ musicMode = () => {
     function newMusicPlayer() {
         trackSel = document.createElement("div");
         trackSel.id = "trackSelParent"
-        let z = `<br><br><br><br><br><br><br><br><br><br><div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: scroll;overflow-x: hidden;height:200px; width:400px;background-color:#999999;float:right;">`
+        let z = `<br><br><br><br><br><br><br><br><br><br><div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: scroll;overflow-x: hidden;height:200px; width:400px;background-color:#8F9097;float:right;">`
         z += `<b><select id='selectSoundtrack'><option value='` + soundtracks[e.selectedSoundtrack].name + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>"
         for (i in soundtracks) {
             if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
