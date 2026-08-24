@@ -3,7 +3,7 @@ campaignTrail_temp.modBoxTheme = {
     "header_text_color" : "#FFFFFF",
     "description_text_color" : "#FFFFFF",
     "description_background_color" : "#B95E73",
-    "main_color" : "#808080",
+    "main_color" : "#F3C1BD",
     "secondary_color" : "#4B4F9D",
     "ui_text_color": "#FFFFFF"
 }
@@ -33,7 +33,7 @@ $(".container")[0].style.backgroundColor = "#4B4F9D"
 $("#game_window")[0].style.backgroundColor = "#F3C1BD"
 
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#C74C60"  
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#808080" 
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#F3C1BD" 
 
 // 1948Dawn: restrained hover feedback only. The default Campaign Trail button styling is left intact.
 let dawnHoverStyle = document.createElement("style")
