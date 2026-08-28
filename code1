@@ -611,7 +611,7 @@ dawnStyle.innerHTML = `
   body {
     background:
       linear-gradient(rgba(243, 193, 189, 0.14), rgba(243, 193, 189, 0.14)),
-      url("https://i0.wp.com/martinturnbull.com/wp-content/uploads/2021/02/Southeast-corner-of-Sunset-Blvd-and-Crescent-Heights-Blvd-showing-Schwabs-Pharmacy-and-Googies-coffee-shop-Los-Angeles-circa-late-1950s.png?ssl=1");
+      url("https://i.imgur.com/T1Slv7z.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
