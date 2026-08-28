@@ -145,90 +145,21 @@ campaignTrail_temp.candidate_json = [
         "model": "campaign_trail.candidate",
         "pk": 121,
         "fields": {
-            "first_name": "Leverett",
-            "last_name": "Saltonstall",
+            "first_name": "John W.",
+            "last_name": "Bricker",
             "election": 12,
             "party": "Republican",
-            "state": "Massachusetts",
+            "state": "Ohio",
             "priority": 6,
             "description": "'",
-            "color_hex": "#EF2F16",
-            "secondary_color_hex": "#FFA0A0",
+            "color_hex": "#B4475A",
+            "secondary_color_hex": "#B4475A",
             "is_active": 0,
-            "image_url": "https://i.imgur.com/isZVHhB.png",
+            "image_url": "https://i.imgur.com/QXASeZv.png",
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>A distinguished gentleman and farmer, Leverett Saltonstall partly represents a long-entrenched Republican tradition in New England.  As Governor of Massachusetts he was a strong fiscal conservative, paying off much of the state’s debt.  He is also a noted social progressive, outspoken in favor of new civil rights legislation, and his selection could mend fences with Earl Warren’s more progressive sect of the party, and could be a clever way to cut into what support Wallace has left.  Some of your advisors feel you could be the most competitive candidate in the South since Hoover in 1928, but certainly not with Saltonstall as your running mate.<p>Saltonstall is largely unknown on the national stage though and could come under fire for his perceived weakness on labor issues and his negligible foreign policy experience.</p>",
-            "candidate_score": 0.0,
-            "running_mate": true
-        }
-    },
-    {
-        "model": "campaign_trail.candidate",
-        "pk": 122,
-        "fields": {
-            "first_name": "George C.",
-            "last_name": "Marshall",
-            "election": 12,
-            "party": "Republican",
-            "state": "Pennsylvania",
-            "priority": 7,
-            "description": "'",
-            "color_hex": "#EF2F16",
-            "secondary_color_hex": "#FFA0A0",
-            "is_active": 0,
-            "image_url": "https://i.imgur.com/mb8aDD7.png",
-            "electoral_victory_message": "'",
-            "electoral_loss_message": "'",
-            "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>A distinguished strategist and Chief of Staff of the United States Army during the entirety of the Second World War, Marshall was estranged and distrustful of President Wallace after his ascension, and warned that Operation Downfall would end in disaster.  After being proven right when the invasion went down in flames, Marshall resigned from his post, officially to ‘retire’ in 1946, and has flirted with national politics ever since.  He has often written scathing editorials in several major news publications criticizing the President, and is as popular as his career is distinguished.<p>However, Marshall has no political experience, and is undefined on numerous issues.  As well, he has no desire to be Vice President, and will need assurances from Stassen that he will carry significant sway in the administration to come.</p>",
-            "candidate_score": 0.0,
-            "running_mate": true
-        }
-    },
-    {
-        "model": "campaign_trail.candidate",
-        "pk": 123,
-        "fields": {
-            "first_name": "Simeon",
-            "last_name": "Willis",
-            "election": 12,
-            "party": "Republican",
-            "state": "Kentucky",
-            "priority": 8,
-            "description": "'",
-            "color_hex": "#EF2F16",
-            "secondary_color_hex": "#FFA0A0",
-            "is_active": 0,
-            "image_url": "https://i.imgur.com/q8GrHZj.png",
-            "electoral_victory_message": "'",
-            "electoral_loss_message": "'",
-            "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>By all accounts a moderate, Simeon Willis is the first Republican to be elected as Governor of Kentucky since Flem Sampson in 1927, winning a convincing victory in 1943.  Now having been out of office for one year, selecting Willis would send your direction in a bold campaign from the get-go due to his geographical and ideological position.<p>A southern moderate who has embraced both fiscally conservative proposals like tax cuts and liberal ones like welfare and state projects, Willis could also make winning southern states a serious possibility, an enticing prospect indeed.</p>",
-            "candidate_score": 0.0,
-            "running_mate": true
-        }
-    },
-    {
-        "model": "campaign_trail.candidate",
-        "pk": 124,
-        "fields": {
-            "first_name": "Arthur H.",
-            "last_name": "Vandenberg",
-            "election": 12,
-            "party": "Republican",
-            "state": "Michigan",
-            "priority": 9,
-            "description": "'",
-            "color_hex": "#EF2F16",
-            "secondary_color_hex": "#FFA0A0",
-            "is_active": 0,
-            "image_url": "https://i.imgur.com/5gNrXJg.png",
-            "electoral_victory_message": "'",
-            "electoral_loss_message": "'",
-            "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>A prominent figure in the Republican Party, Arthur Vandenberg led the opposition to the Second New Deal and the Roosevelt administration’s domestic programs.  As well, he was once a strong isolationist who helped usher in the Neutrality Acts.  Nonetheless, he has since changed his tune and now is one of the Senate’s most ardent interventionists.<p>His greatest strengths—his connections within the Republican Party and experience—are conversely his greatest weaknesses in the election.  Few Americans want a rollback of the New Deal, and Republicans in Congress were unpopular for over a decade before the war.</p>",
+            "description_as_running_mate": "<p>To placate the Taft delegation’s concerns of your nomination, you chose Governor Bricker to be your Vice President. However, while he does satisfy them, Bricker could prove to be a headache during your presidency. A midwestern conservative, Bricker is firmly against the international doctrine of both FDR and your own cabinet. He does not respect you as much as another Republican would, being nine years older than you. He will be the conservative voice of reason in every discussion, using his age and experience to support his views. He will also be a major influence on your economic policy, trying to secure the best option for his dear home region.</p><p>Despite your desire to, he cannot be fully ignored and left to rot like most Vice Presidents. After all, the Taftites will not take a possible exit from his job lightly, and if you do, they will make your governing life even more of a living hell than it already is.</p>",
             "candidate_score": 0.0,
             "running_mate": true
         }
@@ -433,30 +364,6 @@ campaignTrail_temp.running_mate_json = [
         "fields": {
             "candidate": 117,
             "running_mate": 121
-        }
-    },
-    {
-        "model": "campaign_trail.running_mate",
-        "pk": 78,
-        "fields": {
-            "candidate": 117,
-            "running_mate": 122
-        }
-    },
-    {
-        "model": "campaign_trail.running_mate",
-        "pk": 79,
-        "fields": {
-            "candidate": 117,
-            "running_mate": 123
-        }
-    },
-    {
-        "model": "campaign_trail.running_mate",
-        "pk": 80,
-        "fields": {
-            "candidate": 117,
-            "running_mate": 124
         }
     },
     {
