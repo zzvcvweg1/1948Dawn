@@ -602,7 +602,13 @@ $("#game_window")[0].style.backgroundColor = "#F3C1BD"
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#C74C60"
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#808080"
 
-// 1948Dawn: restrained stock-TCT styling with a light Dawn tint.
+background:
+  linear-gradient(rgba(243, 193, 189, 0.14), rgba(243, 193, 189, 0.14)),
+  url("https://i0.wp.com/martinturnbull.com/wp-content/uploads/2021/02/Southeast-corner-of-Sunset-Blvd-and-Crescent-Heights-Blvd-showing-Schwabs-Pharmacy-and-Googies-coffee-shop-Los-Angeles-circa-late-1950s.png?ssl=1");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+
 document.head.innerHTML += "<style>#results_container { color: #000000; } .inner_window_w_desc { background-color: #F3C1BD !important; }</style>";
 
 let dawnStyle = document.createElement("style")
@@ -658,7 +664,6 @@ dawnStyle.innerHTML = `
 `
 document.head.appendChild(dawnStyle)
 document.getElementById("header").src = "https://i.imgur.com/dUAp5Xe.png"
-document.body.background = "https://i.imgur.com/7Wbnwbi.jpg"
 
 quotes = [
     "“Scare the hell out of the American people.” ~ Arthur H. Vandenberg, ",
