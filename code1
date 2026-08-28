@@ -376,14 +376,14 @@ campaignTrail_temp.candidate_json = [
         "pk": 194805,
         "fields": {
             "first_name": "Norman",
-            "last_name": "Thomas/Other",
+            "last_name": "Thomas/Others",
             "election": 12,
-            "party": "Independent",
+            "party": "Socialist",
             "state": "New York",
-            "priority": 0,
+            "priority": 5,
             "description": "'",
-            "color_hex": "#ff0000",
-            "secondary_color_hex": "#ff0000",
+            "color_hex": "#7F3727",
+            "secondary_color_hex": "#7F3727",
             "is_active": 0,
             "image_url": "https://archives.upenn.edu/wp-content/uploads/2016/11/harold-edward-stassen-c1950-400x317.jpg",
             "electoral_victory_message": "'",
@@ -523,7 +523,8 @@ campaignTrail_temp.opponents_default_json = [
             116,
             117,
             118,
-            119
+            119,
+            194805
         ]
     }
 ];
@@ -534,7 +535,8 @@ campaignTrail_temp.opponents_weighted_json = [
             116,
             117,
             118,
-            119
+            119,
+            194805
         ]
     }
 ];
@@ -587,8 +589,8 @@ RecReading=true
     alert(text)
   }
 
-HistHexcolour = ["#c64e48", "#0026ae", "#ff880b", "#ff0000"];
-HistName = [" Harold Stassen", " Henry Wallace", " Richard Russell", " Norman Thomas/Other"];
+HistHexcolour = ["#c64e48", "#0026ae", "#ff880b", "#7F3727"];
+HistName = [" Harold Stassen", " Henry Wallace", " Richard Russell", " Norman Thomas"];
 HistEV = [301, 171, 59, 0];
 HistPV = ["23,366,892", "22,568,557", "2,014,903", "110,022"];
 HistPVP = ["48.6%", "47.0%", "4.2%", "0.2%"];
