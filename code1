@@ -264,7 +264,7 @@ campaignTrail_temp.candidate_json = [
             "last_name": "Truman",
             "election": 12,
             "party": "Democratic",
-            "state": "Idaho",
+            "state": "Missouri",
             "priority": 14,
             "description": "",
             "color_hex": "#ED8217",
