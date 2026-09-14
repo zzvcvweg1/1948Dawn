@@ -573,7 +573,7 @@ dawnStyle.innerHTML = `
   }
 `
 document.head.appendChild(dawnStyle)
-document.getElementById("header").src = "https://i.imgur.com/dUAp5Xe.png"
+document.getElementById("header").src = "https://i.imgur.com/ihdwHVp.png"
 
 quotes = [
     "“We need not be afraid of the future, for the future will be in our own hands.” ~ Thomas E. Dewey"
