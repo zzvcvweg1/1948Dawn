@@ -76,8 +76,8 @@ campaignTrail_temp.candidate_json = [
         "model": "campaign_trail.candidate",
         "pk": 118,
         "fields": {
-            "first_name": "Unpledged",
-            "last_name": "Electors",
+            "first_name": "Harry F.",
+            "last_name": "Byrd",
             "election": 12,
             "party": "Dixiecrat",
             "state": "South Carolina",
