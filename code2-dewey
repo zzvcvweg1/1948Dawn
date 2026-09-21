@@ -11022,6 +11022,10 @@ campaignTrail_temp.answer_feedback_json = [
     }
 ]
 
+campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/mV72axj.png';
+
+campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/QXASeZv.png';
+
 campaignTrail_temp.jet_data = [{}]
 
 e = campaignTrail_temp;
