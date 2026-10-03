@@ -479,7 +479,7 @@ campaignTrail_temp.temp_election_list = [
         "display_year": "1948Dawn"
     }
 ];
-campaignTrail_temp.credits = "<button onclick='credits()'>Tom and Aiden!</button>";
+campaignTrail_temp.credits = "<button onclick='credits()'>Lookout Modding Team</button>";
 
 RecReading=true
   credits = function() {
