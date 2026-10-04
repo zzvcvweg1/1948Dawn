@@ -175,7 +175,7 @@ campaignTrail_temp.questions_json = [
         "pk": 48020,
         "fields": {
             "priority": 20,
-            "description": "After a long and tumultuous Democratic primary between a field of several candidates, they have finally landed on one that will be suitable for their campaign. Paul V. McNutt, the Governor of Indiana and a figure who was often Franklin Roosevelt’s unintentional foil, has been nominated. Though the left, primarily those led by Henry Wallace, are disgruntled at McNutt’s nomination, they know the consequences if they are to walk out. The southerners think alike, viewing McNutt and his running mate, Burnet Maybank, as a fine compromise. Now that the convention has concluded, what are your thoughts on McNutt’s nomination?",
+            "description": "After a long and tumultuous Democratic primary, and later a convention between a field of several candidates, they have finally landed on one that will be suitable for their campaign. Paul V. McNutt, the Governor of Indiana and a figure who was often Franklin Roosevelt’s unintentional foil, has been nominated. Though the left, primarily those led by Henry Wallace, are disgruntled at McNutt’s nomination, they know the consequences if they are to walk out. The southerners think alike, viewing McNutt and his running mate, Burnet Maybank, as a fine compromise. Now that the convention has concluded, what are your thoughts on McNutt’s nomination?",
             "likelihood": 1
         }
     },
