@@ -11091,6 +11091,712 @@ $(`<style>
 </style>`).appendTo("head");
 
 
+const dawnDeweyTooltips = [
+  {
+    "terms": [
+      "Robert Taft",
+      "Robert A. Taft"
+    ],
+    "description": "Only “Mr. Republican” when it's one of his men.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-oE592-TW3Kw.png"
+  },
+  {
+    "terms": [
+      "Soviet Union"
+    ],
+    "description": "Serpents attempting to send people out of the new garden",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/777699@2x.png"
+  },
+  {
+    "terms": [
+      "Joseph Stalin"
+    ],
+    "description": "Always plotting, at least as far as you’re concerned.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-9OFhu2jBs0w.png"
+  },
+  {
+    "terms": [
+      "Manhattan"
+    ],
+    "description": "Home",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-TWQWd4xnrwI.png"
+  },
+  {
+    "terms": [
+      "John Foster Dulles",
+      "Dulles"
+    ],
+    "description": "Your Secretary of State and your foreign policy’s eyes and ears. Would rather have died a small boy than to have seen the world fall to communism.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-WW4YbnqPJIU.png"
+  },
+  {
+    "terms": [
+      "Herbert Hoover",
+      "Hoover"
+    ],
+    "description": "A failed president. Also your administration’s most important elder statesman.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-G34zNqP1W60.png"
+  },
+  {
+    "terms": [
+      "Franklin D. Roosevelt",
+      "FDR"
+    ],
+    "description": "Missed dearly. A great president and a better man.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-Bzqxmv-qFrU.png"
+  },
+  {
+    "terms": [
+      "Harold Stassen",
+      "Stassen"
+    ],
+    "description": "Secretary of Agriculture and your administration’s biggest pain in the neck. Would be a Democrat if he agreed with them on Communism.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-JKX2r4n_-QU.png"
+  },
+  {
+    "terms": [
+      "Joseph W. Martin",
+      "Joseph Martin"
+    ],
+    "description": "Your leading man in the lower chamber.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-BvDQW-8jLbc.png"
+  },
+  {
+    "terms": [
+      "Clement Attlee",
+      "Attlee"
+    ],
+    "description": "Alike with you in many more ways than you think.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-ZMz7r4Um62M.png"
+  },
+  {
+    "terms": [
+      "Winston Churchill",
+      "Churchill"
+    ],
+    "description": "Hopelessly flailing about - like he’s still Prime Minister.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-0NxuaqMVhE8.png"
+  },
+  {
+    "terms": [
+      "Walter Judd"
+    ],
+    "description": "Your expert on Chinese affairs and a rising star within the party.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-BTlRyTy8wL4.png"
+  },
+  {
+    "terms": [
+      "House of Representatives",
+      "Congress"
+    ],
+    "description": "Formerly the Peoples’ Chamber. Now a Rats’ Den.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-eqPISeUCewA.png"
+  },
+  {
+    "terms": [
+      "Harold Knutson"
+    ],
+    "description": "Your man on taxes in the House. Prefers the larger bill.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-l1600%20(24).png"
+  },
+  {
+    "terms": [
+      "Walter F. George"
+    ],
+    "description": "A Georgia Democrat you can actually talk taxes with.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/8380709_2000x%20(1).png"
+  },
+  {
+    "terms": [
+      "John McCormack"
+    ],
+    "description": "A leading House Democrat. More than capable of making trouble.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/John_W._McCormack_(Speaker_of_the_US_House)(b)_(1).jpg"
+  },
+  {
+    "terms": [
+      "Lewis Strauss"
+    ],
+    "description": "Hoover’s man on atomic energy. Bright, forceful, and not especially easy to direct.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Lewis-Strauss-US-Atominc-Energy-Commission-Chairman-Oppenheimer.png"
+  },
+  {
+    "terms": [
+      "Martin Dies"
+    ],
+    "description": "An old friend in the anti-Communist business. His successors are less careful than he was.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/dde9d4595aff3deb18a1713af93ef867.png"
+  },
+  {
+    "terms": [
+      "House Un-American Activities Committee",
+      "HUAC"
+    ],
+    "description": "A noble idea, once.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/HUAC-Gary-Cooper-2400-3x2gty-59f8c0579abed500107c349d.png"
+  },
+  {
+    "terms": [
+      "Wallace H. White Jr.",
+      "Wallace White"
+    ],
+    "description": "Your leading man in the upper chamber.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/99-1319.png"
+  },
+  {
+    "terms": [
+      "Elliot Bell"
+    ],
+    "description": "Your budget man. Useful whenever someone in the room forgets what things cost.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/elliott-v-bell-left-former-writer-on-economics-of-the-new-york-times-talks-with-governor-elect-thomas-e-dewey-in-new-york-on-dec-21-1942-after-dewey-named-him-state-superintendent-of-banks-bell-takes-office-on-jan.png"
+  },
+  {
+    "terms": [
+      "Walter Reuther"
+    ],
+    "description": "The new man at the UAW. Not one of your admirers.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Walter-Reuther.png"
+  },
+  {
+    "terms": [
+      "Robert Moses"
+    ],
+    "description": "An old acquaintance from New York. Never thinks on a small scale.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Robert-Moses.png"
+  },
+  {
+    "terms": [
+      "Henry Luce"
+    ],
+    "description": "A Republican publisher with strong feelings about China.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/gettyimages-514962602-2048x2048.png"
+  },
+  {
+    "terms": [
+      "Alf Landon"
+    ],
+    "description": "A good Republican and an old friend.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/nef29270_2000x.png"
+  },
+  {
+    "terms": [
+      "Ferdinand Magellan"
+    ],
+    "description": "Roosevelt’s train. Yours now.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/JMF01-03649.0.png"
+  },
+  {
+    "terms": [
+      "Frances Dewey",
+      "Frances"
+    ],
+    "description": "Your wife. One of the few people in Washington who can put you at ease.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Frances_Eileen_Dewey.png"
+  },
+  {
+    "terms": [
+      "Herbert Brownell"
+    ],
+    "description": "An old friend, a fine lawyer, and one of the men who helped put you here.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Herbert_Brownell.jpg"
+  },
+  {
+    "terms": [
+      "Arthur Vanderbilt"
+    ],
+    "description": "One of the finest legal minds you know.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/gettyimages-514963546-2048x2048.jpg"
+  },
+  {
+    "terms": [
+      "Arthur Vandenberg"
+    ],
+    "description": "A master of the law without ever having gone to law school.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/BN-WH322_bkrvVa_GR_20171124144155.jpg"
+  },
+  {
+    "terms": [
+      "Kenneth Wherry"
+    ],
+    "description": "One of your Republicans in the Senate. Better when he is with you than against you.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Kenneth_Wherry.jpg"
+  },
+  {
+    "terms": [
+      "Richard Russell"
+    ],
+    "description": "One of the South’s great men in the Senate. Tireless when he means to stop you.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Sen._Richard_Russell%2C_colour_corrected_(2)%20(1).jpg"
+  },
+  {
+    "terms": [
+      "Martin Kennelly",
+      "Mayor Kennelly"
+    ],
+    "description": "A Chicago mayor very much in the old mold.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Martin_H._Kennelly_72-599_(1).jpg"
+  },
+  {
+    "terms": [
+      "Chiang Kai-shek"
+    ],
+    "description": "The Generalissimo. Still fighting for a China that may already be slipping away.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Chiang_Kai-shek_(9to12).jpg"
+  },
+  {
+    "terms": [
+      "Curtis LeMay"
+    ],
+    "description": "An able airman. Rarely shy about using force.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/050811-F-1234P-006.avif"
+  },
+  {
+    "terms": [
+      "Douglas MacArthur",
+      "MacArthur"
+    ],
+    "description": "A great general. He knows it.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Douglas-MacArthur-1945.webp"
+  },
+  {
+    "terms": [
+      "Earl Warren"
+    ],
+    "description": "California’s Governor. One of the more broadly acceptable men in your party.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Earl_Warren%2C_1946.jpg"
+  },
+  {
+    "terms": [
+      "Wayne Morse"
+    ],
+    "description": "A Republican Senator from Oregon. Inclined to take his own line.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/00WayneMorseD.jpg"
+  },
+  {
+    "terms": [
+      "Knights of Labor"
+    ],
+    "description": "Labor radicalism from another age. Hardly your crowd.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Knights_of_Labor_Logo.gif"
+  },
+  {
+    "terms": [
+      "The Two Percent Club",
+      "Two Percent Club"
+    ],
+    "description": "McNutt’s way of building the party in Indiana. Two percent off a state employee’s salary.",
+    "image": ""
+  },
+  {
+    "terms": [
+      "John Dillinger"
+    ],
+    "description": "A gangster. You made your name putting men like him behind bars.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Dillingerwantedposter.jpg"
+  }
+];
+
+function dawnDeweyTooltipSideIsActive() {
+    const ct = window.campaignTrail_temp;
+    const current = ct && ct.candidate_id != null && ct.candidate_id !== ""
+        ? ct.candidate_id
+        : (window.e && window.e.candidate_id != null ? window.e.candidate_id : null);
+
+    return current == null || current === "" || Number(current) === 117;
+}
+
+function dawnDeweyTooltipEscapeRegex(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+const dawnDeweyTooltipTermIndex = new Map();
+dawnDeweyTooltips.forEach((entry, entryIndex) => {
+    entry.terms.forEach(term => dawnDeweyTooltipTermIndex.set(term, entryIndex));
+});
+
+const dawnDeweyTooltipTerms = Array.from(dawnDeweyTooltipTermIndex.keys())
+    .sort((a, b) => b.length - a.length);
+
+const dawnDeweyTooltipRegex = new RegExp(
+    dawnDeweyTooltipTerms.map(dawnDeweyTooltipEscapeRegex).join("|"),
+    "g"
+);
+
+const dawnDeweyTooltipStyle = document.createElement("style");
+dawnDeweyTooltipStyle.id = "dawn-dewey-tooltip-style";
+dawnDeweyTooltipStyle.textContent = `
+    .dawn-dewey-tooltip-term {
+        cursor: help;
+        text-decoration-line: underline;
+        text-decoration-style: dotted;
+        text-decoration-color: #4B4F9D;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+        border-radius: 1px;
+        transition: background-color 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .dawn-dewey-tooltip-term:hover {
+        background: rgba(199, 76, 96, 0.11);
+        box-shadow: 0 1px 0 rgba(75, 79, 157, 0.12);
+    }
+
+    #dawn-dewey-tooltip {
+        position: fixed;
+        z-index: 999999;
+        width: min(268px, calc(100vw - 24px));
+        box-sizing: border-box;
+        padding: 11px 12px 10px;
+
+        background:
+            linear-gradient(180deg, #F8F8F8 0%, #E7E0D2 100%);
+        color: #111111;
+
+        border: 2px solid #4B4F9D;
+        border-radius: 1px;
+        box-shadow:
+            inset 0 4px 0 #C74C60,
+            3px 3px 0 rgba(75, 79, 157, 0.18);
+
+        font-family: inherit;
+        font-size: 12.5px;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 1.36;
+        text-align: left;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.12s ease, visibility 0.12s ease;
+    }
+
+    #dawn-dewey-tooltip.dawn-dewey-tooltip-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #dawn-dewey-tooltip .dawn-dewey-tooltip-media {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 0 8px;
+        padding: 4px;
+        box-sizing: border-box;
+        background: #F8F8F8;
+        border: 1px solid rgba(75, 79, 157, 0.55);
+        overflow: hidden;
+    }
+
+    #dawn-dewey-tooltip .dawn-dewey-tooltip-media img {
+        display: block;
+
+        width: auto;
+        height: auto;
+        max-width: 230px;
+        max-height: 148px;
+        object-fit: contain;
+        object-position: center;
+
+        margin: 0 auto;
+        background: #F8F8F8;
+        image-rendering: auto;
+    }
+
+    #dawn-dewey-tooltip .dawn-dewey-tooltip-copy {
+        margin: 0;
+        padding: 0 1px;
+    }
+
+    @media (max-width: 600px) {
+        #dawn-dewey-tooltip {
+            width: min(244px, calc(100vw - 18px));
+            font-size: 12px;
+            padding: 10px 10px 9px;
+        }
+
+        #dawn-dewey-tooltip .dawn-dewey-tooltip-media img {
+            max-width: 204px;
+            max-height: 132px;
+        }
+    }
+`;
+
+if (!document.getElementById("dawn-dewey-tooltip-style")) {
+    document.head.appendChild(dawnDeweyTooltipStyle);
+}
+
+let dawnDeweyTooltipBox = document.getElementById("dawn-dewey-tooltip");
+if (!dawnDeweyTooltipBox) {
+    dawnDeweyTooltipBox = document.createElement("div");
+    dawnDeweyTooltipBox.id = "dawn-dewey-tooltip";
+    dawnDeweyTooltipBox.setAttribute("role", "tooltip");
+    document.body.appendChild(dawnDeweyTooltipBox);
+}
+
+let dawnDeweyTooltipCurrentTrigger = null;
+let dawnDeweyTooltipShowTimer = null;
+
+function dawnDeweyTooltipPosition(trigger) {
+    if (!trigger || !trigger.isConnected || !dawnDeweyTooltipBox) return;
+
+    const triggerRect = trigger.getBoundingClientRect();
+    const tipRect = dawnDeweyTooltipBox.getBoundingClientRect();
+    const viewportPadding = 10;
+    const gap = 8;
+
+    let left = triggerRect.left + (triggerRect.width / 2) - (tipRect.width / 2);
+    left = Math.max(
+        viewportPadding,
+        Math.min(left, window.innerWidth - tipRect.width - viewportPadding)
+    );
+
+    let top = triggerRect.top - tipRect.height - gap;
+
+    if (top < viewportPadding) {
+        top = triggerRect.bottom + gap;
+    }
+
+    if (top + tipRect.height > window.innerHeight - viewportPadding) {
+        top = Math.max(
+            viewportPadding,
+            window.innerHeight - tipRect.height - viewportPadding
+        );
+    }
+
+    dawnDeweyTooltipBox.style.left = `${Math.round(left)}px`;
+    dawnDeweyTooltipBox.style.top = `${Math.round(top)}px`;
+}
+
+function dawnDeweyTooltipRender(trigger) {
+    if (!dawnDeweyTooltipSideIsActive()) return;
+
+    const entryIndex = Number(trigger.dataset.dawnDeweyTooltipIndex);
+    const entry = dawnDeweyTooltips[entryIndex];
+    if (!entry) return;
+
+    dawnDeweyTooltipCurrentTrigger = trigger;
+    dawnDeweyTooltipBox.replaceChildren();
+
+    if (entry.image) {
+        const media = document.createElement("div");
+        media.className = "dawn-dewey-tooltip-media";
+
+        const image = document.createElement("img");
+        image.src = entry.image;
+        image.alt = "";
+        image.decoding = "async";
+        image.loading = "eager";
+
+        image.addEventListener("load", () => {
+            if (dawnDeweyTooltipCurrentTrigger === trigger) {
+                dawnDeweyTooltipPosition(trigger);
+            }
+        });
+
+        image.addEventListener("error", () => {
+            media.remove();
+            if (dawnDeweyTooltipCurrentTrigger === trigger) {
+                dawnDeweyTooltipPosition(trigger);
+            }
+        });
+
+        media.appendChild(image);
+        dawnDeweyTooltipBox.appendChild(media);
+    }
+
+    const copy = document.createElement("div");
+    copy.className = "dawn-dewey-tooltip-copy";
+    copy.textContent = entry.description;
+    dawnDeweyTooltipBox.appendChild(copy);
+
+    dawnDeweyTooltipBox.classList.add("dawn-dewey-tooltip-visible");
+    dawnDeweyTooltipPosition(trigger);
+}
+
+function dawnDeweyTooltipScheduleShow(trigger) {
+    clearTimeout(dawnDeweyTooltipShowTimer);
+    dawnDeweyTooltipShowTimer = setTimeout(() => {
+        if (trigger.matches(":hover") && dawnDeweyTooltipSideIsActive()) {
+            dawnDeweyTooltipRender(trigger);
+        }
+    }, 180);
+}
+
+function dawnDeweyTooltipHide() {
+    clearTimeout(dawnDeweyTooltipShowTimer);
+    dawnDeweyTooltipCurrentTrigger = null;
+    dawnDeweyTooltipBox.classList.remove("dawn-dewey-tooltip-visible");
+}
+
+function dawnDeweyTooltipIsWordChar(character) {
+    return !!character && /[A-Za-z0-9]/.test(character);
+}
+
+function dawnDeweyTooltipWrapTextNode(textNode) {
+    if (!textNode || !textNode.nodeValue || !textNode.parentElement) return;
+    if (textNode.parentElement.closest(".dawn-dewey-tooltip-term")) return;
+    if (textNode.parentElement.closest("#dawn-dewey-tooltip")) return;
+
+    const sourceText = textNode.nodeValue;
+    dawnDeweyTooltipRegex.lastIndex = 0;
+
+    let match;
+    let lastIndex = 0;
+    let changed = false;
+    const fragment = document.createDocumentFragment();
+
+    while ((match = dawnDeweyTooltipRegex.exec(sourceText)) !== null) {
+        const term = match[0];
+        const start = match.index;
+        const end = start + term.length;
+        const before = sourceText[start - 1];
+        const after = sourceText[end];
+
+        if (dawnDeweyTooltipIsWordChar(before) || dawnDeweyTooltipIsWordChar(after)) {
+            continue;
+        }
+
+        changed = true;
+
+        if (start > lastIndex) {
+            fragment.appendChild(document.createTextNode(sourceText.slice(lastIndex, start)));
+        }
+
+        const trigger = document.createElement("span");
+        trigger.className = "dawn-dewey-tooltip-term";
+        trigger.dataset.dawnDeweyTooltipIndex = String(
+            dawnDeweyTooltipTermIndex.get(term)
+        );
+        trigger.textContent = term;
+        fragment.appendChild(trigger);
+
+        lastIndex = end;
+    }
+
+    if (!changed) return;
+
+    if (lastIndex < sourceText.length) {
+        fragment.appendChild(document.createTextNode(sourceText.slice(lastIndex)));
+    }
+
+    textNode.parentNode.replaceChild(fragment, textNode);
+}
+
+function dawnDeweyTooltipScanContainer(container) {
+    if (!container || !dawnDeweyTooltipSideIsActive()) return;
+
+    const walker = document.createTreeWalker(
+        container,
+        NodeFilter.SHOW_TEXT,
+        {
+            acceptNode(node) {
+                if (!node.nodeValue || !node.nodeValue.trim()) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                const parent = node.parentElement;
+                if (!parent) return NodeFilter.FILTER_REJECT;
+                if (parent.closest(".dawn-dewey-tooltip-term")) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+                if (parent.closest("#dawn-dewey-tooltip")) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                dawnDeweyTooltipRegex.lastIndex = 0;
+                return dawnDeweyTooltipRegex.test(node.nodeValue)
+                    ? NodeFilter.FILTER_ACCEPT
+                    : NodeFilter.FILTER_REJECT;
+            }
+        }
+    );
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(dawnDeweyTooltipWrapTextNode);
+}
+
+function dawnDeweyTooltipScanVisibleText() {
+    if (!dawnDeweyTooltipSideIsActive()) {
+        dawnDeweyTooltipHide();
+        return;
+    }
+
+    document.querySelectorAll(
+        ".inner_window_question h3, " +
+        "#question_form label, " +
+        "#visit_content p, " +
+        "#feedback_content p"
+    ).forEach(dawnDeweyTooltipScanContainer);
+}
+
+let dawnDeweyTooltipScanQueued = false;
+function dawnDeweyTooltipQueueScan() {
+    if (dawnDeweyTooltipScanQueued) return;
+
+    dawnDeweyTooltipScanQueued = true;
+    requestAnimationFrame(() => {
+        dawnDeweyTooltipScanQueued = false;
+        dawnDeweyTooltipScanVisibleText();
+
+        if (
+            dawnDeweyTooltipCurrentTrigger &&
+            !dawnDeweyTooltipCurrentTrigger.isConnected
+        ) {
+            dawnDeweyTooltipHide();
+        }
+    });
+}
+
+document.addEventListener("mouseover", event => {
+    const trigger = event.target.closest
+        ? event.target.closest(".dawn-dewey-tooltip-term")
+        : null;
+
+    if (!trigger || !dawnDeweyTooltipSideIsActive()) return;
+    if (event.relatedTarget && trigger.contains(event.relatedTarget)) return;
+
+    dawnDeweyTooltipScheduleShow(trigger);
+});
+
+document.addEventListener("mouseout", event => {
+    const trigger = event.target.closest
+        ? event.target.closest(".dawn-dewey-tooltip-term")
+        : null;
+
+    if (!trigger) return;
+    if (event.relatedTarget && trigger.contains(event.relatedTarget)) return;
+
+    dawnDeweyTooltipHide();
+});
+
+window.addEventListener("resize", () => {
+    if (dawnDeweyTooltipCurrentTrigger) {
+        dawnDeweyTooltipPosition(dawnDeweyTooltipCurrentTrigger);
+    }
+});
+
+window.addEventListener("scroll", () => {
+    if (dawnDeweyTooltipCurrentTrigger) {
+        dawnDeweyTooltipPosition(dawnDeweyTooltipCurrentTrigger);
+    }
+}, true);
+
+const dawnDeweyTooltipGameWindow = document.getElementById("game_window");
+if (dawnDeweyTooltipGameWindow) {
+    const dawnDeweyTooltipObserver = new MutationObserver(dawnDeweyTooltipQueueScan);
+    dawnDeweyTooltipObserver.observe(dawnDeweyTooltipGameWindow, {
+        childList: true,
+        subtree: true,
+        characterData: true
+    });
+}
+
+dawnDeweyTooltipQueueScan();
+
+
 var midterms = 0;
 
 function tunnel(new_q){
