@@ -602,7 +602,7 @@ campaignTrail_temp.answers_json = [
         "pk": 49036,
         "fields": {
             "question": 48011,
-            "description": "Let’s take this up to Vandenberg and all the Taftite Republicans in Congress. Surely we can get something passed that all the parties will like; we need a united front in the next election and bringing the two wings together is how we achieve it. This is of utmost importance to the future of the European continent and the emergency American hegemony."
+            "description": "Let’s take this up to Vandenberg and all the Taftite Republicans in Congress. Surely we can get something passed that all the parties will like; we need a united front in the next election and bringing the two wings together is how we achieve it. This is of utmost importance to the future of the European continent and the emerging American hegemony."
         }
     },
     {
@@ -5078,7 +5078,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 116,
             "state": 380,
-            "state_multiplier": 0.924849096
+            "state_multiplier": 0.9299849096
         }
     },
     {
@@ -10558,7 +10558,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 49062,
             "candidate": 117,
-            "answer_feedback": "Knutson and the conservative caucus are disappointed, but they know better than to pick a fight with a President who earned an unexpected House majority. The smaller bill practically flies through the chamber, and picks up enough Democrats in the Senate to make passage almost boring. The Tafties will continue to complain, but you can notch this as another win for the Dewey administration."
+            "answer_feedback": "Knutson and the conservative caucus are disappointed, but they know better than to pick a fight with a President who earned an unexpected House majority. The smaller bill practically flies through the chamber, and picks up enough Democrats in the Senate to make passage almost boring. The Taftites will continue to complain, but you can notch this as another win for the Dewey administration."
         }
     },
     {
@@ -10945,7 +10945,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 49105,
             "candidate": 117,
-            "answer_feedback": "Knutson nearly blows his lid when he hears what you have done. Tafties refuse to support what they see as a tax bill with the tax cuts ripped out of it, while the Democrats have very little interest in handing you a win so close to the upcoming election. The bill limps into committee, and without a real constituency behind it, it dies a lonely death there. What a shame."
+            "answer_feedback": "Knutson nearly blows his lid when he hears what you have done. Taftites refuse to support what they see as a tax bill with the tax cuts ripped out of it, while the Democrats have very little interest in handing you a win so close to the upcoming election. The bill limps into committee, and without a real constituency behind it, it dies a lonely death there. What a shame."
         }
     },
     {
@@ -11105,7 +11105,6 @@ const dawnDeweyTooltips = [
     "terms": [
       "Taftites",
       "Taftite",
-      "Tafties"
     ],
     "description": "Taft’s men. The conservative wing of your party.",
     "image": ""
