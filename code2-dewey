@@ -11095,21 +11095,33 @@ const dawnDeweyTooltips = [
   {
     "terms": [
       "Robert Taft",
-      "Robert A. Taft"
+      "Robert A. Taft",
+      "Taft"
     ],
     "description": "Only “Mr. Republican” when it's one of his men.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-oE592-TW3Kw.png"
   },
   {
     "terms": [
-      "Soviet Union"
+      "Taftites",
+      "Taftite",
+      "Tafties"
+    ],
+    "description": "Taft’s men. The conservative wing of your party.",
+    "image": ""
+  },
+  {
+    "terms": [
+      "Soviet Union",
+      "Soviets"
     ],
     "description": "Serpents attempting to send people out of the new garden",
     "image": "https://file.garden/aNtjn2887DiA_8HP/777699@2x.png"
   },
   {
     "terms": [
-      "Joseph Stalin"
+      "Joseph Stalin",
+      "Stalin"
     ],
     "description": "Always plotting, at least as far as you’re concerned.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-9OFhu2jBs0w.png"
@@ -11124,7 +11136,8 @@ const dawnDeweyTooltips = [
   {
     "terms": [
       "John Foster Dulles",
-      "Dulles"
+      "Dulles",
+      "Secretary Dulles"
     ],
     "description": "Your Secretary of State and your foreign policy’s eyes and ears. Would rather have died a small boy than to have seen the world fall to communism.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-WW4YbnqPJIU.png"
@@ -11132,7 +11145,10 @@ const dawnDeweyTooltips = [
   {
     "terms": [
       "Herbert Hoover",
-      "Hoover"
+      "Hoover",
+      "Former President Hoover",
+      "former President Hoover",
+      "President Hoover"
     ],
     "description": "A failed president. Also your administration’s most important elder statesman.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-G34zNqP1W60.png"
@@ -11140,7 +11156,11 @@ const dawnDeweyTooltips = [
   {
     "terms": [
       "Franklin D. Roosevelt",
-      "FDR"
+      "FDR",
+      "Franklin Roosevelt",
+      "President Roosevelt",
+      "Roosevelt",
+      "Franklin"
     ],
     "description": "Missed dearly. A great president and a better man.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-Bzqxmv-qFrU.png"
@@ -11156,7 +11176,9 @@ const dawnDeweyTooltips = [
   {
     "terms": [
       "Joseph W. Martin",
-      "Joseph Martin"
+      "Joseph Martin",
+      "Speaker Joseph Martin",
+      "Martin"
     ],
     "description": "Your leading man in the lower chamber.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-BvDQW-8jLbc.png"
@@ -11179,7 +11201,8 @@ const dawnDeweyTooltips = [
   },
   {
     "terms": [
-      "Walter Judd"
+      "Walter Judd",
+      "Judd"
     ],
     "description": "Your expert on Chinese affairs and a rising star within the party.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-BTlRyTy8wL4.png"
@@ -11194,35 +11217,43 @@ const dawnDeweyTooltips = [
   },
   {
     "terms": [
-      "Harold Knutson"
+      "Harold Knutson",
+      "Chair Harold Knutson",
+      "Knutson"
     ],
     "description": "Your man on taxes in the House. Prefers the larger bill.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/s-l1600%20(24).png"
   },
   {
     "terms": [
-      "Walter F. George"
+      "Walter F. George",
+      "Senator George",
+      "George"
     ],
     "description": "A Georgia Democrat you can actually talk taxes with.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/8380709_2000x%20(1).png"
   },
   {
     "terms": [
-      "John McCormack"
+      "John McCormack",
+      "McCormack"
     ],
     "description": "A leading House Democrat. More than capable of making trouble.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/John_W._McCormack_(Speaker_of_the_US_House)(b)_(1).jpg"
   },
   {
     "terms": [
-      "Lewis Strauss"
+      "Lewis Strauss",
+      "Strauss"
     ],
     "description": "Hoover’s man on atomic energy. Bright, forceful, and not especially easy to direct.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/Lewis-Strauss-US-Atominc-Energy-Commission-Chairman-Oppenheimer.png"
   },
   {
     "terms": [
-      "Martin Dies"
+      "Martin Dies",
+      "Mr. Dies",
+      "Dies"
     ],
     "description": "An old friend in the anti-Communist business. His successors are less careful than he was.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/dde9d4595aff3deb18a1713af93ef867.png"
@@ -11245,7 +11276,8 @@ const dawnDeweyTooltips = [
   },
   {
     "terms": [
-      "Elliot Bell"
+      "Elliot Bell",
+      "Bell"
     ],
     "description": "Your budget man. Useful whenever someone in the room forgets what things cost.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/elliott-v-bell-left-former-writer-on-economics-of-the-new-york-times-talks-with-governor-elect-thomas-e-dewey-in-new-york-on-dec-21-1942-after-dewey-named-him-state-superintendent-of-banks-bell-takes-office-on-jan.png"
@@ -11259,7 +11291,8 @@ const dawnDeweyTooltips = [
   },
   {
     "terms": [
-      "Robert Moses"
+      "Robert Moses",
+      "Moses"
     ],
     "description": "An old acquaintance from New York. Never thinks on a small scale.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/Robert-Moses.png"
@@ -11295,28 +11328,34 @@ const dawnDeweyTooltips = [
   },
   {
     "terms": [
-      "Herbert Brownell"
+      "Herbert Brownell",
+      "Brownell"
     ],
     "description": "An old friend, a fine lawyer, and one of the men who helped put you here.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/Herbert_Brownell.jpg"
   },
   {
     "terms": [
-      "Arthur Vanderbilt"
+      "Arthur Vanderbilt",
+      "Mr. Vanderbilt",
+      "Vanderbilt"
     ],
     "description": "One of the finest legal minds you know.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/gettyimages-514963546-2048x2048.jpg"
   },
   {
     "terms": [
-      "Arthur Vandenberg"
+      "Arthur Vandenberg",
+      "Vandenberg"
     ],
     "description": "A master of the law without ever having gone to law school.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/BN-WH322_bkrvVa_GR_20171124144155.jpg"
   },
   {
     "terms": [
-      "Kenneth Wherry"
+      "Kenneth Wherry",
+      "Kenneth S. Wherry",
+      "Wherry"
     ],
     "description": "One of your Republicans in the Senate. Better when he is with you than against you.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/Kenneth_Wherry.jpg"
@@ -11338,14 +11377,24 @@ const dawnDeweyTooltips = [
   },
   {
     "terms": [
-      "Chiang Kai-shek"
+      "Chiang Kai-shek",
+      "Chiang"
     ],
     "description": "The Generalissimo. Still fighting for a China that may already be slipping away.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/Chiang_Kai-shek_(9to12).jpg"
   },
   {
     "terms": [
-      "Curtis LeMay"
+      "Mao Zedong",
+      "Mao"
+    ],
+    "description": "Leader of the Chinese Communists.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/wmremove-transformed%20(60).png"
+  },
+  {
+    "terms": [
+      "Curtis LeMay",
+      "LeMay"
     ],
     "description": "An able airman. Rarely shy about using force.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/050811-F-1234P-006.avif"
@@ -11360,7 +11409,9 @@ const dawnDeweyTooltips = [
   },
   {
     "terms": [
-      "Earl Warren"
+      "Earl Warren",
+      "Governor Warren",
+      "Warren"
     ],
     "description": "California’s Governor. One of the more broadly acceptable men in your party.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/Earl_Warren%2C_1946.jpg"
@@ -11389,7 +11440,8 @@ const dawnDeweyTooltips = [
   },
   {
     "terms": [
-      "John Dillinger"
+      "John Dillinger",
+      "Dillinger"
     ],
     "description": "A gangster. You made your name putting men like him behind bars.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/Dillingerwantedposter.jpg"
