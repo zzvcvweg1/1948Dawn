@@ -11088,7 +11088,54 @@ $(`<style>
     border-left-color: rgba(155, 143, 159, 0.55) !important;
     font-weight: 600 !important;
 }
+
+#campaign_sign {
+    background-image: url("https://file.garden/aNtjn2887DiA_8HP/3A24FD42-F91B-4780-974D-8A84FC3B2C17.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F8F8F8;
+    border: 1px solid #F8F8F8;
+    width: 100%;
+    height: 104px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#campaign_sign p,
+#campaign_sign h3 {
+    color: transparent !important;
+    text-shadow: none !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 </style>`).appendTo("head");
+
+const dawnDeweyCampaignSignUrl = "https://file.garden/aNtjn2887DiA_8HP/3A24FD42-F91B-4780-974D-8A84FC3B2C17.png";
+const dawnDeweyCampaignSignImage = new Image();
+
+function dawnDeweyCampaignSignResize() {
+    const sign = document.getElementById("campaign_sign");
+    if (!sign) return;
+
+    const width = sign.getBoundingClientRect().width;
+    if (!width || !dawnDeweyCampaignSignImage.naturalWidth || !dawnDeweyCampaignSignImage.naturalHeight) return;
+
+    const height = Math.round(width * dawnDeweyCampaignSignImage.naturalHeight / dawnDeweyCampaignSignImage.naturalWidth);
+    sign.style.height = `${height}px`;
+}
+
+dawnDeweyCampaignSignImage.addEventListener("load", dawnDeweyCampaignSignResize);
+dawnDeweyCampaignSignImage.src = dawnDeweyCampaignSignUrl;
+
+const dawnDeweyCampaignSignRoot = document.getElementById("game_window") || document.body;
+const dawnDeweyCampaignSignObserver = new MutationObserver(dawnDeweyCampaignSignResize);
+dawnDeweyCampaignSignObserver.observe(dawnDeweyCampaignSignRoot, { childList: true, subtree: true });
+window.addEventListener("resize", dawnDeweyCampaignSignResize);
+requestAnimationFrame(dawnDeweyCampaignSignResize);
 
 
 const dawnDeweyTooltips = [
