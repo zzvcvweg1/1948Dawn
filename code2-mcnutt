@@ -8795,7 +8795,7 @@ campaignTrail_temp.answer_score_state_json = [
             "state": 346,
             "candidate": 116,
             "affected_candidate": 116,
-            "state_multiplier": 0.253641
+            "state_multiplier": 0.269752
         }
     },
     {
