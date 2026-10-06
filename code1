@@ -1,10 +1,10 @@
 campaignTrail_temp.modBoxTheme = {
-    "header_color": "#C74C60",
+    "header_color": "#C9505E",
     "header_text_color": "#FFFFFF",
     "description_text_color": "#FFFFFF",
-    "description_background_color": "#C74C60",
+    "description_background_color": "#C9505E",
     "main_color": "#808080",
-    "secondary_color": "#4B4F9D",
+    "secondary_color": "#4B52A3",
     "ui_text_color": "#FFFFFF"
 }
 
@@ -37,8 +37,8 @@ campaignTrail_temp.candidate_json = [
             "state": "New York",
             "priority": 2,
             "description": "<p>Few could have imagined Thomas Dewey in this position even five short years ago. Working tirelessly throughout his life to get to where he has gotten himself, Dewey has accomplished in just over twenty years as an adult what most hope to achieve in a lifetime. In 1940, at just 38 years old, he nearly captured the Republican nomination in his own right, losing narrowly to Wendell Willkie. But, now that he is in the White House, the days of him being a wunderkid are now over. With the public ambivalent towards his ascendancy, it is Dewey’s duty to put out both Germany and Japan and birth a century of American dominance on the global stage. However, the obstacles are laid out clearly; the British Lion and the Russian Bear seek the same postwar glory as the United States, hellbent on getting it for themselves, even at the expense of their supposed allies. Dewey must calm three storms at once, but if he works hard, he can- no, he will do it.</p><p style='margin-left: 18.5em;'>Oh, yes, he has to run for re-election too...</p>",
-            "color_hex": "#C64D52",
-            "secondary_color_hex": "#C64D52",
+            "color_hex": "#C94F59",
+            "secondary_color_hex": "#C94F59",
             "is_active": 1,
             "image_url": "https://i.imgur.com/mV72axj.png",
             "electoral_victory_message": "<h3>Congratulations! You won the 1968 Election!</h3><p>This is truly the comeback for the ages.</p><p>When you’d won the nomination, many couldn’t decide if you were genius or crazy, but there’s no doubt now. You’ve managed to do to Johnson what Kennedy did to you 8 years ago.</p><p>The next 4 years are yours to define. You can finalize the peace agreement for Vietnam, set the course on Civil Rights, and redefine the party for years to come. If all goes well, you and Eisenhower may become the first President-Vice President duo to serve 2 full terms each.</p><p>Just make sure you don’t let your ambitions get the better of you, and you’ll be fine.</p><p>Good Luck President Nixon! You have the silent majority on your side!</p>",
@@ -60,8 +60,8 @@ campaignTrail_temp.candidate_json = [
             "state": "Indiana",
             "priority": 1,
             "description": "<p>With the collapse of Franklin Roosevelt’s hegemony over American politics and the Democratic Party at large, Paul V. McNutt has to fill perhaps the largest shoes of any president since Adams succeeded Washington. Despite the expectations of the party to nominate someone like Roosevelt, they have decided to nominate a candidate that has Roosevelt rolling in his grave. Oftentimes combative towards the former president, McNutt still believes that Roosevelt liked him. He followed him wherever he went, begging for his support even though he did not give him his own. However, his loyalty is no longer in question, taking the nomination from prospective progressive candidates through the support of various urban machines.</p><p>In order to defeat President Dewey, McNutt must balance the vast and unstable Roosevelt coalition - touting his humanitarian accomplishments, his support for the New Deal, and mitigating his frosty relationship with labor, all with the risk of a progressive splinter forming should he offend or ignore that faction.</p>",
-            "color_hex": "#455AA2",
-            "secondary_color_hex": "#455AA2",
+            "color_hex": "#475AA6",
+            "secondary_color_hex": "#475AA6",
             "is_active": 1,
             "image_url": "https://i.imgur.com/0cudDE6.png",
             "electoral_victory_message": "<h3>Congratulations Mr President, you’ve won the election of 2024.</h3><p>You did it, you won. This doesn’t come as a surprise to really anyone besides Trump’s most die hard supporters. It appears the right wing nature of Trump and even DeSantis has failed once again. Conservatives all across the nation are scrambling. Fraud accusations will come but most don’t believe them anymore. Good Luck Mr President! You are the oldest President ever after all.</p>",
@@ -83,8 +83,8 @@ campaignTrail_temp.candidate_json = [
             "state": "South Carolina",
             "priority": 3,
             "description": "'",
-            "color_hex": "#CF8733",
-            "secondary_color_hex": "#CF8733",
+            "color_hex": "#DCA82C",
+            "secondary_color_hex": "#DCA82C",
             "is_active": 0,
             "image_url": "'",
             "electoral_victory_message": "'",
@@ -106,8 +106,8 @@ campaignTrail_temp.candidate_json = [
             "state": "Washington",
             "priority": 4,
             "description": "",
-            "color_hex": "#3E8A63",
-            "secondary_color_hex": "#3E8A63",
+            "color_hex": "#419C5B",
+            "secondary_color_hex": "#419C5B",
             "is_active": 0,
             "image_url": "https://i.imgur.com/A8H67Vb.png",
             "electoral_victory_message": "<h3>Holy Crowe! You’ve won the 1968 Election!</h3></p><p>Not even the most rabid of your supporters could have foreseen this outcome.</p><p>It was certain you’d win a few states, maybe even cause a deadlock, but no one thought George Corley Wallace would win the election to be President of the United States.</p><p>The Republicans are despondent that they could have lost, not just for the third time in a row, but to a third party candidate. The Democratic party is imploding on itself.</p><p>Your victory has undoubtedly shaken the country to its core, and now you get to redefine its course, at home and abroad. Starting with overturning the Civil Rights Act.</p><p>Whatever else you do, be careful. This isn’t just Dixie anymore!</p>",
@@ -152,8 +152,8 @@ campaignTrail_temp.candidate_json = [
             "state": "Ohio",
             "priority": 6,
             "description": "'",
-            "color_hex": "#C64D52",
-            "secondary_color_hex": "#C64D52",
+            "color_hex": "#C94F59",
+            "secondary_color_hex": "#C94F59",
             "is_active": 0,
             "image_url": "https://i.imgur.com/QXASeZv.png",
             "electoral_victory_message": "'",
@@ -313,8 +313,8 @@ campaignTrail_temp.candidate_json = [
             "state": "New York",
             "priority": 5,
             "description": "'",
-            "color_hex": "#6B4A43",
-            "secondary_color_hex": "#6B4A43",
+            "color_hex": "#744F46",
+            "secondary_color_hex": "#744F46",
             "is_active": 0,
             "image_url": "https://archives.upenn.edu/wp-content/uploads/2016/11/harold-edward-stassen-c1950-400x317.jpg",
             "electoral_victory_message": "'",
@@ -498,17 +498,17 @@ RecReading=true
     alert(text)
 }
 
-HistHexcolour = ["#C64D52", "#0026ae", "#ff880b", "#7F3727"];
+HistHexcolour = ["#C94F59", "#0026ae", "#ff880b", "#7F3727"];
 HistName = [" Harold Stassen", " Henry Wallace", " Richard Russell", " Norman Thomas"];
 HistEV = [301, 171, 59, 0];
 HistPV = ["23,366,892", "22,568,557", "2,014,903", "110,022"];
 HistPVP = ["48.6%", "47.0%", "4.2%", "0.2%"];
 
 $("#game_window")[0].style.borderColor = "#38478F"
-$(".container")[0].style.backgroundColor = "#4B4F9D"
+$(".container")[0].style.backgroundColor = "#4B52A3"
 $("#game_window")[0].style.backgroundColor = "#F3C1BD"
 
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#C74C60"
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#C9505E"
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#808080"
 
 document.head.innerHTML += "<style>#results_container { color: #000000; } .inner_window_w_desc { background-color: #F3C1BD !important; }</style>";
@@ -528,7 +528,7 @@ dawnStyle.innerHTML = `
   }
 
   .campaign_trail_start_emphasis {
-    background-color: #C74C60;
+    background-color: #C9505E;
   }
 
   #state_info h3,
@@ -549,7 +549,7 @@ dawnStyle.innerHTML = `
   }
 
   #campaign_sign {
-    background-color: #C74C60;
+    background-color: #C9505E;
     border-color: #38478F;
   }
 
