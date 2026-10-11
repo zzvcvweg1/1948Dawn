@@ -601,279 +601,658 @@ back1 = function() {
     document.getElementById("screen2").style.display = "none"
 }
 
-musicMode = () => {
-    // Initialise custom music
-
-    $("#music_player")[0].children[0].style.display = "none"
-    $("#music_player")[0].children[1].style.display = "none"
-
-    document.getElementById("modLoadReveal").style.display = "none"
-    document.getElementById("modloaddiv").style.display = "none"
-
-    musicBox = document.getElementById("music_player")
-    musicBox.style.display = ""
-
-    var trackSel;
-    e = campaignTrail_temp
-    e.selectedSoundtrack = 0
-
-    toTime = (seconds) => {
-        var date = new Date(null);
-        date.setSeconds(seconds);
-        return date.toISOString().substr(11, 8);
-    }
-
-    generateTime = () => {
-        // Get the audio element
-        var audio = document.getElementById("campaigntrailmusic");
-
-        timeTracker = document.createElement("div");
-        timeTracker.style = `
-  text-align:left;
-  border-style:solid;
-  border-width:3px;
-  height:150px;
-  width:200px;
-  background-color:#999999;
-  float:right;
-  padding: 10px;
-  `
-        $("#trackSelParent")[0].prepend(timeTracker);
-        $("#trackSelParent")[0].prepend(document.createElement("br"));
-
-        // Create a new element to display the current position of the audio
-        var positionDisplay = document.createElement("gg");
-        positionDisplay.id = "position-display";
-
-        // Create a new slider element to change the time
-        var timeSlider = document.createElement("input");
-        timeSlider.type = "range";
-        timeSlider.min = 0;
-        timeSlider.max = 1;
-        timeSlider.step = 0.001;
-        timeSlider.value = 0;
-        timeSlider.style.width = "200px";
-        timeSlider.id = "time-slider";
-
-        var pausePlay = document.createElement("button");
-        pausePlay.id = "position-display";
-        pausePlay.innerHTML = "<b>Pause</b>"
-        pausePlay.style.width = "100%";
-
-
-        pausePlay.addEventListener("click", event => {
-            event.preventDefault();
-            updatePositionDisplay();
-            let audio = document.getElementById("campaigntrailmusic");
-            if (audio.paused) {
-                audio.play();
-                event.target.innerHTML = "<b>Pause</b>";
-                return;
-            }
-            audio.pause();
-            event.target.innerHTML = "<b>Play</b>";
-            return;
-        })
-
-        var volumeLabel = document.createElement("gg");
-        volumeLabel.id = "volume-label";
-        volumeLabel.innerHTML = "<br><b>Volume: </b>"
-
-        var volumeSlider = document.createElement("input");
-        volumeSlider.type = "range";
-        volumeSlider.min = 0;
-        volumeSlider.max = 1;
-        volumeSlider.step = 0.001;
-        volumeSlider.value = 0;
-        volumeSlider.style.width = "200px";
-        volumeSlider.id = "volume-slider";
-
-        volumeSlider.value = audio.volume;
-
-        timeTracker.appendChild(pausePlay);
-        timeTracker.appendChild(document.createElement("br"));
-        timeTracker.appendChild(document.createElement("br"));
-        timeTracker.appendChild(positionDisplay);
-        timeTracker.appendChild(timeSlider);
-        timeTracker.appendChild(volumeLabel);
-        timeTracker.appendChild(volumeSlider);
-
-        updatePositionDisplay();
-
-        //for (let i = 0; i < 10; i++)
-        //timeTracker.append(document.createElement("br"));
-
-
-        // Function to update the position display
-        function updatePositionDisplay() {
-            positionDisplay.innerHTML = "<b>Time:</b> " + toTime(audio.currentTime) + "<br>";
-            timeSlider.value = audio.duration ? audio.currentTime / audio.duration : 0;
-        }
-
-        // Function to change the time of the audio
-        function changeTime() {
-            positionDisplay.innerHTML = "<b>Time:</b> " + toTime(audio.currentTime) + "<br>";
-            audio.currentTime = timeSlider.value * audio.duration;
-        }
-
-        updateVolume = event => {
-            audio.volume = event.target.value;
-        }
-
-        // Update the position display and slider every second
-        setInterval(updatePositionDisplay, 1000);
-
-        // Listen for changes to the time slider and change the time of the audio
-        timeSlider.addEventListener("input", changeTime);
-        volumeSlider.addEventListener("input", updateVolume)
-    }
-
-    function newMusicPlayer() {
-        trackSel = document.createElement("div");
-        trackSel.id = "trackSelParent"
-        let z = `<br><br><br><br><br><br><br><br><br><br><div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: scroll;overflow-x: hidden;height:200px; width:400px;background-color:#999999;float:right;">`
-        z += `<b><select id='selectSoundtrack'><option value='` + soundtracks[e.selectedSoundtrack].name + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>"
-        for (i in soundtracks) {
-            if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
-                z += `<option value='` + soundtracks[i].name + `'>` + soundtracks[i].name + `</option>`
-            }
-        }
-        z += `</select></b><br><br>`
-            // <label><input type="radio" name="option" value="option1">Option 1</label><br>
-        for (i in soundtracks[e.selectedSoundtrack].tracklist) {
-            let a = soundtracks[e.selectedSoundtrack].tracklist[i]
-            let b = `<label><input class="trackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`
-            z += b
-        }
-        z += "</div><br><br>"
-        trackSel.innerHTML = z
-
-        // select correct song
-
-        musicBox.appendChild(trackSel);
-        Array.from(document.getElementById("trackSel").children).filter(f => {
-            return f.tagName == "LABEL"
-        }).map(f => f.children[0])[0].checked = true
-
-        // set soundtrack changer
-
-        soundtrackSelector = document.getElementById("selectSoundtrack")
-        soundtrackSelector.onchange = function() {
-            for (i in soundtracks) {
-                if (soundtracks[i].name == soundtrackSelector.value) {
-                    e.selectedSoundtrack = i
-                    break
-                }
-            }
-            document.getElementById("trackSelParent").remove()
-            newMusicPlayer()
-        }
-
-        var matches = document.querySelectorAll('.trackSelector');
-
-        for (match in matches) {
-            matches[match].onchange = function() {
-                audio = $("#campaigntrailmusic")[0];
-                audio.src = soundtracks[e.selectedSoundtrack].tracklist[this.value].url
-                audio.currentTime = 0
-            }
-        }
-
-        musicBox.children[2].loop = false
-        musicBox.children[2].src = soundtracks[e.selectedSoundtrack].tracklist[0].url
-
-        musicBox.children[2].onended = function() {
-            console.log("next track")
-            let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
-            let newSel = clamp(selected + 1, soundtracks[e.selectedSoundtrack].tracklist.length - 1, 0)
-            let buttons = Array.from(document.getElementById("trackSel").children).filter(f => {
-                    return f.tagName == "LABEL"
-                }).map(f => f.children[0])
-                //let selectedIndex = buttons.map(f=>f.children[0]).map(f=>f.checked)
-            buttons[newSel].click()
-        }
-
-        for (w = 0; w < 7; w++) {
-            document.getElementById("trackSelParent").appendChild(document.createElement("br"))
-        }
-
-        generateTime();
-    }
-
-    clamp = function(a, max, min, overflow = true) {
-        if (overflow) {
-            return a > max ? min : a < min ? max : a;
-        }
-        return a > max ? max : a < min ? min : a;
-    }
-
-
-    // Track list
-
-    var soundtracks = {
-        0: {
-            name: "Progressive Jumpstarters",
-            tracklist: [
-              {
-                "name": "I'm Beginning to See the Light - Ella Fitzgerald · Duke Ellington & His Orchestra",
-                "url": "https://audio.jukehost.co.uk/sQG8NC47hRlW8e66rB9fcQ4vfrJAEw0w"
-              },
-              {
-                "name": "Satin Doll - Duke Ellington",
-                "url": "https://audio.jukehost.co.uk/bs4kQiKXBCkwuh5MfptuaVR1vv3thkEC"
-              },
-              {
-                "name": "Twelfth Street Rag - Pee Wee Hunt",
-                "url": "https://audio.jukehost.co.uk/6Af2WZKp4sSedpGG3D6KtVDLctnDPaoG"
-              }
-          ]
-        },
-               1: {
-          name: "Stassen Pop!",
-          tracklist: [
-            {
-              "name": "I'm Looking Over A Four Leaf Clover - Art Mooney",
-              "url": "https://audio.jukehost.co.uk/gpY5mk2inQRxstI4L7PRpPPcg9zqy20W"
-            },
-            {
-                "name": "Manana (Is Soon Enough For Me) - Peggy Lee",
-                "url": "https://audio.jukehost.co.uk/JziQ6RDYmoPV05jZmdNtvUmeqHPd7X5l"
-            },
-            {
-                "name": "Good Rockin’ Tonight - Wynonie Harris",
-                "url": "https://audio.jukehost.co.uk/ExyrxtLKFPd2NK5SpD0sHlRrX4jJIXL4"
-            }
-        ]
-      },
-      2: {
-        name: "Southern Tunes",
-        tracklist: [
-            {
-              "name": "Tennessee Waltz - Patti Page",
-              "url": "https://audio.jukehost.co.uk/9egAwHdGqLs4PzKZXPsNpjuLFuWVq0AB"
-            },
-            {
-                "name": "Hank Williams - Mansion On The Hill",
-                "url": "https://audio.jukehost.co.uk/jk1UDY1V04sqScofi74KpiAUde2u5Rwq"
-            }
-         ]
-      }
-    }
-
-
-    // Set up new music player
-
-    newMusicPlayer()
-
-
+// This is a modified version of the music player
+// used in the mod 1932 (and other mods).
+class Song {
+  constructor(title, artist, coverLink, audioOrYouTube) {
+    this.title = title;
+    this.artist = artist;
+    this.coverLink = coverLink;
+    // detect and parse YouTube IDs, otherwise treat as a standard audio link
+    this.youtubeId = extractYouTubeId(audioOrYouTube);
+    this.audioLink = this.youtubeId ? null : (audioOrYouTube || null);
+  }
+  getTitle() { return this.title; }
+  getArtist() { return this.artist; }
+  getCoverLink() { return this.coverLink; }
+  getAudioLink() { return this.audioLink; }
+  getYouTubeId() { return this.youtubeId; }
 }
 
-  $("#game_start").click((event) => {
-    event.preventDefault();
-    $("#election_id_button").click((event) => {
-        musicMode()
+class Playlist {
+  constructor() {
+    this.songs = [];
+    this.currentSongIndex = 0;
+  }
+  addSong(song) { this.songs.push(song); }
+  getCurrentSong() { return this.songs[this.currentSongIndex]; }
 
-        setInterval(changeFontColour, 200)
+  playNext() {
+    if (this.songs.length === 0) return;
+    this.currentSongIndex = (this.currentSongIndex + 1) % this.songs.length;
+  }
 
-    })
-  })
+  playPrevious() {
+    if (this.songs.length === 0) return;
+    this.currentSongIndex = (this.currentSongIndex - 1 + this.songs.length) % this.songs.length;
+  }
+}
+
+window.Playlist = Playlist;
+window.Song = Song;
+
+let activePlaylist = new Playlist();
+let audioInstance = null;
+let currentVolume = 6;
+
+// YouTube URL support
+let ytApiReady = false;
+let ytPlayer = null;
+let ytPlayerReady = false;
+let ytConstructing = false;
+let ytReadyPending = false;
+let ytProgressTimer = null;
+let backendVolume = 1;
+
+const ytHooks = {
+  onEnded: null,
+  onProgress: null
+};
+
+const ytCallbacks = [];
+
+function flushYTCallbacks() {
+  while (ytCallbacks.length) {
+    const cb = ytCallbacks.shift();
+    try {
+      cb?.();
+    } catch (e) {
+      console.log("YouTube player callback failed.", e);
+    }
+  }
+}
+
+function extractYouTubeId(url) {
+  if (typeof url !== "string") return null;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([\w-]{11})/);
+  return match ? match[1] : null;
+}
+
+function isYouTubeSong(song) {
+  return !!song?.getYouTubeId?.();
+}
+
+(function injectYouTubeAPI() {
+  if (document.getElementById("yt-iframe-api")) return;
+  const tag = document.createElement("script");
+  tag.id = "yt-iframe-api";
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(tag);
+})();
+
+window.onYouTubeIframeAPIReady = function () {
+  ytApiReady = true;
+};
+
+function applyVolumeToYT() {
+  if (!ytPlayer) return;
+  try {
+    ytPlayer.setVolume(Math.round(backendVolume * 100));
+    if (backendVolume === 0) ytPlayer.mute();
+    else ytPlayer.unMute();
+  } catch (e) {}
+}
+
+function ensureYTPlayer(onReady) {
+  if (onReady) ytCallbacks.push(onReady);
+  if (ytPlayer && ytPlayerReady) {
+    flushYTCallbacks();
+    return;
+  }
+  if (ytConstructing) return;
+
+  const createPlayer = () => {
+    const holder = document.getElementById("ytplayer") || (() => {
+      const el = document.createElement("div");
+      el.id = "ytplayer";
+      el.style.width = "0px";
+      el.style.height = "0px";
+      el.style.position = "absolute";
+      el.style.overflow = "hidden";
+      el.style.pointerEvents = "none";
+      document.body.appendChild(el);
+      return el;
+    })();
+
+    ytConstructing = true;
+    try {
+      ytPlayer = new YT.Player(holder, {
+        height: "0",
+        width: "0",
+        videoId: "",
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          rel: 0,
+          playsinline: 1
+        },
+        events: {
+          onReady: () => {
+            if (ytConstructing) {
+              ytReadyPending = true;
+              return;
+            }
+            ytPlayerReady = true;
+            applyVolumeToYT();
+            flushYTCallbacks();
+          },
+          onStateChange: (e) => {
+            if (e.data === YT.PlayerState.ENDED) {
+              ytHooks.onEnded?.();
+            }
+            if (e.data === YT.PlayerState.PLAYING) {
+              applyVolumeToYT();
+            }
+          }
+        }
+      });
+    } catch (e) {
+      ytConstructing = false;
+      console.log("Could not create the YouTube player.", e);
+      return;
+    }
+    ytConstructing = false;
+
+    if (ytReadyPending) {
+      ytReadyPending = false;
+      ytPlayerReady = true;
+      applyVolumeToYT();
+      flushYTCallbacks();
+    }
+  };
+
+  if (ytApiReady && window.YT && window.YT.Player) {
+    createPlayer();
+  } else {
+    const timer = setInterval(() => {
+      if (ytApiReady && window.YT && window.YT.Player) {
+        clearInterval(timer);
+        createPlayer();
+      }
+    }, 50);
+  }
+}
+
+function stopYTProgressPump() {
+  if (ytProgressTimer) {
+    clearInterval(ytProgressTimer);
+    ytProgressTimer = null;
+  }
+}
+
+function startYTProgressPump() {
+  stopYTProgressPump();
+  ytProgressTimer = setInterval(() => {
+    ytHooks.onProgress?.(backendGetCurrentTime(), backendGetDuration());
+  }, 250);
+}
+
+function backendSetSrcAndLoad(song, audio) {
+  if (!song) return;
+
+  if (isYouTubeSong(song)) {
+    stopYTProgressPump();
+    ensureYTPlayer(() => {
+      ytPlayer.loadVideoById(song.getYouTubeId());
+      applyVolumeToYT();
+    });
+    audio.pause();
+    audio.removeAttribute("src");
+    audio.load();
+  } else {
+    stopYTProgressPump();
+    if (ytPlayer) {
+      try { ytPlayer.stopVideo(); } catch (e) {}
+    }
+    audio.src = song.getAudioLink() || "";
+    audio.load();
+  }
+}
+
+function ytCurrentSong() { return activePlaylist.getCurrentSong(); }
+function ytAudioElement() { return getAudioElement(); }
+
+function backendPlay(audio) {
+  const song = ytCurrentSong();
+  if (!song) return Promise.resolve();
+
+  if (isYouTubeSong(song)) {
+    return new Promise((resolve) => {
+      ensureYTPlayer(() => {
+        ytPlayer.playVideo();
+        resolve();
+      });
+    });
+  }
+
+  return audio.play().catch(e => {
+    console.log("Playback deferred for user interaction.", e);
+  });
+}
+
+function backendPause(audio) {
+  const song = ytCurrentSong();
+  if (!song) return;
+
+  if (isYouTubeSong(song)) {
+    ytPlayer?.pauseVideo?.();
+  } else {
+    audio.pause();
+  }
+}
+
+function backendSetVolume(audio, volume) {
+  backendVolume = volume;
+  audio.volume = volume;
+  if (isYouTubeSong(ytCurrentSong())) applyVolumeToYT();
+}
+
+function backendGetCurrentTime() {
+  const song = ytCurrentSong();
+  if (isYouTubeSong(song) && ytPlayer) return ytPlayer.getCurrentTime?.() || 0;
+  const audio = ytAudioElement();
+  return audio ? audio.currentTime || 0 : 0;
+}
+
+function backendGetDuration() {
+  const song = ytCurrentSong();
+  if (isYouTubeSong(song) && ytPlayer) return ytPlayer.getDuration?.() || 0;
+  const audio = ytAudioElement();
+  return audio ? audio.duration || 0 : 0;
+}
+
+function backendSeekTo(seconds) {
+  const song = ytCurrentSong();
+  if (isYouTubeSong(song) && ytPlayer) {
+    ytPlayer.seekTo(seconds, true);
+  } else {
+    const audio = ytAudioElement();
+    if (audio && Number.isFinite(audio.duration)) audio.currentTime = seconds;
+  }
+}
+
+// assets
+const ASSETS = {
+  bg: "https://itsastronomical.com/assets/1932/imgur/XvHX0fc.png",
+  infoBg: "https://itsastronomical.com/assets/1932/imgur/HTUJApX.png",
+  lipOverlay: "https://itsastronomical.com/assets/1932/imgur/4vt4JNH.png",
+  volDown: "https://itsastronomical.com/assets/1932/imgur/VQfvYev.png",
+  btnPrev: "https://itsastronomical.com/assets/1932/imgur/LAojana.png",
+  btnPlay: "https://itsastronomical.com/assets/1932/imgur/nzG7asd.png",
+  btnPause: "https://itsastronomical.com/assets/1932/imgur/JdndnqR.png",
+  btnNext: "https://itsastronomical.com/assets/1932/imgur/VpjQN97.png",
+  volUp: "https://itsastronomical.com/assets/1932/imgur/AWjSTLv.png"
+};
+
+function changePlaylist(newPlaylist) {
+  activePlaylist = newPlaylist;
+  activePlaylist.currentSongIndex = 0;
+
+  updateUI(activePlaylist);
+
+  // ensure audio exists before trying to access it
+  const audio = getAudioElement();
+  const song = activePlaylist.getCurrentSong();
+
+  if (song) {
+    backendSetSrcAndLoad(song, audio);
+    startYTProgressPump();
+    backendPlay(audio);
+    updatePlayPauseIcon(true);
+  }
+}
+window.changePlaylist = changePlaylist;
+
+function updateUI(playlist) {
+  const currentSong = playlist.getCurrentSong();
+  const player = document.getElementById("player");
+
+  if (!player || !currentSong) return;
+
+  const cover = player.querySelector("#cover");
+  const title = player.querySelector("#title");
+  const artist = player.querySelector("#artist");
+
+  if (cover) cover.src = currentSong.getCoverLink();
+  if (title) title.textContent = currentSong.getTitle();
+  if (artist) artist.textContent = currentSong.getArtist();
+}
+window.updateUI = updateUI;
+
+// helpers
+function getAudioElement() {
+  if (!audioInstance) {
+    audioInstance = document.createElement("audio");
+    audioInstance.id = "audio";
+    document.body.appendChild(audioInstance);
+  }
+  return audioInstance;
+}
+
+function updatePlayPauseIcon(isPlaying) {
+  const btn = document.getElementById("playPauseButton");
+  if (btn) {
+    btn.src = isPlaying ? ASSETS.btnPause : ASSETS.btnPlay;
+  }
+}
+
+function rotateButton(button, direction) {
+  if (!button) return;
+  const rotationAngle = direction === "left" ? "rotate(-15deg)" : "rotate(15deg)";
+  button.style.transform = rotationAngle;
+  setTimeout(() => {
+    button.style.transform = "rotate(0deg)";
+  }, 200);
+}
+
+// setup
+function setupMusicPlayer() {
+  const gameWindow = document.getElementById("game_window");
+  if (!gameWindow) {
+    console.warn("game_window element not found. Player will not be attached.");
+    return;
+  }
+
+  // Don't leave the built-in soundtrack running underneath the custom player.
+  const legacyAudio = document.getElementById("campaigntrailmusic");
+  if (legacyAudio) {
+    legacyAudio.pause();
+    legacyAudio.removeAttribute("src");
+    legacyAudio.load();
+  }
+  const legacyPlayer = document.getElementById("music_player");
+  if (legacyPlayer) legacyPlayer.style.display = "none";
+
+  // prevent duplicate players
+  if (document.getElementById("player")) return;
+
+  const defaultSongs = [
+    ["Brother Can You Spare A Dime", "Bing Crosby", "https://itsastronomical.com/assets/1932/imgur/EUcbUas.png", "https://audio.jukehost.co.uk/jRXseBAMcWRFKHt1tJ51tqbyJ3sqhKts"],
+    ["The Clouds Will Soon Roll By", "Ambrose & His Orchestra", "https://i.ytimg.com/vi/KgqZJKGHhhQ/sddefault.jpg", "https://audio.jukehost.co.uk/Hf6VPaMzNzxlALHDBcuuc5uEtkLNOMDw"],
+    ["Remember My Forgotten Man", "George Hall", "https://i.ytimg.com/vi/bCmHXAz5PFA/sddefault.jpg", "https://audio.jukehost.co.uk/MypY1myDgc0mOe9q3V3uQMPbXtyklfuw"],
+    ["It Don't Mean A Thing", "Ivie Anderson", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTqHE-NltdCBjN3dZG2LwmY2NPvZ6cOHgxEg&s", "https://audio.jukehost.co.uk/k2tL8nq9UfcAraBVSJ48LjxMotEIXHiO"],
+    ["A Lovely Way To Spend An Evening", "The Ink Spots", "https://cdn-images.dzcdn.net/images/cover/9628c446092888da5119d4c5fa00af6f/0x1900-000000-80-0-0.jpg", "https://audio.jukehost.co.uk/QV0iCDjjkWrDAWoYRVDtJ2dgVoSmFcuG"]
+  ];
+
+  if (activePlaylist.songs.length === 0) {
+    defaultSongs.forEach(data => activePlaylist.addSong(new Song(...data)));
+  }
+
+  // inject CSS
+  const style = document.createElement("style");
+  style.textContent = `
+    #player {
+      position: relative;
+      border: 3px solid #5e2f0d;
+      display: flex;
+      flex-direction: row;
+      height: 191px;
+      background-image: url("${ASSETS.bg}");
+      transition: transform 0.2s ease;
+    }
+    #lip-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+      background-image: url("${ASSETS.lipOverlay}");
+      background-size: cover;
+    }
+    #display-box {
+      display: flex;
+      align-items: center;
+      width: 50%;
+    }
+    #cover {
+      width: 176px;
+      height: 176px;
+      object-fit: cover;
+    }
+    #info-container {
+      display: flex;
+      flex-direction: row;
+      height: 178px;
+      width: 127px;
+      margin-top: 3px;
+      margin-left: 5px;
+      background-image: url("${ASSETS.infoBg}");
+      background-size: cover;
+      color: #6e441b;
+    }
+    #song-info {
+      width: 100%;
+      padding: 10px 10px 0 10px;
+      box-sizing: border-box;
+    }
+    #song-info h3 {
+      font-weight: normal;
+      margin: 0;
+    }
+    #controls-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+      width: 100%;
+      padding-top: 15px;
+    }
+    #controls {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 80%;
+      cursor: pointer;
+    }
+    #controls img {
+      transition: transform 0.2s ease;
+    }
+    #progress-bar-container {
+      width: 100%;
+    }
+    #progress-bar {
+      width: 80%;
+      margin: auto;
+      display: flex;
+      margin-top: 20px;
+      height: 8px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    #progress-bar::-webkit-progress-bar {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    #progress-bar::-webkit-progress-value {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+    #progress-bar::-moz-progress-bar {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  `;
+  document.head.appendChild(style);
+
+  // create HTML
+  const playerContainer = document.createElement("div");
+  playerContainer.id = "player";
+  playerContainer.innerHTML = `
+    <div id="display-box">
+      <img id="cover" src="" alt="Cover">
+      <div id="info-container">
+        <div id="song-info">
+          <h3 id="title"></h3>
+          <p id="artist"></p>
+        </div>
+      </div>
+    </div>
+    <div id="controls-container">
+      <div id="controls">
+        <img id="volumeDownButton" src="${ASSETS.volDown}" alt="Volume Down">
+        <img id="prevButton" src="${ASSETS.btnPrev}" alt="Previous">
+        <img id="playPauseButton" src="${ASSETS.btnPause}" alt="Play/Pause">
+        <img id="nextButton" src="${ASSETS.btnNext}" alt="Next">
+        <img id="volumeUpButton" src="${ASSETS.volUp}" alt="Volume Up">
+      </div>
+      <div id="progress-bar-container">
+        <progress id="progress-bar" value="0" max="100"></progress>
+      </div>
+    </div>
+    <div id="lip-overlay"></div>
+  `;
+
+  gameWindow.insertAdjacentElement("afterend", playerContainer);
+
+  // set up audio & logic
+  const audio = getAudioElement();
+  const startSong = activePlaylist.getCurrentSong();
+  if (startSong) backendSetSrcAndLoad(startSong, audio);
+  backendSetVolume(audio, currentVolume / 20);
+
+  const playPauseBtn = document.getElementById("playPauseButton");
+  const prevBtn = document.getElementById("prevButton");
+  const nextBtn = document.getElementById("nextButton");
+  const volumeUpBtn = document.getElementById("volumeUpButton");
+  const volumeDownBtn = document.getElementById("volumeDownButton");
+  const progressBar = document.getElementById("progress-bar");
+
+  // play/pause
+  playPauseBtn.addEventListener("click", () => {
+    if (isYouTubeSong(ytCurrentSong())) {
+      const playing = window.YT?.PlayerState
+        ? ytPlayer?.getPlayerState?.() === YT.PlayerState.PLAYING
+        : false;
+      if (playing) {
+        backendPause(audio);
+        updatePlayPauseIcon(false);
+      } else {
+        backendPlay(audio);
+        updatePlayPauseIcon(true);
+      }
+      return;
+    }
+
+    if (audio.paused) {
+      backendPlay(audio);
+      updatePlayPauseIcon(true);
+    } else {
+      backendPause(audio);
+      updatePlayPauseIcon(false);
+    }
+  });
+
+  // next/prev helper
+  const playSongAtIndex = () => {
+    updateUI(activePlaylist);
+    const song = activePlaylist.getCurrentSong();
+    if (!song) return;
+    backendSetSrcAndLoad(song, audio);
+    startYTProgressPump();
+    backendPlay(audio);
+    updatePlayPauseIcon(true);
+  };
+
+  const advanceToNextSong = () => {
+    activePlaylist.playNext();
+    playSongAtIndex();
+  };
+  ytHooks.onEnded = advanceToNextSong;
+  const paintProgress = (current, duration) => {
+    if (Number.isFinite(duration) && duration > 0) {
+      progressBar.value = (current / duration) * 100;
+    }
+  };
+  ytHooks.onProgress = paintProgress;
+
+  nextBtn.addEventListener("click", () => {
+    activePlaylist.playNext();
+    playSongAtIndex();
+    rotateButton(nextBtn, "right");
+  });
+
+  prevBtn.addEventListener("click", () => {
+    activePlaylist.playPrevious();
+    playSongAtIndex();
+    rotateButton(prevBtn, "left");
+  });
+
+  // volume controls
+  volumeUpBtn.addEventListener("click", () => {
+    if (currentVolume < 20) {
+      currentVolume++;
+      backendSetVolume(audio, currentVolume / 20);
+      rotateButton(volumeUpBtn, "left");
+    }
+  });
+
+  volumeDownBtn.addEventListener("click", () => {
+    if (currentVolume > 0) {
+      currentVolume--;
+      backendSetVolume(audio, currentVolume / 20);
+      rotateButton(volumeDownBtn, "right");
+    }
+  });
+
+  // progress bar
+  audio.addEventListener("timeupdate", () => {
+    paintProgress(backendGetCurrentTime(), backendGetDuration());
+  });
+
+  audio.addEventListener("ended", advanceToNextSong);
+
+  progressBar.addEventListener("click", (e) => {
+    const duration = backendGetDuration();
+    if (Number.isFinite(duration)) {
+      const rect = progressBar.getBoundingClientRect();
+      const pos = (e.clientX - rect.left) / rect.width;
+      backendSeekTo(pos * duration);
+    }
+  });
+
+  progressBar.addEventListener("input", () => {
+    const duration = backendGetDuration();
+    if (Number.isFinite(duration)) {
+      backendSeekTo((progressBar.value / 100) * duration);
+    }
+  });
+
+  // initial play
+  updateUI(activePlaylist);
+  startYTProgressPump();
+  backendPlay(audio)
+    .then(() => updatePlayPauseIcon(true))
+    .catch(() => updatePlayPauseIcon(false));
+}
+
+setupMusicPlayer();
+
+// Retain the scenario's existing game-start hook, but no longer initialize
+// its superseded soundtrack-selector/musicMode implementation.
+$("#game_start").click((event) => {
+  event.preventDefault();
+  $("#election_id_button").click(() => {
+    // Preserve the screen cleanup previously performed by musicMode().
+    for (const id of ["modLoadReveal", "modloaddiv"]) {
+      const screen = document.getElementById(id);
+      if (screen) screen.style.display = "none";
+    }
+    setupMusicPlayer();
+    if (typeof changeFontColour === "function") {
+      setInterval(changeFontColour, 200);
+    }
+  });
+});
