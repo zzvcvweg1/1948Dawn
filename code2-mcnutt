@@ -49,7 +49,7 @@ campaignTrail_temp.questions_json = [
         "pk": 48006,
         "fields": {
             "priority": 6,
-            "description": "Now that the convention has run its entire course, the public seems relatively indifferent towards your nomination. You do not have the same influence as Roosevelt nor the same national fame as Al Smith or even Herbert Hoover had when they were nominated. Your imprint on the minds of Americans is hardly any outside of your home state, mostly due to the fact that you haven’t held elected office in quite some time. Your advisors have offered you a few options to increase name recognition among the public, to bolster your image against the President. What will you do, Governor?",
+            "description": "Now that the convention has run its entire course, the public seems relatively indifferent towards your nomination. You do not have the same influence as Roosevelt nor the same national fame as Al Smith or even Herbert Hoover had when they were nominated. Your imprint on the minds of Americans is hardly any outside of your home state, mostly due to the fact that you haven’t held elected office in quite some time. Frank McHale and the rest of your advisors have offered you a few options to increase name recognition among the public, to bolster your image against the President. What will you do, Governor?",
             "likelihood": 1
         }
     },
@@ -94,7 +94,7 @@ campaignTrail_temp.questions_json = [
         "pk": 48011,
         "fields": {
             "priority": 11,
-            "description": "One of the greatest accomplishments of the Dewey presidency has been the Berlin Airlift. East Berliners, locked away from aid by Soviet iron-fisting, are now finally getting what they needed from the Hoover plan via airdrops from the U.S. and the British Commonwealth. Dewey has been commended for this effort, making headlines around the world as one of the West’s best humanitarians. You yourself have garnered quite a bit of your own humanitarian accomplishments, something your advisors say could make a difference. What will you tout?",
+            "description": "One of the greatest accomplishments of the Dewey presidency has been the Berlin Airlift. East Berliners, locked away from aid by Soviet iron-fisting, are now finally getting what they needed from the Hoover plan via airdrops from the U.S. and the British Commonwealth. Dewey has been commended for this effort, making headlines around the world as one of the West’s best humanitarians. You yourself have garnered quite a bit of your own humanitarian accomplishments, something McHale and the rest of your advisors say could make a difference. What will you tout?",
             "likelihood": 1
         }
     },
@@ -220,7 +220,7 @@ campaignTrail_temp.questions_json = [
         "pk": 48025,
         "fields": {
             "priority": 25,
-            "description": "With this election’s relatively close nature, the Dewey Re-election team has reached out to you for a challenge unique to anything a presidential campaign has done. A debate, much like Lincoln and Douglas had held nearly a hundred years prior, is being offered by Dewey as an opportunity for the two of you to compare policies one-on-one for the American people to listen to, a move likely done to combat feelings of Dewey being cold and aloof. An unprecedented idea for an election, but your advisors don’t seem too shy about the idea. What will you say, Governor?",
+            "description": "With this election’s relatively close nature, the Dewey Re-election team has reached out to you for a challenge unique to anything a presidential campaign has done. A debate, much like Lincoln and Douglas had held nearly a hundred years prior, is being offered by Dewey as an opportunity for the two of you to compare policies one-on-one for the American people to listen to, a move likely done to combat feelings of Dewey being cold and aloof. An unprecedented idea for an election, but McHale and the rest of your advisors don’t seem too shy about the idea. What will you say, Governor?",
             "likelihood": 1
         }
     },
@@ -247,7 +247,7 @@ campaignTrail_temp.questions_json = [
         "pk": 48028,
         "fields": {
             "priority": 28,
-            "description": "There is not much more to say. We are at the final stretch of the campaign - the run home is right there. But a man who attempts to topple a leader mustn’t miss. Your advisors, in a last-minute attempt to boost you in the polls in an area of your choosing, have selected a few key areas in which you can spend your last few days on the trail. You sigh. Has it all come to this? Just three or so states of your choosing? But the time for fretting is over. You must seize the day.",
+            "description": "There is not much more to say. We are at the final stretch of the campaign - the run home is right there. But a man who attempts to topple a leader mustn’t miss. McHale, in a last-minute attempt to boost you in the polls in an area of your choosing, has selected a few key areas in which you can spend your last few days on the trail. You sigh. Has it all come to this? Just three or so states of your choosing? But the time for fretting is over. You must seize the day.",
             "likelihood": 1
         }
     }
@@ -323,7 +323,7 @@ campaignTrail_temp.answers_json = [
         "pk": 49009,
         "fields": {
             "question": 48003,
-            "description": "We need neither of these two quarrelers to win the nomination. The only people we truly need are the urban party bosses. I can make some calls that will ensure my nomination. We cannot let this hullabaloo get out of hand any longer; I will make sure this thing is ended as soon as possible."
+            "description": "We need neither of these two quarrelers to win the nomination. The only people we truly need are the urban party bosses. I can have Frank McHale make some calls that will ensure my nomination. We cannot let this hullabaloo get out of hand any longer; I will make sure this thing is ended as soon as possible."
         }
     },
     {
@@ -15736,7 +15736,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 49077,
             "candidate": 116,
-            "answer_feedback": "The crowd’s applause carries farther than any you had ever heard for such a small crowd. Outside, however, many party bosses are uncomfortable with your decision to embrace FDR too closely. He’s still a hero to many, but that heroism came with a cost: his health, and more importantly, his honesty. You get a decent polling bump anyhow, but your advisors warn not to take too many chances."
+            "answer_feedback": "The crowd’s applause carries farther than any you had ever heard for such a small crowd. Outside, however, many party bosses are uncomfortable with your decision to embrace FDR too closely. He’s still a hero to many, but that heroism came with a cost: his health, and more importantly, his honesty. You get a decent polling bump anyhow, but McHale warns you not to take too many chances."
         }
     },
     {
@@ -15826,7 +15826,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 49087,
             "candidate": 116,
-            "answer_feedback": "You have your advisors bombard the newspapers with photos of you in Southeast Asia, helping the natives, accommodating the escaped Jews. It isn’t enough to combat Dewey’s transformative foreign policy fully, but you have given many voters second thoughts about who truly has the better record, thanks to some shady foreign policy dealings rumored to be happening from Dewey’s cabinet."
+            "answer_feedback": "You have McHale and the campaign bombard the newspapers with photos of you in Southeast Asia, helping the natives, accommodating the escaped Jews. It isn’t enough to combat Dewey’s transformative foreign policy fully, but you have given many voters second thoughts about who truly has the better record, thanks to some shady foreign policy dealings rumored to be happening from Dewey’s cabinet."
         }
     },
     {
@@ -16009,6 +16009,14 @@ const dawnMcNuttTooltips = [
     ],
     "description": "Southern Kingpin. Likely plotting a run in his own right in the future.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/Richard_Russell.jpg"
+  },
+  {
+    "terms": [
+      "Frank McHale",
+      "McHale"
+    ],
+    "description": "Your longtime political adviser and campaign manager. He has been planning this run for years.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/34818469_ec536acc-d7c4-4ea6-94e5-0fffb2833345.jpeg"
   },
   {
     "terms": [
