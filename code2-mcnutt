@@ -15986,6 +15986,750 @@ $(`<style>
 }
 </style>`).appendTo("head");
 
+const dawnMcNuttTooltips = [
+  {
+    "terms": [
+      "Henry A. Wallace",
+      "Henry Wallace",
+      "Wallace"
+    ],
+    "description": "Should know his place.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/pic_giant_040415_SM_Henry-Wallace-G-2.webp"
+  },
+  {
+    "terms": [
+      "Richard Russell",
+      "Dick Russell",
+      "Russell"
+    ],
+    "description": "Southern Kingpin. Likely plotting a run in his own right in the future.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Richard_Russell.jpg"
+  },
+  {
+    "terms": [
+      "Thomas Dewey",
+      "Dewey"
+    ],
+    "description": "How the heck did he get here, anyway?",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-qrB8pzox11w.png"
+  },
+  {
+    "terms": [
+      "Hubert H. Humphrey",
+      "Hubert Humphrey",
+      "Humphrey"
+    ],
+    "description": "The new voice of the Democratic Party, but far from the mainstream voice still.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-PftjV0-6cHk.png"
+  },
+  {
+    "terms": [
+      "Franklin D. Roosevelt",
+      "Franklin Roosevelt",
+      "FDR",
+      "Roosevelt"
+    ],
+    "description": "A great president. Never much of a friend.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/president-roosevelt-greets-mcnutt-washington-dc-august-1-president-roosevelt-1024.jpg"
+  },
+  {
+    "terms": [
+      "Walter Reuther",
+      "Reuther"
+    ],
+    "description": "Head of the UAW. Still remembers Terre Haute.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Walter-Reuther.png"
+  },
+  {
+    "terms": [
+      "Martin Kennelly",
+      "Kennelly"
+    ],
+    "description": "Chicago’s mayor. An old friend.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Martin_H._Kennelly_72-599_(1).jpg"
+  },
+  {
+    "terms": [
+      "William O’Dwyer",
+      "O’Dwyer"
+    ],
+    "description": "New York’s mayor. Another old friend.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/oct2019_i05_odwyer.webp"
+  },
+  {
+    "terms": [
+      "John Sparkman",
+      "Sparkman"
+    ],
+    "description": "One of the newer Southern men in the Senate.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Y1rlyqccF-HZo2AMG_33kqKimRwaQeLi59gY5xfHv1HJ8pymAjRxPD-7_Tb9CasTLlGQyqnpz8lx-fBCdKyy1YJzXO1aMVUpdxQ0ocpqDZNF1cfmSkFNmfeUhWtg28cX4Bc7VhICdsY2PnMgBi_sn6xRbJqOsEcOPiTMQyGNrpQWMvmwVw_d4XVmrWmIV_B_.jpg"
+  },
+  {
+    "terms": [
+      "James Eastland",
+      "Eastland"
+    ],
+    "description": "A Mississippi Senator. Much closer to Russell’s kind of politics than yours.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Figurae-76.1.-Eastland-James-Oliver.png"
+  },
+  {
+    "terms": [
+      "Glen Taylor",
+      "Taylor"
+    ],
+    "description": "Wallace’s man in the Senate.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/gettyimages-517393060-2048x2048.png"
+  },
+  {
+    "terms": [
+      "Eleanor Roosevelt",
+      "Eleanor"
+    ],
+    "description": "Franklin’s widow. Still a very useful voice to have on the radio.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Eleanor%20Roosevelt.jpg"
+  },
+  {
+    "terms": [
+      "Richard Nixon",
+      "Nixon"
+    ],
+    "description": "Some young Republican Congressman from California. Very interested in Alger Hiss.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/nixon.jpg"
+  },
+  {
+    "terms": [
+      "Alger Hiss"
+    ],
+    "description": "The man Nixon won’t stop talking about.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Alger_Hiss_Testifying_Before_Grand_Jury.jpg"
+  },
+  {
+    "terms": [
+      "Sam Rayburn",
+      "Rayburn"
+    ],
+    "description": "Speaker of the House. One of the party’s old hands.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Sam_Rayburn.jpg"
+  },
+  {
+    "terms": [
+      "Norris Bradbury",
+      "Bradbury"
+    ],
+    "description": "Director of Los Alamos. Rather more interested in uranium than you are.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Bradbury%2C%20Norris%20(LAT-661)-766x1024.jpg"
+  },
+  {
+    "terms": [
+      "Eugene Debs",
+      "Debs"
+    ],
+    "description": "Terre Haute’s old Socialist. The workers there haven’t forgotten him.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Eugene-V-Debs.jpg"
+  },
+  {
+    "terms": [
+      "Dean Acheson",
+      "Acheson"
+    ],
+    "description": "One of your foreign policy men. Thinks you ought to leave the country for once.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Dean_G._Acheson%2C_U.S._Secretary_of_State_(cropped)(2)(b).jpg"
+  },
+  {
+    "terms": [
+      "Frank Lausche",
+      "Lausche"
+    ],
+    "description": "Ohio’s Democratic Governor. Much tougher on Communism than you are.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Frank_Lausche.jpg"
+  },
+  {
+    "terms": [
+      "Strom Thurmond",
+      "Thurmond"
+    ],
+    "description": "South Carolina’s Governor. The South’s backup plan.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Strom_Thurmond_1948%20(2).jpg"
+  },
+  {
+    "terms": [
+      "Taftites",
+      "Taftite"
+    ],
+    "description": "Taft’s Republicans. Useful when they’re angry with Dewey.",
+    "image": ""
+  },
+  {
+    "terms": [
+      "Chiang Kai-shek",
+      "Chiang Kai-Shek",
+      "Chiang"
+    ],
+    "description": "The Generalissimo. Stubborn as ever.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Chiang_Kai-shek_(9to12).jpg"
+  },
+  {
+    "terms": [
+      "Mao Zedong",
+      "Mao"
+    ],
+    "description": "Looks increasingly like the man who will win China.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/wmremove-transformed%20(60).png"
+  },
+  {
+    "terms": [
+      "Nye Committee"
+    ],
+    "description": "An old warning against getting dragged into another foreign war.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/3_29_July-12-1935_MA-demo_SCPC-probably-relates-to-the-Nye-Committee-Hearings.jpg"
+  },
+  {
+    "terms": [
+      "John Foster Dulles",
+      "Dulles"
+    ],
+    "description": "Dewey’s man on foreign policy. You hear his name enough.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-WW4YbnqPJIU.png"
+  },
+  {
+    "terms": [
+      "Herbert Hoover",
+      "Hoover"
+    ],
+    "description": "Still a useful Republican to run against.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-G34zNqP1W60.png"
+  },
+  {
+    "terms": [
+      "Southrons"
+    ],
+    "description": "The Southern wing of your party. You needed them to get here.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/1948-DNC-Convention.webp"
+  },
+  {
+    "terms": [
+      "Anyone but Wallace"
+    ],
+    "description": "The convention alliance that could make you the nominee.",
+    "image": ""
+  },
+  {
+    "terms": [
+      "Progressives",
+      "progressives",
+      "Wallace Wing",
+      "Wallace wing",
+      "Wallace wing of the party",
+      "progressive wing",
+      "progressive wing of the party"
+    ],
+    "description": "Wallace’s people. Never quite convinced by you.",
+    "image": ""
+  },
+  {
+    "terms": [
+      "Urban Machines",
+      "Party Bosses",
+      "party bosses",
+      "urban party bosses"
+    ],
+    "description": "The people who got you here.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/12_664_882437427052615761512575697.3153.jpg"
+  },
+  {
+    "terms": [
+      "House of Representatives",
+      "Congress"
+    ],
+    "description": "Democratic, though hardly always on your side.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-eqPISeUCewA.png"
+  },
+  {
+    "terms": [
+      "United Auto Workers",
+      "UAW"
+    ],
+    "description": "The union Reuther runs. Not friendly territory.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/vmc_7678_large.jpg"
+  },
+  {
+    "terms": [
+      "House Un-American Activities Committee",
+      "HUAC"
+    ],
+    "description": "A horrid organization. Congress should have gotten rid of it already.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/HUAC-Gary-Cooper-2400-3x2gty-59f8c0579abed500107c349d.png"
+  },
+  {
+    "terms": [
+      "Brain Trust"
+    ],
+    "description": "Roosevelt’s old advisers.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Franklin-D-Roosevelt-Henry-Wallace-farm-relief-bill-1933.webp"
+  },
+  {
+    "terms": [
+      "Atomic Energy Commission",
+      "AEC"
+    ],
+    "description": "The government’s answer to atomic energy. You consider the matter mostly settled.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/images%20(60).jpg"
+  },
+  {
+    "terms": [
+      "National Guard"
+    ],
+    "description": "You sent them into Terre Haute. Labor has not forgotten.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/472780608_901726392131769_719944685446276453_n.jpg"
+  },
+  {
+    "terms": [
+      "Taft-Hartley Act",
+      "Taft-Hartley"
+    ],
+    "description": "Dewey’s labor law. A much easier issue for another Democrat.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/Taft-Hartley%20Compliance.jpg"
+  },
+  {
+    "terms": [
+      "Progressive Party"
+    ],
+    "description": "Where some of Wallace’s people go when they lose faith in you.",
+    "image": ""
+  },
+  {
+    "terms": [
+      "G.I. Bill"
+    ],
+    "description": "One of Roosevelt’s better laws. Worth keeping.",
+    "image": "https://file.garden/aNtjn2887DiA_8HP/_VETERANS%2C_PREPARE_FOR_YOUR_FUTURE_THROUGH_EDUCATIONAL_TRAINING__-_NARA_-_515969.jpg"
+  },
+  {
+    "terms": [
+      "Hoover Plan",
+      "Hoover plan"
+    ],
+    "description": "Dewey’s program for rebuilding Europe. Hard to argue with the results.",
+    "image": ""
+  },
+  {
+    "terms": [
+      "State Department"
+    ],
+    "description": "Roosevelt’s failed the refugees. You doubt Dewey’s would have done better.",
+    "image": ""
+  },
+  {
+    "terms": [
+      "22nd Amendment"
+    ],
+    "description": "A Republican amendment. You have fewer objections than some Democrats.",
+    "image": ""
+  }
+];
+
+function dawnMcNuttTooltipSideIsActive() {
+    const ct = window.campaignTrail_temp;
+    const current = ct && ct.candidate_id != null && ct.candidate_id !== ""
+        ? ct.candidate_id
+        : (window.e && window.e.candidate_id != null ? window.e.candidate_id : null);
+
+    return current == null || current === "" || Number(current) === 116;
+}
+
+function dawnMcNuttTooltipEscapeRegex(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+const dawnMcNuttTooltipTermIndex = new Map();
+dawnMcNuttTooltips.forEach((entry, entryIndex) => {
+    entry.terms.forEach(term => dawnMcNuttTooltipTermIndex.set(term, entryIndex));
+});
+
+const dawnMcNuttTooltipTerms = Array.from(dawnMcNuttTooltipTermIndex.keys())
+    .sort((a, b) => b.length - a.length);
+
+const dawnMcNuttTooltipRegex = new RegExp(
+    dawnMcNuttTooltipTerms.map(dawnMcNuttTooltipEscapeRegex).join("|"),
+    "g"
+);
+
+const dawnMcNuttTooltipStyle = document.createElement("style");
+dawnMcNuttTooltipStyle.id = "dawn-mcnutt-tooltip-style";
+dawnMcNuttTooltipStyle.textContent = `
+    .dawn-mcnutt-tooltip-term {
+        cursor: help;
+        text-decoration-line: underline;
+        text-decoration-style: dotted;
+        text-decoration-color: #4B4F9D;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+        border-radius: 1px;
+        transition: background-color 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .dawn-mcnutt-tooltip-term:hover {
+        background: rgba(199, 76, 96, 0.11);
+        box-shadow: 0 1px 0 rgba(75, 79, 157, 0.12);
+    }
+
+    #dawn-mcnutt-tooltip {
+        position: fixed;
+        z-index: 999999;
+        width: min(258px, calc(100vw - 24px));
+        box-sizing: border-box;
+        padding: 10px 11px 10px;
+
+        background: #E7E0D2;
+        color: #111111;
+
+        border: 2px solid #4B4F9D;
+        border-radius: 1px;
+        box-shadow:
+            inset 0 3px 0 #C74C60,
+            2px 2px 0 rgba(75, 79, 157, 0.18);
+
+        font-family: inherit;
+        font-size: 12.5px;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 1.4;
+        text-align: left;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.12s ease, visibility 0.12s ease;
+    }
+
+    #dawn-mcnutt-tooltip.dawn-mcnutt-tooltip-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #dawn-mcnutt-tooltip .dawn-mcnutt-tooltip-media {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 2px 0 8px;
+        padding: 0 0 8px;
+        box-sizing: border-box;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid rgba(75, 79, 157, 0.38);
+        overflow: visible;
+    }
+
+    #dawn-mcnutt-tooltip .dawn-mcnutt-tooltip-media img {
+        display: block;
+
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 164px;
+        object-fit: contain;
+        object-position: center;
+
+        margin: 0 auto;
+        background: transparent;
+        border: 1px solid rgba(75, 79, 157, 0.72);
+        box-shadow: 1px 1px 0 rgba(75, 79, 157, 0.14);
+        image-rendering: auto;
+    }
+
+    #dawn-mcnutt-tooltip .dawn-mcnutt-tooltip-copy {
+        margin: 0;
+        padding: 0 2px 1px;
+    }
+
+    @media (max-width: 600px) {
+        #dawn-mcnutt-tooltip {
+            width: min(238px, calc(100vw - 18px));
+            font-size: 12px;
+            padding: 9px 9px 9px;
+        }
+
+        #dawn-mcnutt-tooltip .dawn-mcnutt-tooltip-media img {
+            max-width: 100%;
+            max-height: 148px;
+        }
+    }
+`;
+
+if (!document.getElementById("dawn-mcnutt-tooltip-style")) {
+    document.head.appendChild(dawnMcNuttTooltipStyle);
+}
+
+let dawnMcNuttTooltipBox = document.getElementById("dawn-mcnutt-tooltip");
+if (!dawnMcNuttTooltipBox) {
+    dawnMcNuttTooltipBox = document.createElement("div");
+    dawnMcNuttTooltipBox.id = "dawn-mcnutt-tooltip";
+    dawnMcNuttTooltipBox.setAttribute("role", "tooltip");
+    document.body.appendChild(dawnMcNuttTooltipBox);
+}
+
+let dawnMcNuttTooltipCurrentTrigger = null;
+let dawnMcNuttTooltipShowTimer = null;
+
+function dawnMcNuttTooltipPosition(trigger) {
+    if (!trigger || !trigger.isConnected || !dawnMcNuttTooltipBox) return;
+
+    const triggerRect = trigger.getBoundingClientRect();
+    const tipRect = dawnMcNuttTooltipBox.getBoundingClientRect();
+    const viewportPadding = 10;
+    const gap = 8;
+
+    let left = triggerRect.left + (triggerRect.width / 2) - (tipRect.width / 2);
+    left = Math.max(
+        viewportPadding,
+        Math.min(left, window.innerWidth - tipRect.width - viewportPadding)
+    );
+
+    let top = triggerRect.top - tipRect.height - gap;
+
+    if (top < viewportPadding) {
+        top = triggerRect.bottom + gap;
+    }
+
+    if (top + tipRect.height > window.innerHeight - viewportPadding) {
+        top = Math.max(
+            viewportPadding,
+            window.innerHeight - tipRect.height - viewportPadding
+        );
+    }
+
+    dawnMcNuttTooltipBox.style.left = `${Math.round(left)}px`;
+    dawnMcNuttTooltipBox.style.top = `${Math.round(top)}px`;
+}
+
+function dawnMcNuttTooltipRender(trigger) {
+    if (!dawnMcNuttTooltipSideIsActive()) return;
+
+    const entryIndex = Number(trigger.dataset.dawnMcNuttTooltipIndex);
+    const entry = dawnMcNuttTooltips[entryIndex];
+    if (!entry) return;
+
+    dawnMcNuttTooltipCurrentTrigger = trigger;
+    dawnMcNuttTooltipBox.replaceChildren();
+
+    if (entry.image) {
+        const media = document.createElement("div");
+        media.className = "dawn-mcnutt-tooltip-media";
+
+        const image = document.createElement("img");
+        image.src = entry.image;
+        image.alt = "";
+        image.decoding = "async";
+        image.loading = "eager";
+
+        image.addEventListener("load", () => {
+            if (dawnMcNuttTooltipCurrentTrigger === trigger) {
+                dawnMcNuttTooltipPosition(trigger);
+            }
+        });
+
+        image.addEventListener("error", () => {
+            media.remove();
+            if (dawnMcNuttTooltipCurrentTrigger === trigger) {
+                dawnMcNuttTooltipPosition(trigger);
+            }
+        });
+
+        media.appendChild(image);
+        dawnMcNuttTooltipBox.appendChild(media);
+    }
+
+    const copy = document.createElement("div");
+    copy.className = "dawn-mcnutt-tooltip-copy";
+    copy.textContent = entry.description;
+    dawnMcNuttTooltipBox.appendChild(copy);
+
+    dawnMcNuttTooltipBox.classList.add("dawn-mcnutt-tooltip-visible");
+    dawnMcNuttTooltipPosition(trigger);
+}
+
+function dawnMcNuttTooltipScheduleShow(trigger) {
+    clearTimeout(dawnMcNuttTooltipShowTimer);
+    dawnMcNuttTooltipShowTimer = setTimeout(() => {
+        if (trigger.matches(":hover") && dawnMcNuttTooltipSideIsActive()) {
+            dawnMcNuttTooltipRender(trigger);
+        }
+    }, 180);
+}
+
+function dawnMcNuttTooltipHide() {
+    clearTimeout(dawnMcNuttTooltipShowTimer);
+    dawnMcNuttTooltipCurrentTrigger = null;
+    dawnMcNuttTooltipBox.classList.remove("dawn-mcnutt-tooltip-visible");
+}
+
+function dawnMcNuttTooltipIsWordChar(character) {
+    return !!character && /[A-Za-z0-9]/.test(character);
+}
+
+function dawnMcNuttTooltipWrapTextNode(textNode) {
+    if (!textNode || !textNode.nodeValue || !textNode.parentElement) return;
+    if (textNode.parentElement.closest(".dawn-mcnutt-tooltip-term")) return;
+    if (textNode.parentElement.closest("#dawn-mcnutt-tooltip")) return;
+
+    const sourceText = textNode.nodeValue;
+    dawnMcNuttTooltipRegex.lastIndex = 0;
+
+    let match;
+    let lastIndex = 0;
+    let changed = false;
+    const fragment = document.createDocumentFragment();
+
+    while ((match = dawnMcNuttTooltipRegex.exec(sourceText)) !== null) {
+        const term = match[0];
+        const start = match.index;
+        const end = start + term.length;
+        const before = sourceText[start - 1];
+        const after = sourceText[end];
+
+        if (dawnMcNuttTooltipIsWordChar(before) || dawnMcNuttTooltipIsWordChar(after)) {
+            continue;
+        }
+
+        changed = true;
+
+        if (start > lastIndex) {
+            fragment.appendChild(document.createTextNode(sourceText.slice(lastIndex, start)));
+        }
+
+        const trigger = document.createElement("span");
+        trigger.className = "dawn-mcnutt-tooltip-term";
+        trigger.dataset.dawnMcNuttTooltipIndex = String(
+            dawnMcNuttTooltipTermIndex.get(term)
+        );
+        trigger.textContent = term;
+        fragment.appendChild(trigger);
+
+        lastIndex = end;
+    }
+
+    if (!changed) return;
+
+    if (lastIndex < sourceText.length) {
+        fragment.appendChild(document.createTextNode(sourceText.slice(lastIndex)));
+    }
+
+    textNode.parentNode.replaceChild(fragment, textNode);
+}
+
+function dawnMcNuttTooltipScanContainer(container) {
+    if (!container || !dawnMcNuttTooltipSideIsActive()) return;
+
+    const walker = document.createTreeWalker(
+        container,
+        NodeFilter.SHOW_TEXT,
+        {
+            acceptNode(node) {
+                if (!node.nodeValue || !node.nodeValue.trim()) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                const parent = node.parentElement;
+                if (!parent) return NodeFilter.FILTER_REJECT;
+                if (parent.closest(".dawn-mcnutt-tooltip-term")) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+                if (parent.closest("#dawn-mcnutt-tooltip")) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                dawnMcNuttTooltipRegex.lastIndex = 0;
+                return dawnMcNuttTooltipRegex.test(node.nodeValue)
+                    ? NodeFilter.FILTER_ACCEPT
+                    : NodeFilter.FILTER_REJECT;
+            }
+        }
+    );
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(dawnMcNuttTooltipWrapTextNode);
+}
+
+function dawnMcNuttTooltipScanVisibleText() {
+    if (!dawnMcNuttTooltipSideIsActive()) {
+        dawnMcNuttTooltipHide();
+        return;
+    }
+
+    document.querySelectorAll(
+        ".inner_window_question h3, " +
+        "#question_form label, " +
+        "#visit_content p, " +
+        "#feedback_content p"
+    ).forEach(dawnMcNuttTooltipScanContainer);
+}
+
+let dawnMcNuttTooltipScanQueued = false;
+function dawnMcNuttTooltipQueueScan() {
+    if (dawnMcNuttTooltipScanQueued) return;
+
+    dawnMcNuttTooltipScanQueued = true;
+    requestAnimationFrame(() => {
+        dawnMcNuttTooltipScanQueued = false;
+        dawnMcNuttTooltipScanVisibleText();
+
+        if (
+            dawnMcNuttTooltipCurrentTrigger &&
+            !dawnMcNuttTooltipCurrentTrigger.isConnected
+        ) {
+            dawnMcNuttTooltipHide();
+        }
+    });
+}
+
+document.addEventListener("mouseover", event => {
+    const trigger = event.target.closest
+        ? event.target.closest(".dawn-mcnutt-tooltip-term")
+        : null;
+
+    if (!trigger || !dawnMcNuttTooltipSideIsActive()) return;
+    if (event.relatedTarget && trigger.contains(event.relatedTarget)) return;
+
+    dawnMcNuttTooltipScheduleShow(trigger);
+});
+
+document.addEventListener("mouseout", event => {
+    const trigger = event.target.closest
+        ? event.target.closest(".dawn-mcnutt-tooltip-term")
+        : null;
+
+    if (!trigger) return;
+    if (event.relatedTarget && trigger.contains(event.relatedTarget)) return;
+
+    dawnMcNuttTooltipHide();
+});
+
+window.addEventListener("resize", () => {
+    if (dawnMcNuttTooltipCurrentTrigger) {
+        dawnMcNuttTooltipPosition(dawnMcNuttTooltipCurrentTrigger);
+    }
+});
+
+window.addEventListener("scroll", () => {
+    if (dawnMcNuttTooltipCurrentTrigger) {
+        dawnMcNuttTooltipPosition(dawnMcNuttTooltipCurrentTrigger);
+    }
+}, true);
+
+const dawnMcNuttTooltipGameWindow = document.getElementById("game_window");
+if (dawnMcNuttTooltipGameWindow) {
+    const dawnMcNuttTooltipObserver = new MutationObserver(dawnMcNuttTooltipQueueScan);
+    dawnMcNuttTooltipObserver.observe(dawnMcNuttTooltipGameWindow, {
+        childList: true,
+        subtree: true,
+        characterData: true
+    });
+}
+
+dawnMcNuttTooltipQueueScan();
+
 cyoAdventure = function(a) {
     ans = e.player_answers[e.player_answers.length - 1];
 
