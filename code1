@@ -36,7 +36,7 @@ campaignTrail_temp.candidate_json = [
             "party": "Republican",
             "state": "New York",
             "priority": 2,
-            "description": "<p>Few could have imagined Thomas Dewey in this position even five short years ago. Working tirelessly throughout his life to get to where he has gotten himself, Dewey has accomplished in just over twenty years as an adult what most hope to achieve in a lifetime. In 1940, at just 38 years old, he nearly captured the Republican nomination in his own right, losing narrowly to Wendell Willkie.</p><p>But, now that he is in the White House, the days of him being a wunderkid are now over. With the public ambivalent towards his ascendancy, it is Dewey’s duty to put out both Germany and Japan and birth a century of American dominance on the global stage.</p><p>However, the obstacles are laid out clearly; the British Lion and the Russian Bear seek the same postwar glory as the United States, hellbent on getting it for themselves, even at the expense of their supposed allies. Dewey must calm three storms at once, but if he works hard, he can- no, he will do it.</p><p>Oh, yes, he has to run for re-election too...</p>",
+            "description": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>Few could have imagined Thomas Dewey in this position even five short years ago. Working tirelessly throughout his life to get to where he has gotten himself, Dewey has accomplished in just over twenty years as an adult what most hope to achieve in a lifetime. In 1940, at just 38 years old, he nearly captured the Republican nomination in his own right, losing narrowly to Wendell Willkie.</p><p>But, now that he is in the White House, the days of him being a wunderkid are now over. With the public ambivalent towards his ascendancy, it is Dewey’s duty to put out both Germany and Japan and birth a century of American dominance on the global stage.</p><p>However, the obstacles are laid out clearly; the British Lion and the Russian Bear seek the same postwar glory as the United States, hellbent on getting it for themselves, even at the expense of their supposed allies. Dewey must calm three storms at once, but if he works hard, he can- no, he will do it.</p><p>Oh, yes, he has to run for re-election too...</p></div>",
             "color_hex": "#CA5058",
             "secondary_color_hex": "#CA5058",
             "is_active": 1,
@@ -59,7 +59,7 @@ campaignTrail_temp.candidate_json = [
             "party": "Democrat",
             "state": "Indiana",
             "priority": 1,
-            "description": "<p>With the collapse of Franklin Roosevelt’s hegemony over American politics and the Democratic Party at large, Paul V. McNutt has to fill perhaps the largest shoes of any president since Adams succeeded Washington. Despite the expectations of the party to nominate someone like Roosevelt, they have decided to nominate a candidate that has Roosevelt rolling in his grave.</p><p>Oftentimes combative towards the former president, McNutt still believes that Roosevelt liked him. He followed him wherever he went, begging for his support even though he did not give him his own. However, his loyalty is no longer in question, taking the nomination from prospective progressive candidates through the support of various urban machines.</p><p>In order to defeat President Dewey, McNutt must balance the vast and unstable Roosevelt coalition - touting his humanitarian accomplishments, his support for the New Deal, and mitigating his frosty relationship with labor, all with the risk of a progressive splinter forming should he offend or ignore that faction.</p>",
+            "description": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>With the collapse of Franklin Roosevelt’s hegemony over American politics and the Democratic Party at large, Paul V. McNutt has to fill perhaps the largest shoes of any president since Adams succeeded Washington. Despite the expectations of the party to nominate someone like Roosevelt, they have decided to nominate a candidate that has Roosevelt rolling in his grave.</p><p>Oftentimes combative towards the former president, McNutt still believes that Roosevelt liked him. He followed him wherever he went, begging for his support even though he did not give him his own. However, his loyalty is no longer in question, taking the nomination from prospective progressive candidates through the support of various urban machines.</p><p>In order to defeat President Dewey, McNutt must balance the vast and unstable Roosevelt coalition - touting his humanitarian accomplishments, his support for the New Deal, and mitigating his frosty relationship with labor, all with the risk of a progressive splinter forming should he offend or ignore that faction.</p></div>",
             "color_hex": "#5358AE",
             "secondary_color_hex": "#5358AE",
             "is_active": 1,
@@ -136,7 +136,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>Given your testy position with the southern wing of the party, it may not be a terrible idea to pick one of its sons. A man perhaps the most qualified for the office of Vice President, Maybank was once the Mayor of Charleston, then the Governor of his state, and now is one of the state’s senators.</p><p>Though a firm believer in segregation and states’ rights, Maybank has shown a somewhat softer hand than many of his southern colleagues, fighting the Ku Klux Klan and working to improve economic and educational opportunities for black South Carolinians without challenging the system itself.</p><p>His economic prowess is nothing to scoff at, either, being one of the most powerful members of the Senate when it comes to economic policy. Maybank’s loyalty to the national party may still irritate the most ardent states’ rights men, but his record leaves the southern wing little reason to doubt where he stands.</p>",
+            "description_as_running_mate": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>Given your testy position with the southern wing of the party, it may not be a terrible idea to pick one of its sons. A man perhaps the most qualified for the office of Vice President, Maybank was once the Mayor of Charleston, then the Governor of his state, and now is one of the state’s senators.</p><p>Though a firm believer in segregation and states’ rights, Maybank has shown a somewhat softer hand than many of his southern colleagues, fighting the Ku Klux Klan and working to improve economic and educational opportunities for black South Carolinians without challenging the system itself.</p><p>His economic prowess is nothing to scoff at, either, being one of the most powerful members of the Senate when it comes to economic policy. Maybank’s loyalty to the national party may still irritate the most ardent states’ rights men, but his record leaves the southern wing little reason to doubt where he stands.</p></div>",
             "candidate_score": 0.0,
             "running_mate": true
         }
@@ -159,7 +159,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>To placate the Taft delegation’s concerns about your nomination, you chose Governor Bricker to be your Vice President. However, while he does satisfy them, Bricker could prove to be a headache over the course of your presidency.</p><p>A midwestern conservative, Bricker is firmly against the international doctrine of both Franklin Roosevelt and your own cabinet. He does not respect you as much as another Republican would, being nine years older than you are. He will be the conservative voice of reason in every discussion, using his age and experience to help support his views. He will also be a major figure in influencing your economic policy, trying to secure the best option for his dear home region.</p><p>Despite your desire to, he cannot be fully ignored and left to rot like most Vice Presidents. After all, the Taftites will not take a possible exit from his job lightly, and if you do, they will make your governing life even more of a living hell than it already is.</p>",
+            "description_as_running_mate": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>To placate the Taft delegation’s concerns about your nomination, you chose Governor Bricker to be your Vice President. However, while he does satisfy them, Bricker could prove to be a headache over the course of your presidency.</p><p>A midwestern conservative, Bricker is firmly against the international doctrine of both Franklin Roosevelt and your own cabinet. He does not respect you as much as another Republican would, being nine years older than you are. He will be the conservative voice of reason in every discussion, using his age and experience to help support his views. He will also be a major figure in influencing your economic policy, trying to secure the best option for his dear home region.</p><p>Despite your desire to, he cannot be fully ignored and left to rot like most Vice Presidents. After all, the Taftites will not take a possible exit from his job lightly, and if you do, they will make your governing life even more of a living hell than it already is.</p></div>",
             "candidate_score": 0.0,
             "running_mate": true
         }
@@ -205,7 +205,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>There are many reasons why choosing Douglas MacArthur as your running mate is a poor idea.  Firstly, he is a Republican, and has expressed tepid support for desegregation during his short-lived 1944 presidential campaign. </p><p>Secondly, he has grown to be something of a pariah since he led the failed Operation Downfall and was subsequently fired from his position as Supreme Allied Commander.  His overambitious and costly maneuvers were widely criticized by Democrats and he soon became a fall guy for the administration, though MacArthur denies that he holds any responsibility for the failed invasion fervently.</p><p>His selection would be widely controversial, but his extremely tough-on-defense policies would allow Russell to run a more broad campaign.  As well, MacArthur claims to have hold of “secret information” that, if presented, would unequivocally prove that Wallace is a communist.</p>",
+            "description_as_running_mate": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>There are many reasons why choosing Douglas MacArthur as your running mate is a poor idea.  Firstly, he is a Republican, and has expressed tepid support for desegregation during his short-lived 1944 presidential campaign. </p><p>Secondly, he has grown to be something of a pariah since he led the failed Operation Downfall and was subsequently fired from his position as Supreme Allied Commander.  His overambitious and costly maneuvers were widely criticized by Democrats and he soon became a fall guy for the administration, though MacArthur denies that he holds any responsibility for the failed invasion fervently.</p><p>His selection would be widely controversial, but his extremely tough-on-defense policies would allow Russell to run a more broad campaign.  As well, MacArthur claims to have hold of “secret information” that, if presented, would unequivocally prove that Wallace is a communist.</p></div>",
             "candidate_score": 0.0,
             "running_mate": true
         }
@@ -228,7 +228,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>Monroney may not be a household name, but that just might be what you need in this election. A rising star in Democratic politics, Monroney has been a five-term congressman, and has been a loyal soldier for all of Franklin Roosevelt’s programs that he ushered in over the course of his three terms.</p><p>He has also been outspoken about foreign aid towards rebuilding Europe, and has been in open support of the Hoover Commission’s efforts in providing relief to all of those in need. He has also been very critical of the Dewey administration’s supposed ''turn towards Taftism'' as he himself put it on the House floor.</p><p>As one of the most quietly influential congressmen, it will be hard to convince a man like Monroney to accept the Vice Presidency, as he has loftier goals within the Legislative Branch. But, if you try hard enough, he will be willing to go in full force for you, and bring back the White House to the ones who deserve it most.</p>",
+            "description_as_running_mate": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>Monroney may not be a household name, but that just might be what you need in this election. A rising star in Democratic politics, Monroney has been a five-term congressman, and has been a loyal soldier for all of Franklin Roosevelt’s programs that he ushered in over the course of his three terms.</p><p>He has also been outspoken about foreign aid towards rebuilding Europe, and has been in open support of the Hoover Commission’s efforts in providing relief to all of those in need. He has also been very critical of the Dewey administration’s supposed ''turn towards Taftism'' as he himself put it on the House floor.</p><p>As one of the most quietly influential congressmen, it will be hard to convince a man like Monroney to accept the Vice Presidency, as he has loftier goals within the Legislative Branch. But, if you try hard enough, he will be willing to go in full force for you, and bring back the White House to the ones who deserve it most.</p></div>",
             "candidate_score": 0.0,
             "running_mate": true
         }
@@ -251,7 +251,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>Chandler would be a unique and shocking choice for the Vice Presidency. Though he had a solid tenure in Kentucky state politics, being a competent governor who greatly expanded infrastructure programs via Franklin Roosevelt’s Rural Electrification Act and was a great friend of Kentucky’s labor institutions, his biggest controversy comes from what he has done since leaving the Governor’s Mansion.</p><p>His time as the Commissioner of Major League Baseball has ruffled many feathers, allowing Larry Doby, a black man, into the league, shattering a color barrier in the sport enforced for half a century.</p><p>Choosing Chandler, while great north of the Potomac, would incense southern party bosses, and likely would cause a full-scale walkout from the southern delegates at the convention. However, if you are content with bucking the South, Chandler would be a fantastic option to bolster your rapport with labor groups and black Americans.</p>",
+            "description_as_running_mate": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>Chandler would be a unique and shocking choice for the Vice Presidency. Though he had a solid tenure in Kentucky state politics, being a competent governor who greatly expanded infrastructure programs via Franklin Roosevelt’s Rural Electrification Act and was a great friend of Kentucky’s labor institutions, his biggest controversy comes from what he has done since leaving the Governor’s Mansion.</p><p>His time as the Commissioner of Major League Baseball has ruffled many feathers, allowing Larry Doby, a black man, into the league, shattering a color barrier in the sport enforced for half a century.</p><p>Choosing Chandler, while great north of the Potomac, would incense southern party bosses, and likely would cause a full-scale walkout from the southern delegates at the convention. However, if you are content with bucking the South, Chandler would be a fantastic option to bolster your rapport with labor groups and black Americans.</p></div>",
             "candidate_score": 0.0,
             "running_mate": true
         }
@@ -274,7 +274,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>If there aren’t any running mate candidates that are to your liking, there is no harm in having Harry Truman again. Truman, much like President Dewey, is a workhorse, coming from nothing in the fields of Missouri, and working his way up through state and eventually national politics.</p><p>He was thrown onto the ill-fated 1944 Democratic ticket as a way to prevent Wallace’s ilk from becoming more influential, and, as the public would soon realize, getting into the White House, an office which Truman would have inhabited had Roosevelt won in 1944. He is a solid moderate hand who could help quell the southern wing while also preventing a northern, more progressive revolt.</p><p>However, Truman’s relationship with labor isn’t as warm as you would hope your running mate’s to be, leaving holes that could be exploited by Dewey and his campaign. If you truly cannot choose a running mate, Truman is your man.</p>",
+            "description_as_running_mate": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>If there aren’t any running mate candidates that are to your liking, there is no harm in having Harry Truman again. Truman, much like President Dewey, is a workhorse, coming from nothing in the fields of Missouri, and working his way up through state and eventually national politics.</p><p>He was thrown onto the ill-fated 1944 Democratic ticket as a way to prevent Wallace’s ilk from becoming more influential, and, as the public would soon realize, getting into the White House, an office which Truman would have inhabited had Roosevelt won in 1944. He is a solid moderate hand who could help quell the southern wing while also preventing a northern, more progressive revolt.</p><p>However, Truman’s relationship with labor isn’t as warm as you would hope your running mate’s to be, leaving holes that could be exploited by Dewey and his campaign. If you truly cannot choose a running mate, Truman is your man.</p></div>",
             "candidate_score": 0.0,
             "running_mate": true
         }
@@ -297,7 +297,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>Once a newspaper publisher and now the leader of the Byrd political machine in Virginia, Byrd would guarantee Virginia and its 11 electoral votes if Russell selected him as his running mate.</p><p>In the Senate, Byrd was an outspoken opponent of the New Deal, a position which puts Byrd and Russell in stark contrast.  If your goal is to block the election of Stassen, Byrd would be a good choice as a member of the conservative coalition in Congress to leverage your electoral votes and come to a satisfactory agreement with Stassen.</p>",
+            "description_as_running_mate": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>Once a newspaper publisher and now the leader of the Byrd political machine in Virginia, Byrd would guarantee Virginia and its 11 electoral votes if Russell selected him as his running mate.</p><p>In the Senate, Byrd was an outspoken opponent of the New Deal, a position which puts Byrd and Russell in stark contrast.  If your goal is to block the election of Stassen, Byrd would be a good choice as a member of the conservative coalition in Congress to leverage your electoral votes and come to a satisfactory agreement with Stassen.</p></div>",
             "candidate_score": 0.0,
             "running_mate": true
         }
@@ -343,7 +343,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<p>Oh my</p>",
+            "description_as_running_mate": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>Oh my</p></div>",
             "candidate_score": 1.0,
             "running_mate": true
         }
@@ -568,6 +568,35 @@ dawnStyle.innerHTML = `
 
   #menu_container {
     background-color: #F3C1BD !important;
+  }
+
+
+  /* 1948Dawn Code 2 scrollbar, scoped to candidate/VP biographies only. */
+  .dawn-description-scroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #C74C60 #F8F8F8;
+  }
+
+  .dawn-description-scroll::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  .dawn-description-scroll::-webkit-scrollbar-track {
+    background: #E7E0D2;
+    border-left: 1px solid #4B4F9D;
+  }
+
+  .dawn-description-scroll::-webkit-scrollbar-thumb {
+    background: #C74C60;
+    border: 2px solid #E7E0D2;
+    box-shadow: inset 0 0 0 1px #4B4F9D;
+    border-radius: 0;
+  }
+
+  .dawn-description-scroll::-webkit-scrollbar-corner {
+    background: #E7E0D2;
   }
 
   a:-webkit-any-link {
