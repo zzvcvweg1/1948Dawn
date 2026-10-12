@@ -1008,11 +1008,11 @@ function setupMusicPlayer() {
   if (document.getElementById("player")) return;
 
   const defaultSongs = [
-    ["Brother Can You Spare A Dime", "Bing Crosby", "https://itsastronomical.com/assets/1932/imgur/EUcbUas.png", "https://audio.jukehost.co.uk/jRXseBAMcWRFKHt1tJ51tqbyJ3sqhKts"],
-    ["The Clouds Will Soon Roll By", "Ambrose & His Orchestra", "https://i.ytimg.com/vi/KgqZJKGHhhQ/sddefault.jpg", "https://audio.jukehost.co.uk/Hf6VPaMzNzxlALHDBcuuc5uEtkLNOMDw"],
-    ["Remember My Forgotten Man", "George Hall", "https://i.ytimg.com/vi/bCmHXAz5PFA/sddefault.jpg", "https://audio.jukehost.co.uk/MypY1myDgc0mOe9q3V3uQMPbXtyklfuw"],
-    ["It Don't Mean A Thing", "Ivie Anderson", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTqHE-NltdCBjN3dZG2LwmY2NPvZ6cOHgxEg&s", "https://audio.jukehost.co.uk/k2tL8nq9UfcAraBVSJ48LjxMotEIXHiO"],
-    ["A Lovely Way To Spend An Evening", "The Ink Spots", "https://cdn-images.dzcdn.net/images/cover/9628c446092888da5119d4c5fa00af6f/0x1900-000000-80-0-0.jpg", "https://audio.jukehost.co.uk/QV0iCDjjkWrDAWoYRVDtJ2dgVoSmFcuG"]
+    ["In the Mood", "Glenn Miller", "https://file.garden/aNtjn2887DiA_8HP/Inmood2-1-.jpg", "https://audio.jukehost.co.uk/01a13146-6b0d-724c-b585-56042e9ee55d"],
+    ["How High the Moon", "Ella Fitzgerald", "https://file.garden/aNtjn2887DiA_8HP/Inmood2-1a-.jpg", "https://audio.jukehost.co.uk/01a13148-efbd-73e5-ae5c-123024c2d11c"],
+    ["Stompin' at the Savoy", "Benny Goodman", "https://file.garden/aNtjn2887DiA_8HP/Inmooda2-1-.jpg", "https://audio.jukehost.co.uk/01a13147-6881-7365-9aa3-fec98a6ceadf"],
+    ["Powder Your Face with Sunshine", "Dean Martin", "https://file.garden/aNtjn2887DiA_8HP/Inmood2fwf-1-.jpg", "https://audio.jukehost.co.uk/01a1314a-30fb-7270-84c4-fe23d8ca74c4"],
+    ["(Get Your Kicks on) Route 66", "The King Cole Trio", "https://file.garden/aNtjn2887DiA_8HP/Inmooda2-1-%20(1).jpg", "https://audio.jukehost.co.uk/01a1314b-4e84-7380-a465-6b6004a9a489"]
   ];
 
   if (activePlaylist.songs.length === 0) {
