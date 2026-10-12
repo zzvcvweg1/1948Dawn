@@ -484,11 +484,10 @@ campaignTrail_temp.credits = "<button onclick='credits()'>Lookout Modding Team</
 RecReading=true
    credits = function() {
     c = [
-        "Directed by Noise",
+        "Directed by Noise and Bigglesuede",
         "Written by Noise, with Additional Writing by NebraskanDynasty and Bigglesuede",
-        "Created and Produced by Bigglesuede",
-        "Coding by Bigglesuede",
-        "Art and Design by E, Astronomical and StrawberryMaster",
+        "Produced and coded by Bigglesuede",
+        "Art and Design by E and StrawberryMaster",
         "Soundtrack Curated by NebraskanDynasty, and Bigglesuede"
     ]
     text = "CREDITS:\n\n"
