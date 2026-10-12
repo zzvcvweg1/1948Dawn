@@ -485,11 +485,11 @@ RecReading=true
    credits = function() {
     c = [
         "Directed by Noise",
-        "Written by Noise",
-        "Secondary Writing Help by NebraskanDynasty and Bigglesuede",
+        "Written by Noise, with Additional Writing by NebraskanDynasty and Bigglesuede",
         "Created and Produced by Bigglesuede",
-        "Coded by Bigglesuede",
-        "Art Design by E and RonnieRouser"
+        "Coding by Bigglesuede",
+        "Art and Design by E, Astronomical and StrawberryMaster",
+        "Soundtrack Curated by NebraskanDynasty, and Bigglesuede"
     ]
     text = "CREDITS:\n\n"
     for (i in c) {
