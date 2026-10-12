@@ -4718,7 +4718,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 116,
             "state": 340,
-            "state_multiplier": 0.844798
+            "state_multiplier": 0.864798
         }
     },
     {
@@ -4817,7 +4817,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 116,
             "state": 351,
-            "state_multiplier": 0.885901
+            "state_multiplier": 0.895901
         }
     },
     {
@@ -11193,6 +11193,9 @@ $(`<style>
 .dawn-ending-scroll::-webkit-scrollbar-corner {
     background: #E7E0D2;
 }
+.dawn-ending-scroll {
+    animation: dawn-paper-reveal 0.28s ease-out both;
+}
 #question_form label {
     display: inline-block;
     width: 93%;
@@ -11202,7 +11205,8 @@ $(`<style>
     border-left: 3px solid transparent;
     border-radius: 2px;
     box-sizing: border-box;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
+    transition: background-color 0.18s ease-out, border-color 0.18s ease-out;
+    animation: dawn-ink-reveal 0.22s ease-out both;
     cursor: pointer;
 }
 
@@ -11666,12 +11670,13 @@ dawnDeweyTooltipStyle.textContent = `
         text-decoration-thickness: 1px;
         text-underline-offset: 2px;
         border-radius: 1px;
-        transition: background-color 0.12s ease, box-shadow 0.12s ease;
+        transition: background-color 0.18s ease-out, box-shadow 0.18s ease-out, text-decoration-color 0.18s ease-out;
     }
 
     .dawn-dewey-tooltip-term:hover {
         background: rgba(199, 76, 96, 0.11);
         box-shadow: 0 1px 0 rgba(75, 79, 157, 0.12);
+        text-decoration-color: #C74C60;
     }
 
     #dawn-dewey-tooltip {
@@ -11699,13 +11704,15 @@ dawnDeweyTooltipStyle.textContent = `
 
         opacity: 0;
         visibility: hidden;
+        transform: translateY(3px);
         pointer-events: none;
-        transition: opacity 0.12s ease, visibility 0.12s ease;
+        transition: opacity 0.18s ease-out, transform 0.18s ease-out, visibility 0.18s ease-out;
     }
 
     #dawn-dewey-tooltip.dawn-dewey-tooltip-visible {
         opacity: 1;
         visibility: visible;
+        transform: translateY(0);
     }
 
     #dawn-dewey-tooltip .dawn-dewey-tooltip-media {
