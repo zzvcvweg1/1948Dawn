@@ -562,39 +562,61 @@ dawnStyle.innerHTML = `
   }
 
   @keyframes dawn-paper-reveal {
-    from { opacity: 0.52; }
-    to { opacity: 1; }
+    0% {
+      opacity: 0.92;
+    }
+    64% {
+      opacity: 0.995;
+    }
+    84%, 100% {
+      opacity: 1;
+    }
   }
 
   @keyframes dawn-ink-reveal {
-    from { opacity: 0.7; }
-    to { opacity: 1; }
+    0% { opacity: 0.91; }
+    70% { opacity: 0.995; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes dawn-ending-reveal {
+    0% {
+      opacity: 0.91;
+      transform: translateY(2px);
+    }
+    68% {
+      opacity: 0.995;
+      transform: translateY(0.25px);
+    }
+    86%, 100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .overlay_window {
     height: auto;
-    animation: dawn-paper-reveal 0.2s ease-out both;
+    animation: dawn-paper-reveal 0.68s cubic-bezier(0.23, 0.63, 0.29, 1) both;
   }
 
   #screen0,
   #screen1,
   #screen2,
   #feedback_content p,
-  #visit_content p,
-  .inner_window_question h3 {
-    animation: dawn-ink-reveal 0.23s ease-out both;
+  #visit_content p {
+    animation: dawn-ink-reveal 0.7s cubic-bezier(0.24, 0.59, 0.31, 1) both;
   }
 
   #game_window button,
   #game_window input[type="button"],
   #game_window input[type="submit"] {
-    transition: background-color 0.17s ease-out, border-color 0.17s ease-out, box-shadow 0.17s ease-out;
+    transition: background-color 0.42s ease, border-color 0.42s ease, box-shadow 0.42s ease;
   }
 
   #game_window button:not(:disabled):hover,
   #game_window input[type="button"]:not(:disabled):hover,
   #game_window input[type="submit"]:not(:disabled):hover {
-    box-shadow: 0 1px 4px rgba(75, 79, 157, 0.17);
+    box-shadow: 0 1px 3px rgba(75, 79, 157, 0.12);
   }
 
   #game_window button:focus-visible,
@@ -612,7 +634,6 @@ dawnStyle.innerHTML = `
     #screen2,
     #feedback_content p,
     #visit_content p,
-    .inner_window_question h3,
     #question_form label,
     .dawn-ending-scroll {
       animation: none !important;
@@ -1153,10 +1174,10 @@ function setupMusicPlayer() {
       cursor: pointer;
     }
     #controls img {
-      transition: transform 0.2s ease, filter 0.17s ease;
+      transition: filter 0.42s ease;
     }
     #controls img:hover {
-      filter: brightness(1.08);
+      filter: brightness(1.035);
     }
     #progress-bar-container {
       width: 100%;
