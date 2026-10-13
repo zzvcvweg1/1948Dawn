@@ -16502,6 +16502,124 @@ if (!dawnMcNuttTooltipBox) {
 let dawnMcNuttTooltipCurrentTrigger = null;
 let dawnMcNuttTooltipShowTimer = null;
 
+const dawnMcNuttTooltipImageCache = new Map();
+const dawnMcNuttTooltipImagePriorityQueue = [];
+const dawnMcNuttTooltipImageBackgroundQueue = [];
+let dawnMcNuttTooltipImageActive = 0;
+let dawnMcNuttTooltipImageBackgroundActive = 0;
+let dawnMcNuttTooltipImageBackgroundQueued = false;
+
+if (!document.querySelector('link[rel="preconnect"][href="https://file.garden"]')) {
+    const connection = document.createElement("link");
+    connection.rel = "preconnect";
+    connection.href = "https://file.garden";
+    document.head.appendChild(connection);
+}
+
+function dawnMcNuttTooltipPumpImages() {
+    while (dawnMcNuttTooltipImageActive < 3) {
+        const priority = dawnMcNuttTooltipImagePriorityQueue.length > 0;
+        const record = priority
+            ? dawnMcNuttTooltipImagePriorityQueue.shift()
+            : dawnMcNuttTooltipImageBackgroundActive < 2
+                ? dawnMcNuttTooltipImageBackgroundQueue.shift()
+                : null;
+        if (!record) break;
+        if (record.state !== "queued") continue;
+
+        record.state = "loading";
+        dawnMcNuttTooltipImageActive++;
+        if (!priority) dawnMcNuttTooltipImageBackgroundActive++;
+
+        const finish = success => {
+            dawnMcNuttTooltipImageActive--;
+            if (!priority) dawnMcNuttTooltipImageBackgroundActive--;
+            record.state = success ? "loaded" : "error";
+            record.resolve(success);
+            dawnMcNuttTooltipPumpImages();
+        };
+
+        record.image.addEventListener("load", () => finish(record.image.naturalWidth > 0), { once: true });
+        record.image.addEventListener("error", () => finish(false), { once: true });
+        record.image.src = record.url;
+    }
+}
+
+function dawnMcNuttTooltipPreloadImage(url, priority = false) {
+    if (!url) return null;
+
+    let record = dawnMcNuttTooltipImageCache.get(url);
+    if (!record) {
+        const image = new Image();
+        image.alt = "";
+        image.decoding = "async";
+        image.loading = "eager";
+        image.fetchPriority = priority ? "high" : "low";
+
+        record = { url, image, state: "queued", queue: priority ? "priority" : "background", decoded: false };
+        record.promise = new Promise(resolve => { record.resolve = resolve; });
+        dawnMcNuttTooltipImageCache.set(url, record);
+
+        if (priority) dawnMcNuttTooltipImagePriorityQueue.push(record);
+        else dawnMcNuttTooltipImageBackgroundQueue.push(record);
+    } else if (priority) {
+        record.image.fetchPriority = "high";
+        if (record.state === "queued" && record.queue === "background") {
+            const index = dawnMcNuttTooltipImageBackgroundQueue.indexOf(record);
+            if (index !== -1) dawnMcNuttTooltipImageBackgroundQueue.splice(index, 1);
+            record.queue = "priority";
+            dawnMcNuttTooltipImagePriorityQueue.push(record);
+        }
+    }
+
+    dawnMcNuttTooltipPumpImages();
+    return record;
+}
+
+function dawnMcNuttTooltipPrepareImage(record) {
+    if (!record.decodePromise) {
+        record.decodePromise = record.promise.then(success => {
+            if (!success) return false;
+            if (typeof record.image.decode !== "function") {
+                record.decoded = true;
+                return true;
+            }
+            return record.image.decode().then(() => {
+                record.decoded = true;
+                return true;
+            }, () => record.image.naturalWidth > 0);
+        });
+    }
+    return record.decodePromise;
+}
+
+function dawnMcNuttTooltipPreloadVisibleImages() {
+    document.querySelectorAll(".dawn-mcnutt-tooltip-term").forEach(trigger => {
+        const entry = dawnMcNuttTooltips[Number(trigger.dataset.dawnMcNuttTooltipIndex)];
+        if (!entry || !entry.image) return;
+        const record = dawnMcNuttTooltipPreloadImage(entry.image, true);
+        dawnMcNuttTooltipPrepareImage(record);
+    });
+}
+
+function dawnMcNuttTooltipPreloadRemainingImages() {
+    if (dawnMcNuttTooltipImageBackgroundQueued) return;
+    dawnMcNuttTooltipImageBackgroundQueued = true;
+
+    const queueImages = () => {
+        if (!dawnMcNuttTooltipSideIsActive()) return;
+        dawnMcNuttTooltips.forEach(entry => {
+            if (entry.image) dawnMcNuttTooltipPreloadImage(entry.image);
+        });
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+        window.requestIdleCallback(queueImages, { timeout: 1500 });
+    } else {
+        setTimeout(queueImages, 800);
+    }
+}
+
 function dawnMcNuttTooltipPosition(trigger) {
     if (!trigger || !trigger.isConnected || !dawnMcNuttTooltipBox) return;
 
@@ -16546,28 +16664,18 @@ function dawnMcNuttTooltipRender(trigger) {
     if (entry.image) {
         const media = document.createElement("div");
         media.className = "dawn-mcnutt-tooltip-media";
-
-        const image = document.createElement("img");
-        image.src = entry.image;
-        image.alt = "";
-        image.decoding = "async";
-        image.loading = "eager";
-
-        image.addEventListener("load", () => {
-            if (dawnMcNuttTooltipCurrentTrigger === trigger) {
-                dawnMcNuttTooltipPosition(trigger);
-            }
-        });
-
-        image.addEventListener("error", () => {
-            media.remove();
-            if (dawnMcNuttTooltipCurrentTrigger === trigger) {
-                dawnMcNuttTooltipPosition(trigger);
-            }
-        });
-
-        media.appendChild(image);
         dawnMcNuttTooltipBox.appendChild(media);
+
+        const record = dawnMcNuttTooltipPreloadImage(entry.image, true);
+        const attach = success => {
+            if (dawnMcNuttTooltipCurrentTrigger !== trigger || !media.isConnected) return;
+            if (success) media.appendChild(record.image);
+            else media.remove();
+            dawnMcNuttTooltipPosition(trigger);
+        };
+
+        if (record.decoded) attach(true);
+        else dawnMcNuttTooltipPrepareImage(record).then(attach);
     }
 
     const copy = document.createElement("div");
@@ -16704,6 +16812,10 @@ function dawnMcNuttTooltipQueueScan() {
     requestAnimationFrame(() => {
         dawnMcNuttTooltipScanQueued = false;
         dawnMcNuttTooltipScanVisibleText();
+        if (dawnMcNuttTooltipSideIsActive()) {
+            dawnMcNuttTooltipPreloadVisibleImages();
+            dawnMcNuttTooltipPreloadRemainingImages();
+        }
 
         if (
             dawnMcNuttTooltipCurrentTrigger &&
