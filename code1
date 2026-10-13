@@ -602,44 +602,32 @@ dawnStyle.innerHTML = `
   @keyframes dawn-advisor-settle {
     0% {
       opacity: 0.16;
-      transform: translateY(8px) scale(0.982);
+      margin-top: 7px;
     }
     28% {
-      opacity: 0.69;
-      transform: translateY(5px) scale(0.991);
+      opacity: 0.72;
+      margin-top: 4px;
     }
-    64% {
+    68% {
       opacity: 1;
-      transform: translateY(-0.7px) scale(1.001);
-    }
-    83% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+      margin-top: 0;
     }
     100% {
       opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  @keyframes dawn-advisor-shade {
-    0% {
-      opacity: 0;
-    }
-    65%, 100% {
-      opacity: 0.6;
+      margin-top: 0;
     }
   }
 
   #visit_window,
   #feedback_window {
-    transform-origin: 50% 50%;
-    animation: dawn-advisor-settle 0.92s cubic-bezier(0.42, 0, 0.58, 1) both;
+    opacity: 1;
+    margin-top: 0;
+    animation: dawn-advisor-settle 0.82s cubic-bezier(0.22, 0.68, 0.3, 1);
   }
 
   #visit_overlay,
   #feedback_overlay {
-    animation: dawn-advisor-shade 0.83s cubic-bezier(0.42, 0, 0.58, 1) both;
+    animation: none;
   }
 
   #screen0,
