@@ -11780,6 +11780,124 @@ if (!dawnDeweyTooltipBox) {
 let dawnDeweyTooltipCurrentTrigger = null;
 let dawnDeweyTooltipShowTimer = null;
 
+const dawnDeweyTooltipImageCache = new Map();
+const dawnDeweyTooltipImagePriorityQueue = [];
+const dawnDeweyTooltipImageBackgroundQueue = [];
+let dawnDeweyTooltipImageActive = 0;
+let dawnDeweyTooltipImageBackgroundActive = 0;
+let dawnDeweyTooltipImageBackgroundQueued = false;
+
+if (!document.querySelector('link[rel="preconnect"][href="https://file.garden"]')) {
+    const connection = document.createElement("link");
+    connection.rel = "preconnect";
+    connection.href = "https://file.garden";
+    document.head.appendChild(connection);
+}
+
+function dawnDeweyTooltipPumpImages() {
+    while (dawnDeweyTooltipImageActive < 3) {
+        const priority = dawnDeweyTooltipImagePriorityQueue.length > 0;
+        const record = priority
+            ? dawnDeweyTooltipImagePriorityQueue.shift()
+            : dawnDeweyTooltipImageBackgroundActive < 2
+                ? dawnDeweyTooltipImageBackgroundQueue.shift()
+                : null;
+        if (!record) break;
+        if (record.state !== "queued") continue;
+
+        record.state = "loading";
+        dawnDeweyTooltipImageActive++;
+        if (!priority) dawnDeweyTooltipImageBackgroundActive++;
+
+        const finish = success => {
+            dawnDeweyTooltipImageActive--;
+            if (!priority) dawnDeweyTooltipImageBackgroundActive--;
+            record.state = success ? "loaded" : "error";
+            record.resolve(success);
+            dawnDeweyTooltipPumpImages();
+        };
+
+        record.image.addEventListener("load", () => finish(record.image.naturalWidth > 0), { once: true });
+        record.image.addEventListener("error", () => finish(false), { once: true });
+        record.image.src = record.url;
+    }
+}
+
+function dawnDeweyTooltipPreloadImage(url, priority = false) {
+    if (!url) return null;
+
+    let record = dawnDeweyTooltipImageCache.get(url);
+    if (!record) {
+        const image = new Image();
+        image.alt = "";
+        image.decoding = "async";
+        image.loading = "eager";
+        image.fetchPriority = priority ? "high" : "low";
+
+        record = { url, image, state: "queued", queue: priority ? "priority" : "background", decoded: false };
+        record.promise = new Promise(resolve => { record.resolve = resolve; });
+        dawnDeweyTooltipImageCache.set(url, record);
+
+        if (priority) dawnDeweyTooltipImagePriorityQueue.push(record);
+        else dawnDeweyTooltipImageBackgroundQueue.push(record);
+    } else if (priority) {
+        record.image.fetchPriority = "high";
+        if (record.state === "queued" && record.queue === "background") {
+            const index = dawnDeweyTooltipImageBackgroundQueue.indexOf(record);
+            if (index !== -1) dawnDeweyTooltipImageBackgroundQueue.splice(index, 1);
+            record.queue = "priority";
+            dawnDeweyTooltipImagePriorityQueue.push(record);
+        }
+    }
+
+    dawnDeweyTooltipPumpImages();
+    return record;
+}
+
+function dawnDeweyTooltipPrepareImage(record) {
+    if (!record.decodePromise) {
+        record.decodePromise = record.promise.then(success => {
+            if (!success) return false;
+            if (typeof record.image.decode !== "function") {
+                record.decoded = true;
+                return true;
+            }
+            return record.image.decode().then(() => {
+                record.decoded = true;
+                return true;
+            }, () => record.image.naturalWidth > 0);
+        });
+    }
+    return record.decodePromise;
+}
+
+function dawnDeweyTooltipPreloadVisibleImages() {
+    document.querySelectorAll(".dawn-dewey-tooltip-term").forEach(trigger => {
+        const entry = dawnDeweyTooltips[Number(trigger.dataset.dawnDeweyTooltipIndex)];
+        if (!entry || !entry.image) return;
+        const record = dawnDeweyTooltipPreloadImage(entry.image, true);
+        dawnDeweyTooltipPrepareImage(record);
+    });
+}
+
+function dawnDeweyTooltipPreloadRemainingImages() {
+    if (dawnDeweyTooltipImageBackgroundQueued) return;
+    dawnDeweyTooltipImageBackgroundQueued = true;
+
+    const queueImages = () => {
+        if (!dawnDeweyTooltipSideIsActive()) return;
+        dawnDeweyTooltips.forEach(entry => {
+            if (entry.image) dawnDeweyTooltipPreloadImage(entry.image);
+        });
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+        window.requestIdleCallback(queueImages, { timeout: 1500 });
+    } else {
+        setTimeout(queueImages, 800);
+    }
+}
+
 function dawnDeweyTooltipPosition(trigger) {
     if (!trigger || !trigger.isConnected || !dawnDeweyTooltipBox) return;
 
@@ -11824,28 +11942,18 @@ function dawnDeweyTooltipRender(trigger) {
     if (entry.image) {
         const media = document.createElement("div");
         media.className = "dawn-dewey-tooltip-media";
-
-        const image = document.createElement("img");
-        image.src = entry.image;
-        image.alt = "";
-        image.decoding = "async";
-        image.loading = "eager";
-
-        image.addEventListener("load", () => {
-            if (dawnDeweyTooltipCurrentTrigger === trigger) {
-                dawnDeweyTooltipPosition(trigger);
-            }
-        });
-
-        image.addEventListener("error", () => {
-            media.remove();
-            if (dawnDeweyTooltipCurrentTrigger === trigger) {
-                dawnDeweyTooltipPosition(trigger);
-            }
-        });
-
-        media.appendChild(image);
         dawnDeweyTooltipBox.appendChild(media);
+
+        const record = dawnDeweyTooltipPreloadImage(entry.image, true);
+        const attach = success => {
+            if (dawnDeweyTooltipCurrentTrigger !== trigger || !media.isConnected) return;
+            if (success) media.appendChild(record.image);
+            else media.remove();
+            dawnDeweyTooltipPosition(trigger);
+        };
+
+        if (record.decoded) attach(true);
+        else dawnDeweyTooltipPrepareImage(record).then(attach);
     }
 
     const copy = document.createElement("div");
@@ -11982,6 +12090,10 @@ function dawnDeweyTooltipQueueScan() {
     requestAnimationFrame(() => {
         dawnDeweyTooltipScanQueued = false;
         dawnDeweyTooltipScanVisibleText();
+        if (dawnDeweyTooltipSideIsActive()) {
+            dawnDeweyTooltipPreloadVisibleImages();
+            dawnDeweyTooltipPreloadRemainingImages();
+        }
 
         if (
             dawnDeweyTooltipCurrentTrigger &&
