@@ -666,30 +666,46 @@ dawnStyle.innerHTML = `
 
 
   /* 1948Dawn Code 2 scrollbar, scoped to candidate/VP biographies only. */
+  #overall_details_container {
+    max-height: min(29em, 60vh);
+    overflow-y: auto;
+    overflow-x: auto;
+    overscroll-behavior: contain;
+  }
+
   .dawn-description-scroll {
     overflow-y: scroll;
     overflow-x: hidden;
+  }
+
+  .dawn-description-scroll,
+  #overall_details_container {
     scrollbar-width: thin;
     scrollbar-color: #C74C60 #F8F8F8;
   }
 
-  .dawn-description-scroll::-webkit-scrollbar {
+  .dawn-description-scroll::-webkit-scrollbar,
+  #overall_details_container::-webkit-scrollbar {
     width: 11px;
+    height: 11px;
   }
 
-  .dawn-description-scroll::-webkit-scrollbar-track {
+  .dawn-description-scroll::-webkit-scrollbar-track,
+  #overall_details_container::-webkit-scrollbar-track {
     background: #f8f8f8;
     border-left: 1px solid #4B4F9D;
   }
 
-  .dawn-description-scroll::-webkit-scrollbar-thumb {
+  .dawn-description-scroll::-webkit-scrollbar-thumb,
+  #overall_details_container::-webkit-scrollbar-thumb {
     background: #C74C60;
     border: 2px solid #f8f8f8;
     box-shadow: inset 0 0 0 1px #4B4F9D;
     border-radius: 0;
   }
 
-  .dawn-description-scroll::-webkit-scrollbar-corner {
+  .dawn-description-scroll::-webkit-scrollbar-corner,
+  #overall_details_container::-webkit-scrollbar-corner {
     background: #f8f8f8;
   }
 
