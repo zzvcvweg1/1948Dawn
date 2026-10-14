@@ -1,10 +1,10 @@
 campaignTrail_temp.modBoxTheme = {
-    "header_color": "#CA515F",
+    "header_color": "#CB495E",
     "header_text_color": "#FFFFFF",
     "description_text_color": "#FFFFFF",
-    "description_background_color": "#CA515F",
+    "description_background_color": "#CB495E",
     "main_color": "#808080",
-    "secondary_color": "#5557AD",
+    "secondary_color": "#5855AF",
     "ui_text_color": "#FFFFFF"
 }
 
@@ -37,8 +37,8 @@ campaignTrail_temp.candidate_json = [
             "state": "New York",
             "priority": 2,
             "description": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>Few could have imagined Thomas Dewey in this position even five short years ago. Working tirelessly throughout his life to get to where he has gotten himself, Dewey has accomplished in just over twenty years as an adult what most hope to achieve in a lifetime. In 1940, at just 38 years old, he nearly captured the Republican nomination in his own right, losing narrowly to Wendell Willkie.</p><p>But, now that he is in the White House, the days of him being a wunderkid are now over. With the public ambivalent towards his ascendancy, it is Dewey’s duty to put out both Germany and Japan and birth a century of American dominance on the global stage.</p><p>However, the obstacles are laid out clearly; the British Lion and the Russian Bear seek the same postwar glory as the United States, hellbent on getting it for themselves, even at the expense of their supposed allies. Dewey must calm three storms at once, but if he works hard, he can- no, he will do it.</p><p>Oh, yes, he has to run for re-election too...</p></div>",
-            "color_hex": "#CA5058",
-            "secondary_color_hex": "#CA5058",
+            "color_hex": "#CC485A",
+            "secondary_color_hex": "#CC485A",
             "is_active": 1,
             "image_url": "https://i.imgur.com/mV72axj.png",
             "electoral_victory_message": "<h3>Congratulations! You won the 1968 Election!</h3><p>This is truly the comeback for the ages.</p><p>When you’d won the nomination, many couldn’t decide if you were genius or crazy, but there’s no doubt now. You’ve managed to do to Johnson what Kennedy did to you 8 years ago.</p><p>The next 4 years are yours to define. You can finalize the peace agreement for Vietnam, set the course on Civil Rights, and redefine the party for years to come. If all goes well, you and Eisenhower may become the first President-Vice President duo to serve 2 full terms each.</p><p>Just make sure you don’t let your ambitions get the better of you, and you’ll be fine.</p><p>Good Luck President Nixon! You have the silent majority on your side!</p>",
@@ -60,8 +60,8 @@ campaignTrail_temp.candidate_json = [
             "state": "Indiana",
             "priority": 1,
             "description": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>With the collapse of Franklin Roosevelt’s hegemony over American politics and the Democratic Party at large, Paul V. McNutt has to fill perhaps the largest shoes of any president since Adams succeeded Washington. Despite the expectations of the party to nominate someone like Roosevelt, they have decided to nominate a candidate that has Roosevelt rolling in his grave.</p><p>Oftentimes combative towards the former president, McNutt still believes that Roosevelt liked him. He followed him wherever he went, begging for his support even though he did not give him his own. However, his loyalty is no longer in question, taking the nomination from prospective progressive candidates through the support of various urban machines.</p><p>In order to defeat President Dewey, McNutt must balance the vast and unstable Roosevelt coalition - touting his humanitarian accomplishments, his support for the New Deal, and mitigating his frosty relationship with labor, all with the risk of a progressive splinter forming should he offend or ignore that faction.</p></div>",
-            "color_hex": "#5358AE",
-            "secondary_color_hex": "#5358AE",
+            "color_hex": "#5757B0",
+            "secondary_color_hex": "#5757B0",
             "is_active": 1,
             "image_url": "https://i.imgur.com/0cudDE6.png",
             "electoral_victory_message": "<h3>Congratulations Mr President, you’ve won the election of 2024.</h3><p>You did it, you won. This doesn’t come as a surprise to really anyone besides Trump’s most die hard supporters. It appears the right wing nature of Trump and even DeSantis has failed once again. Conservatives all across the nation are scrambling. Fraud accusations will come but most don’t believe them anymore. Good Luck Mr President! You are the oldest President ever after all.</p>",
@@ -152,8 +152,8 @@ campaignTrail_temp.candidate_json = [
             "state": "Ohio",
             "priority": 6,
             "description": "'",
-            "color_hex": "#CA5058",
-            "secondary_color_hex": "#CA5058",
+            "color_hex": "#CC485A",
+            "secondary_color_hex": "#CC485A",
             "is_active": 0,
             "image_url": "https://i.imgur.com/QXASeZv.png",
             "electoral_victory_message": "'",
@@ -497,20 +497,20 @@ RecReading=true
     alert(text)
 }
 
-HistHexcolour = ["#CA5058", "#5358AE", "#ff880b", "#765049"];
+HistHexcolour = ["#CC485A", "#5757B0", "#ff880b", "#765049"];
 HistName = [" Harold Stassen", " Henry Wallace", " Richard Russell", " Norman Thomas"];
 HistEV = [301, 171, 59, 0];
 HistPV = ["23,366,892", "22,568,557", "2,014,903", "110,022"];
 HistPVP = ["48.6%", "47.0%", "4.2%", "0.2%"];
 
-$("#game_window")[0].style.borderColor = "#4B4D98"
-$(".container")[0].style.backgroundColor = "#5557AD"
-$("#game_window")[0].style.backgroundColor = "#F3C1BD"
+$("#game_window")[0].style.borderColor = "#4E4C9A"
+$(".container")[0].style.backgroundColor = "#5855AF"
+$("#game_window")[0].style.backgroundColor = "#F3C1BF"
 
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#CA515F"
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#CB495E"
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#808080"
 
-document.head.innerHTML += "<style>#results_container { color: #000000; } .inner_window_w_desc { background-color: #F3C1BD !important; }</style>";
+document.head.innerHTML += "<style>#results_container { color: #000000; } .inner_window_w_desc { background-color: #F3C1BF !important; }</style>";
 
 let dawnStyle = document.createElement("style")
 dawnStyle.type = "text/css"
@@ -518,7 +518,7 @@ dawnStyle.id = "1948-dawn-style"
 dawnStyle.innerHTML = `
   body {
     background:
-      linear-gradient(rgba(243, 193, 189, 0.14), rgba(243, 193, 189, 0.14)),
+      linear-gradient(rgba(243, 193, 191, 0.14), rgba(243, 193, 191, 0.14)),
       url("https://i.imgur.com/TFUG54A.png");
     background-size: cover;
     background-position: center;
@@ -527,7 +527,7 @@ dawnStyle.innerHTML = `
   }
 
   .campaign_trail_start_emphasis {
-    background-color: #CA515F;
+    background-color: #CB495E;
   }
 
   #state_info h3,
@@ -544,12 +544,12 @@ dawnStyle.innerHTML = `
 
   #overall_result_container,
   #state_result_container {
-    background-color: #F3C1BD;
+    background-color: #F3C1BF;
   }
 
   #campaign_sign {
-    background-color: #CA515F;
-    border-color: #4B4D98;
+    background-color: #CB495E;
+    border-color: #4E4C9A;
   }
 
   #map_container {
@@ -622,14 +622,14 @@ dawnStyle.innerHTML = `
   #game_window button:not(:disabled):hover,
   #game_window input[type="button"]:not(:disabled):hover,
   #game_window input[type="submit"]:not(:disabled):hover {
-    box-shadow: 0 1px 3px rgba(75, 79, 157, 0.12);
+    box-shadow: 0 1px 3px rgba(78, 77, 159, 0.12);
   }
 
   #game_window button:focus-visible,
   #game_window input[type="button"]:focus-visible,
   #game_window input[type="submit"]:focus-visible,
   #question_form input[type="radio"]:focus-visible + label {
-    outline: 2px solid #4B4F9D;
+    outline: 2px solid #4E4D9F;
     outline-offset: 2px;
   }
 
@@ -661,7 +661,7 @@ dawnStyle.innerHTML = `
   }
 
   #menu_container {
-    background-color: #F3C1BD !important;
+    background-color: #F3C1BF !important;
   }
 
 
@@ -681,7 +681,7 @@ dawnStyle.innerHTML = `
   .dawn-description-scroll,
   #overall_details_container {
     scrollbar-width: thin;
-    scrollbar-color: #C74C60 #F8F8F8;
+    scrollbar-color: #C94960 #F8F8F8;
   }
 
   .dawn-description-scroll::-webkit-scrollbar,
@@ -693,14 +693,14 @@ dawnStyle.innerHTML = `
   .dawn-description-scroll::-webkit-scrollbar-track,
   #overall_details_container::-webkit-scrollbar-track {
     background: #f8f8f8;
-    border-left: 1px solid #4B4F9D;
+    border-left: 1px solid #4E4D9F;
   }
 
   .dawn-description-scroll::-webkit-scrollbar-thumb,
   #overall_details_container::-webkit-scrollbar-thumb {
-    background: #C74C60;
+    background: #C94960;
     border: 2px solid #f8f8f8;
-    box-shadow: inset 0 0 0 1px #4B4F9D;
+    box-shadow: inset 0 0 0 1px #4E4D9F;
     border-radius: 0;
   }
 
