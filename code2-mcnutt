@@ -16519,11 +16519,12 @@ if (!document.querySelector('link[rel="preconnect"][href="https://file.garden"]'
 function dawnMcNuttTooltipPumpImages() {
     while (dawnMcNuttTooltipImageActive < 3) {
         const priority = dawnMcNuttTooltipImagePriorityQueue.length > 0;
-        const record = priority
-            ? dawnMcNuttTooltipImagePriorityQueue.shift()
-            : dawnMcNuttTooltipImageBackgroundActive < 2
-                ? dawnMcNuttTooltipImageBackgroundQueue.shift()
-                : null;
+        let record = null;
+        if (priority) {
+            record = dawnMcNuttTooltipImagePriorityQueue.shift();
+        } else if (dawnMcNuttTooltipImageBackgroundActive < 2) {
+            record = dawnMcNuttTooltipImageBackgroundQueue.shift();
+        }
         if (!record) break;
         if (record.state !== "queued") continue;
 
@@ -16607,7 +16608,10 @@ function dawnMcNuttTooltipPreloadRemainingImages() {
     dawnMcNuttTooltipImageBackgroundQueued = true;
 
     const queueImages = () => {
-        if (!dawnMcNuttTooltipSideIsActive()) return;
+        if (!dawnMcNuttTooltipSideIsActive()) {
+            dawnMcNuttTooltipImageBackgroundQueued = false;
+            return;
+        }
         dawnMcNuttTooltips.forEach(entry => {
             if (entry.image) dawnMcNuttTooltipPreloadImage(entry.image);
         });
