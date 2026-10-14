@@ -10148,7 +10148,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 49002,
             "candidate": 117,
-            "answer_feedback": "It takes much deliberation, but Stalin refuses to agree. It takes much cajoling from Churchill to make Stalin even remotely open to another discussion. You speak with Dulles after returning to Washington, where he remarks, “This is why it should have been me, Tom.” You hang your head in sorrow later that evening in the Oval Office."
+            "answer_feedback": "It takes much deliberation, but Stalin refuses to agree. It takes much cajoling from Churchill to make Uncle Joe even remotely open to another discussion. You speak with Dulles after returning to Washington, where he remarks, “This is why it should have been me, Tom.” You hang your head in sorrow later that evening in the Oval Office."
         }
     },
     {
@@ -10157,7 +10157,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 49003,
             "candidate": 117,
-            "answer_feedback": "Stalin and Churchill are caught off guard by this, but they comply anyhow. You set the borders as fairly as possible, though Stalin gets a better deal out of it than you would have liked. Berlin and Austria are divided up fairly as well. You hope that this fragile alliance can continue for as long as it can, as your trust in Stalin is extremely low."
+            "answer_feedback": "Stalin and Churchill are caught off guard by this, but they comply anyhow. You set the borders as fairly as possible, though the Man of Steel gets a better deal out of it than you would have liked. Berlin and Austria are divided up fairly as well. You hope that this fragile alliance can continue for as long as it can, as your trust in Stalin is extremely low."
         }
     },
     {
@@ -11306,6 +11306,8 @@ const dawnDeweyTooltips = [
     "terms": [
       "Joseph Stalin",
       "Stalin"
+      "Uncle Joe"
+      "Man of Steel"
     ],
     "description": "Always plotting, at least as far as you’re concerned.",
     "image": "https://file.garden/aNtjn2887DiA_8HP/s-blob-v1-IMAGE-9OFhu2jBs0w.png"
