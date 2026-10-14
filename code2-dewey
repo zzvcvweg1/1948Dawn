@@ -11194,7 +11194,7 @@ $(`<style>
     background: #E7E0D2;
 }
 .dawn-ending-scroll {
-    animation: dawn-ending-reveal 0.83s cubic-bezier(0.23, 0.63, 0.29, 1) both;
+    animation: dawn-ending-reveal 0.77s cubic-bezier(0.23, 0.63, 0.29, 1) both;
 }
 #question_form label {
     display: inline-block;
@@ -11205,7 +11205,7 @@ $(`<style>
     border-left: 3px solid transparent;
     border-radius: 2px;
     box-sizing: border-box;
-    transition: background-color 0.43s ease, border-color 0.43s ease;
+    transition: background-color 0.34s ease, border-color 0.34s ease;
     cursor: pointer;
 }
 
@@ -11669,7 +11669,7 @@ dawnDeweyTooltipStyle.textContent = `
         text-decoration-thickness: 1px;
         text-underline-offset: 2px;
         border-radius: 1px;
-        transition: background-color 0.4s ease, box-shadow 0.4s ease, text-decoration-color 0.4s ease;
+        transition: background-color 0.34s ease, box-shadow 0.34s ease, text-decoration-color 0.34s ease;
     }
 
     .dawn-dewey-tooltip-term:hover {
