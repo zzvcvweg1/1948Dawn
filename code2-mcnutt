@@ -15920,7 +15920,7 @@ $(`<style>
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
-    scrollbar-color: #C74C60 #F8F8F8;
+    scrollbar-color: #C94960 #F8F8F8;
 }
 
 .inner_window_question > .inner_inner_window::-webkit-scrollbar,
@@ -15931,14 +15931,14 @@ $(`<style>
 .inner_window_question > .inner_inner_window::-webkit-scrollbar-track,
 .dawn-ending-scroll::-webkit-scrollbar-track {
     background: #F8F8F8;
-    border-left: 1px solid #4B4F9D;
+    border-left: 1px solid #4E4D9F;
 }
 
 .inner_window_question > .inner_inner_window::-webkit-scrollbar-thumb,
 .dawn-ending-scroll::-webkit-scrollbar-thumb {
-    background: #C74C60;
+    background: #C94960;
     border: 2px solid #F8F8F8;
-    box-shadow: inset 0 0 0 1px #4B4F9D;
+    box-shadow: inset 0 0 0 1px #4E4D9F;
     border-radius: 0;
 }
 
@@ -16380,7 +16380,7 @@ dawnMcNuttTooltipStyle.textContent = `
         cursor: help;
         text-decoration-line: underline;
         text-decoration-style: dotted;
-        text-decoration-color: #4B4F9D;
+        text-decoration-color: #4E4D9F;
         text-decoration-thickness: 1px;
         text-underline-offset: 2px;
         border-radius: 1px;
@@ -16388,9 +16388,9 @@ dawnMcNuttTooltipStyle.textContent = `
     }
 
     .dawn-mcnutt-tooltip-term:hover {
-        background: rgba(199, 76, 96, 0.11);
-        box-shadow: 0 1px 0 rgba(75, 79, 157, 0.12);
-        text-decoration-color: #C74C60;
+        background: rgba(201, 73, 96, 0.11);
+        box-shadow: 0 1px 0 rgba(78, 77, 159, 0.12);
+        text-decoration-color: #C94960;
     }
 
     #dawn-mcnutt-tooltip {
@@ -16403,11 +16403,11 @@ dawnMcNuttTooltipStyle.textContent = `
         background: #F8F8F8;
         color: #111111;
 
-        border: 2px solid #4B4F9D;
+        border: 2px solid #4E4D9F;
         border-radius: 1px;
         box-shadow:
-            inset 0 3px 0 #C74C60,
-            2px 2px 0 rgba(75, 79, 157, 0.18);
+            inset 0 3px 0 #C94960,
+            2px 2px 0 rgba(78, 77, 159, 0.18);
 
         font-family: inherit;
         font-size: 12.5px;
@@ -16440,7 +16440,7 @@ dawnMcNuttTooltipStyle.textContent = `
         box-sizing: border-box;
         background: transparent;
         border: 0;
-        border-bottom: 1px solid rgba(75, 79, 157, 0.38);
+        border-bottom: 1px solid rgba(78, 77, 159, 0.38);
         overflow: visible;
     }
 
@@ -16456,8 +16456,8 @@ dawnMcNuttTooltipStyle.textContent = `
 
         margin: 0 auto;
         background: transparent;
-        border: 1px solid rgba(75, 79, 157, 0.72);
-        box-shadow: 1px 1px 0 rgba(75, 79, 157, 0.14);
+        border: 1px solid rgba(78, 77, 159, 0.72);
+        box-shadow: 1px 1px 0 rgba(78, 77, 159, 0.14);
         image-rendering: auto;
     }
 
@@ -16877,7 +16877,8 @@ cyoAdventure = function(a) {
         e.candidate_first_name = "Henry";
         e.candidate_last_name = "Wallace";
         e.candidate_image_url = "https://i.imgur.com/f8FSvKA.png";
-        campaignTrail_temp.candidate_json[1]["fields"].color_hex = "#6252C4";
+        campaignTrail_temp.candidate_json[1]["fields"].color_hex = "#6550C5";
+        campaignTrail_temp.candidate_json[1]["fields"].secondary_color_hex = "#6550C5";
         e.running_mate_last_name = "Taylor";
         e.running_mate_image_url = "https://i.imgur.com/wzQDcrq.png";
         e.running_mate_state_id = 343;
@@ -16889,6 +16890,8 @@ cyoAdventure = function(a) {
             candidate.fields.last_name = "Wallace";
             candidate.fields.state = "Iowa";
             candidate.fields.image_url = "https://i.imgur.com/f8FSvKA.png";
+            candidate.fields.color_hex = "#6550C5";
+            candidate.fields.secondary_color_hex = "#6550C5";
         }
 
         let runningMate = e.candidate_json.find(candidate => candidate.pk == 120);
@@ -16923,7 +16926,8 @@ cyoAdventure = function(a) {
         e.candidate_first_name = "Hubert";
         e.candidate_last_name = "Humphrey";
         e.candidate_image_url = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hubert%20Humphrey%2C%201948.jpg";
-        campaignTrail_temp.candidate_json[1]["fields"].color_hex = "#467BAA";
+        campaignTrail_temp.candidate_json[1]["fields"].color_hex = "#437BAB";
+        campaignTrail_temp.candidate_json[1]["fields"].secondary_color_hex = "#437BAB";
         e.running_mate_last_name = "Rayburn";
         e.running_mate_image_url = "https://i.imgur.com/YVwq34g.png";
         e.running_mate_state_id = 374;
@@ -16935,6 +16939,8 @@ cyoAdventure = function(a) {
             candidate.fields.last_name = "Humphrey";
             candidate.fields.state = "Minnesota";
             candidate.fields.image_url = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hubert%20Humphrey%2C%201948.jpg";
+            candidate.fields.color_hex = "#437BAB";
+            candidate.fields.secondary_color_hex = "#437BAB";
         }
 
         let runningMate = e.candidate_json.find(candidate => candidate.pk == 120);
