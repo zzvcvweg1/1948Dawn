@@ -11797,11 +11797,12 @@ if (!document.querySelector('link[rel="preconnect"][href="https://file.garden"]'
 function dawnDeweyTooltipPumpImages() {
     while (dawnDeweyTooltipImageActive < 3) {
         const priority = dawnDeweyTooltipImagePriorityQueue.length > 0;
-        const record = priority
-            ? dawnDeweyTooltipImagePriorityQueue.shift()
-            : dawnDeweyTooltipImageBackgroundActive < 2
-                ? dawnDeweyTooltipImageBackgroundQueue.shift()
-                : null;
+        let record = null;
+        if (priority) {
+            record = dawnDeweyTooltipImagePriorityQueue.shift();
+        } else if (dawnDeweyTooltipImageBackgroundActive < 2) {
+            record = dawnDeweyTooltipImageBackgroundQueue.shift();
+        }
         if (!record) break;
         if (record.state !== "queued") continue;
 
@@ -11885,7 +11886,10 @@ function dawnDeweyTooltipPreloadRemainingImages() {
     dawnDeweyTooltipImageBackgroundQueued = true;
 
     const queueImages = () => {
-        if (!dawnDeweyTooltipSideIsActive()) return;
+        if (!dawnDeweyTooltipSideIsActive()) {
+            dawnDeweyTooltipImageBackgroundQueued = false;
+            return;
+        }
         dawnDeweyTooltips.forEach(entry => {
             if (entry.image) dawnDeweyTooltipPreloadImage(entry.image);
         });
