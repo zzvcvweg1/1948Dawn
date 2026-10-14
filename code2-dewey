@@ -11305,8 +11305,8 @@ const dawnDeweyTooltips = [
   {
     "terms": [
       "Joseph Stalin",
-      "Stalin"
-      "Uncle Joe"
+      "Stalin",
+      "Uncle Joe",
       "Man of Steel"
     ],
     "description": "Always plotting, at least as far as you’re concerned.",
