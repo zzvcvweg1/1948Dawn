@@ -16976,6 +16976,32 @@ campaignTrail_temp.multiple_endings = true
 
 var used = false;
 
+let dawnEndingImageUrl = "";
+
+function applyDawnEndingImage() {
+    if (!dawnEndingImageUrl || !document.getElementById("final_results_description")) {
+        return;
+    }
+
+    const candImg = document.querySelector(".person_image");
+    if (!candImg || (candImg.getAttribute("data-dawn-ending-image") == dawnEndingImageUrl && candImg.getAttribute("src") == dawnEndingImageUrl)) {
+        return;
+    }
+
+    candImg.src = dawnEndingImageUrl;
+    candImg.style.width = "auto";
+    candImg.style.height = "auto";
+    candImg.style.maxWidth = "24%";
+    candImg.style.maxHeight = "250px";
+    candImg.setAttribute("data-dawn-ending-image", dawnEndingImageUrl);
+}
+
+function setDawnEndingImage(ending, imageUrl) {
+    dawnEndingImageUrl = imageUrl;
+    setTimeout(applyDawnEndingImage, 10);
+    return ending;
+}
+
 endingPicker = (out, totv, aa, quickstats) => {
 const playerID = campaignTrail_temp.candidate_id;
 const playerEV = Number(quickstats[0]);
@@ -17033,7 +17059,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return wallaceWinEnding;
+    return setDawnEndingImage(wallaceWinEnding, "https://file.garden/aNtjn2887DiA_8HP/berrymanbig.jpeg");
 } else if (campaignTrail_temp.candidate_last_name == "Humphrey" && out == "win") {
     if (used != true) {
         const playlist = new Playlist();
@@ -17047,7 +17073,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return humphreyWinEnding;
+    return setDawnEndingImage(humphreyWinEnding, "https://file.garden/aNtjn2887DiA_8HP/images%20(76).jpg");
 } else if (campaignTrail_temp.candidate_last_name == "Wallace") {
     if (used != true) {
         const playlist = new Playlist();
@@ -17061,7 +17087,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return wallaceEnding;
+    return setDawnEndingImage(wallaceEnding, "https://file.garden/aNtjn2887DiA_8HP/26-zoom.jpg");
 } else if (campaignTrail_temp.candidate_last_name == "Humphrey") {
     if (used != true) {
         const playlist = new Playlist();
@@ -17075,7 +17101,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return humphreyEnding;
+    return setDawnEndingImage(humphreyEnding, "https://file.garden/aNtjn2887DiA_8HP/humprhey1948dncgo.jpg");
 } else if (playerID == 116 && out == "win" && playerEV == 531) {
     if (used != true) {
         const playlist = new Playlist();
@@ -17089,7 +17115,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return mcnuttSweep;
+    return setDawnEndingImage(mcnuttSweep, "https://file.garden/aNtjn2887DiA_8HP/s-l400%20(10).jpg");
 } else if (playerEV == 0 && deweyEV >= 266) {
     if (used != true) {
         const playlist = new Playlist();
@@ -17103,7 +17129,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return mcnuttZero;
+    return setDawnEndingImage(mcnuttZero, "https://file.garden/aNtjn2887DiA_8HP/images%20(75).jpg");
 } else if (out == "tie") {
     if (used != true) {
         const playlist = new Playlist();
@@ -17117,7 +17143,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return mcnuttDeadlock;
+    return setDawnEndingImage(mcnuttDeadlock, "https://file.garden/aNtjn2887DiA_8HP/1%20(1).jpg");
 } else if (out == "win") {
     if (playerEV >= 400) {
         if (used != true) {
@@ -17132,7 +17158,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return mcnuttWinLot;
+    return setDawnEndingImage(mcnuttWinLot, "https://file.garden/aNtjn2887DiA_8HP/default%20(2).jpg");
     } else if (playerEV >= 310) {
         if (used != true) {
         const playlist = new Playlist();
@@ -17146,7 +17172,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return mcnuttWinMiddle;
+    return setDawnEndingImage(mcnuttWinMiddle, "https://file.garden/aNtjn2887DiA_8HP/s-l1600%20(25).jpeg");
     } else {
         if (used != true) {
         const playlist = new Playlist();
@@ -17160,7 +17186,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return mcnuttWinLittle;
+    return setDawnEndingImage(mcnuttWinLittle, "https://file.garden/aNtjn2887DiA_8HP/service-pnp-acd-2a06000-2a06600-2a06608r.jpg");
     }
 } else if (oppEV >= 320) {
     if (used != true) {
@@ -17175,7 +17201,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return mcnuttLossLot;
+    return setDawnEndingImage(mcnuttLossLot, "https://file.garden/aNtjn2887DiA_8HP/untitlAed-ce78f5-1024.jpg");
 } else {
     if (used != true) {
         const playlist = new Playlist();
@@ -17189,7 +17215,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         changePlaylist(playlist);
         used = true;
     }
-    return mcnuttLossLittle;
+    return setDawnEndingImage(mcnuttLossLittle, "https://file.garden/aNtjn2887DiA_8HP/imagae-asset%20(1).jpg");
 }
 };
 
@@ -17253,11 +17279,15 @@ function addRunningMateColumn() {
 const gameWindowNode = document.getElementById("game_window");
 
 if (gameWindowNode) {
-    const vpObserver = new MutationObserver(addRunningMateColumn);
+    const vpObserver = new MutationObserver(() => {
+        addRunningMateColumn();
+        applyDawnEndingImage();
+    });
     vpObserver.observe(gameWindowNode, {
         attributes: true,
         childList: true,
         subtree: true
     });
     addRunningMateColumn();
+    applyDawnEndingImage();
 }
