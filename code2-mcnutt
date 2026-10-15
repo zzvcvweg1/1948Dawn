@@ -16922,7 +16922,7 @@ cyoAdventure = function(a) {
 
     if (ans == 49001) {
         e.global_parameter_json[0].fields.question_count = 1;
-        e.candidate_first_name = "Henry";
+        e.candidate_first_name = "Henry A.";
         e.candidate_last_name = "Wallace";
         e.candidate_image_url = "https://i.imgur.com/f8FSvKA.png";
         campaignTrail_temp.candidate_json[1]["fields"].color_hex = "#6550C5";
@@ -16934,7 +16934,7 @@ cyoAdventure = function(a) {
 
         let candidate = e.candidate_json.find(candidate => candidate.pk == 116);
         if (candidate) {
-            candidate.fields.first_name = "Henry";
+            candidate.fields.first_name = "Henry A.";
             candidate.fields.last_name = "Wallace";
             candidate.fields.state = "Iowa";
             candidate.fields.image_url = "https://i.imgur.com/f8FSvKA.png";
@@ -16944,7 +16944,7 @@ cyoAdventure = function(a) {
 
         let runningMate = e.candidate_json.find(candidate => candidate.pk == 120);
         if (runningMate) {
-            runningMate.fields.first_name = "Glen";
+            runningMate.fields.first_name = "Glen H.";
             runningMate.fields.last_name = "Taylor";
             runningMate.fields.state = "Idaho";
             runningMate.fields.image_url = "https://i.imgur.com/wzQDcrq.png";
@@ -16971,7 +16971,7 @@ cyoAdventure = function(a) {
 
     if (ans == 49008) {
         e.global_parameter_json[0].fields.question_count = 3;
-        e.candidate_first_name = "Hubert";
+        e.candidate_first_name = "Hubert H.";
         e.candidate_last_name = "Humphrey";
         e.candidate_image_url = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hubert%20Humphrey%2C%201948.jpg";
         campaignTrail_temp.candidate_json[1]["fields"].color_hex = "#437BAB";
@@ -16983,7 +16983,7 @@ cyoAdventure = function(a) {
 
         let candidate = e.candidate_json.find(candidate => candidate.pk == 116);
         if (candidate) {
-            candidate.fields.first_name = "Hubert";
+            candidate.fields.first_name = "Hubert H.";
             candidate.fields.last_name = "Humphrey";
             candidate.fields.state = "Minnesota";
             candidate.fields.image_url = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hubert%20Humphrey%2C%201948.jpg";
@@ -16993,7 +16993,7 @@ cyoAdventure = function(a) {
 
         let runningMate = e.candidate_json.find(candidate => candidate.pk == 120);
         if (runningMate) {
-            runningMate.fields.first_name = "Sam";
+            runningMate.fields.first_name = "Sam T.";
             runningMate.fields.last_name = "Rayburn";
             runningMate.fields.state = "Texas";
             runningMate.fields.image_url = "https://i.imgur.com/YVwq34g.png";
