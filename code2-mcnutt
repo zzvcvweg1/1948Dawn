@@ -15998,13 +15998,13 @@ $(`<style>
 }
 
 #question_form label:hover {
-    background-color: rgba(155, 143, 159, 0.08) !important;
-    border-left-color: rgba(155, 143, 159, 0.30) !important;
+    background-color: rgba(201, 73, 96, 0.08) !important;
+    border-left-color: rgba(201, 73, 96, 0.28) !important;
 }
 
 #question_form input[type="radio"]:checked + label {
-    background-color: rgba(155, 143, 159, 0.18) !important;
-    border-left-color: rgba(155, 143, 159, 0.55) !important;
+    background-color: rgba(201, 73, 96, 0.14) !important;
+    border-left-color: rgba(201, 73, 96, 0.48) !important;
     font-weight: 600 !important;
 }
 #campaign_sign {
@@ -17006,11 +17006,32 @@ var used = false;
 
 let dawnEndingImageUrl = "";
 
+function sizeDawnEndingImage(candImg) {
+    if (!candImg || !candImg.naturalWidth || !candImg.naturalHeight || !candImg.parentElement) return;
+
+    const parent = candImg.parentElement;
+    const parentStyle = getComputedStyle(parent);
+    const parentWidth = parent.clientWidth - parseFloat(parentStyle.paddingLeft || 0) - parseFloat(parentStyle.paddingRight || 0);
+    if (parentWidth <= 0) return;
+
+    const imageStyle = getComputedStyle(candImg);
+    const frameWidth = parseFloat(imageStyle.borderLeftWidth || 0) + parseFloat(imageStyle.borderRightWidth || 0);
+    const frameHeight = parseFloat(imageStyle.borderTopWidth || 0) + parseFloat(imageStyle.borderBottomWidth || 0);
+    const maxWidth = Math.min(parentWidth * 0.27, 278);
+    const maxHeight = 278;
+    const scale = Math.min(1.14, (maxWidth - frameWidth - 2) / candImg.naturalWidth, (maxHeight - frameHeight - 2) / candImg.naturalHeight);
+    if (scale <= 0) return;
+
+    candImg.style.width = `${(candImg.naturalWidth * scale + frameWidth).toFixed(2)}px`;
+    candImg.style.height = `${(candImg.naturalHeight * scale + frameHeight).toFixed(2)}px`;
+}
+
 function revealDawnEndingImage(event) {
     const candImg = event.currentTarget;
     if (candImg.getAttribute("data-dawn-ending-image") != dawnEndingImageUrl) {
         return;
     }
+    sizeDawnEndingImage(candImg);
     requestAnimationFrame(() => {
         if (candImg.isConnected && candImg.getAttribute("data-dawn-ending-image") == dawnEndingImageUrl) {
             candImg.classList.add("dawn-ending-portrait-ready");
@@ -17036,10 +17057,12 @@ function applyDawnEndingImage() {
     candImg.classList.remove("dawn-ending-portrait-ready");
     candImg.setAttribute("data-dawn-ending-image", dawnEndingImageUrl);
     candImg.src = dawnEndingImageUrl;
-    candImg.style.width = "min(27%, 278px)";
+    candImg.style.width = "auto";
     candImg.style.height = "auto";
-    candImg.style.maxWidth = "100%";
+    candImg.style.maxWidth = "27%";
     candImg.style.maxHeight = "278px";
+    candImg.style.objectFit = "contain";
+    candImg.style.objectPosition = "center";
     if (candImg.complete && candImg.naturalWidth > 0) {
         revealDawnEndingImage({ currentTarget: candImg });
     }
@@ -17050,6 +17073,13 @@ function setDawnEndingImage(ending, imageUrl) {
     setTimeout(applyDawnEndingImage, 10);
     return ending;
 }
+
+window.addEventListener("resize", () => {
+    const candImg = document.querySelector(".person_image.dawn-ending-portrait");
+    if (candImg && candImg.getAttribute("data-dawn-ending-image") == dawnEndingImageUrl) {
+        sizeDawnEndingImage(candImg);
+    }
+});
 
 endingPicker = (out, totv, aa, quickstats) => {
 const playerID = campaignTrail_temp.candidate_id;
