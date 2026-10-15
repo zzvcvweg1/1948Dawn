@@ -15949,6 +15949,40 @@ $(`<style>
 .dawn-ending-scroll {
     animation: dawn-ending-reveal 0.77s cubic-bezier(0.23, 0.63, 0.29, 1) both;
 }
+.person_image.dawn-ending-portrait {
+    box-sizing: border-box;
+    border: 4px double #CB495E;
+    border-radius: 1px;
+    background-color: #F8F8F8;
+    box-shadow:
+        0 0 0 1px #4E4D9F,
+        2px 2px 0 rgba(78, 77, 159, 0.16),
+        0 3px 6px rgba(48, 33, 41, 0.18);
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity 0.72s cubic-bezier(0.23, 0.63, 0.29, 1), transform 0.34s ease-out, box-shadow 0.34s ease-out;
+}
+.person_image.dawn-ending-portrait.dawn-ending-portrait-ready {
+    opacity: 1;
+    transform: translateY(0);
+}
+.person_image.dawn-ending-portrait.dawn-ending-portrait-ready:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 0 1px #4E4D9F,
+        2px 2px 0 rgba(78, 77, 159, 0.22),
+        0 5px 10px rgba(48, 33, 41, 0.24);
+}
+@media (prefers-reduced-motion: reduce) {
+    .person_image.dawn-ending-portrait {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .person_image.dawn-ending-portrait.dawn-ending-portrait-ready:hover {
+        transform: none;
+    }
+}
 #question_form label {
     display: inline-block;
     width: 93%;
@@ -16978,6 +17012,18 @@ var used = false;
 
 let dawnEndingImageUrl = "";
 
+function revealDawnEndingImage(event) {
+    const candImg = event.currentTarget;
+    if (candImg.getAttribute("data-dawn-ending-image") != dawnEndingImageUrl) {
+        return;
+    }
+    requestAnimationFrame(() => {
+        if (candImg.isConnected && candImg.getAttribute("data-dawn-ending-image") == dawnEndingImageUrl) {
+            candImg.classList.add("dawn-ending-portrait-ready");
+        }
+    });
+}
+
 function applyDawnEndingImage() {
     if (!dawnEndingImageUrl || !document.getElementById("final_results_description")) {
         return;
@@ -16988,12 +17034,21 @@ function applyDawnEndingImage() {
         return;
     }
 
+    if (!candImg.hasAttribute("data-dawn-ending-image-listener")) {
+        candImg.addEventListener("load", revealDawnEndingImage);
+        candImg.setAttribute("data-dawn-ending-image-listener", "true");
+    }
+    candImg.classList.add("dawn-ending-portrait");
+    candImg.classList.remove("dawn-ending-portrait-ready");
+    candImg.setAttribute("data-dawn-ending-image", dawnEndingImageUrl);
     candImg.src = dawnEndingImageUrl;
     candImg.style.width = "auto";
     candImg.style.height = "auto";
     candImg.style.maxWidth = "24%";
     candImg.style.maxHeight = "250px";
-    candImg.setAttribute("data-dawn-ending-image", dawnEndingImageUrl);
+    if (candImg.complete && candImg.naturalWidth > 0) {
+        revealDawnEndingImage({ currentTarget: candImg });
+    }
 }
 
 function setDawnEndingImage(ending, imageUrl) {
