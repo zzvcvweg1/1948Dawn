@@ -17036,10 +17036,10 @@ function applyDawnEndingImage() {
     candImg.classList.remove("dawn-ending-portrait-ready");
     candImg.setAttribute("data-dawn-ending-image", dawnEndingImageUrl);
     candImg.src = dawnEndingImageUrl;
-    candImg.style.width = "auto";
+    candImg.style.width = "min(27%, 278px)";
     candImg.style.height = "auto";
-    candImg.style.maxWidth = "24%";
-    candImg.style.maxHeight = "250px";
+    candImg.style.maxWidth = "100%";
+    candImg.style.maxHeight = "278px";
     if (candImg.complete && candImg.naturalWidth > 0) {
         revealDawnEndingImage({ currentTarget: candImg });
     }
