@@ -11198,9 +11198,9 @@ $(`<style>
 }
 .person_image.dawn-ending-portrait {
     box-sizing: border-box;
-    border: 5px double #CB495E;
+    border: 4px double #CB495E;
     border-radius: 1px;
-    background-color: #F8F8F8;
+    background-color: #CB495E;
     box-shadow: 0 3px 6px rgba(48, 33, 41, 0.18);
     opacity: 0;
     transform: translateY(2px);
