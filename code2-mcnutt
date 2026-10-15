@@ -16930,7 +16930,7 @@ cyoAdventure = function(a) {
         e.running_mate_last_name = "Taylor";
         e.running_mate_image_url = "https://i.imgur.com/wzQDcrq.png";
         e.running_mate_state_id = 343;
-        e.running_mate_issue_score_json = [];
+        e.global_parameter_json[0].fields.running_mate_issue_weight = 0;
 
         let candidate = e.candidate_json.find(candidate => candidate.pk == 116);
         if (candidate) {
@@ -16979,7 +16979,7 @@ cyoAdventure = function(a) {
         e.running_mate_last_name = "Rayburn";
         e.running_mate_image_url = "https://i.imgur.com/YVwq34g.png";
         e.running_mate_state_id = 374;
-        e.running_mate_issue_score_json = [];
+        e.global_parameter_json[0].fields.running_mate_issue_weight = 0;
 
         let candidate = e.candidate_json.find(candidate => candidate.pk == 116);
         if (candidate) {
@@ -17145,7 +17145,7 @@ const mcnuttLossLot = "<h3>The Old Deal</h3><div class='dawn-ending-scroll' styl
 const mcnuttDeadlock = "<h3>Chaos</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>“It's a real pickle,” you tell an aide immediately after the results trickle in.</p><p>Confirming both your and Dewey’s greatest fear, no candidate received a majority in the Electoral College. The rain outside pounded on the Governor’s window, as the minutes turned into long, long hours of the night.</p><p>Paul McNutt spent the entire night with various party leaders on the phone. Northern, Southern, urban, rural - each one of them was trying to find a candidate they could settle on. Sure, the House was Democratic, but who was sure those damned Congressmen would stay loyal when the vote came?</p><p>No, they needed to get this over with - and fast.</p><p>A thousand names were considered, a thousand more rejected; McNutt could barely even remember a couple dozen of them. He would try to say that he should be the one to be nominated, but the leadership refused his overtures every last time. He wished he could have done a little better, made a couple of decisions differently, but that was all in the past now.</p><p>All that lay before him was a party in the throes of chaos, a chaos that he could no longer control.</p></div>";
 const mcnuttZero = "<h3>The American Experiment</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>Paul Vories McNutt had lost every single electoral vote in the United States. Not a single state, not one stray elector, not even Indiana. This was not how he had pictured things.</p><p>He had scarcely retired to his hotel room when a peculiar Swiss gentleman came knocking. His name was Albert Hofmann, and he had brought with him a small vial of something that he claimed might improve the Governor’s spirits.</p><p>McNutt, at this point, was willing to try anything.</p><p>Suddenly, the hotel room became the Capitol. There was a parade. Millions cheered his name. Everywhere he looked there were more Paul McNutts, all dressed in their finest suits, all smiling, all congratulating one another on their historic victory.</p><p>Then came the inauguration. The Chief Justice administered the oath to a man who looked exactly like Paul McNutt. The crowd erupted. McNutt tried to explain that he was the real Paul McNutt, but nobody seemed especially interested.</p><p>When he awoke, Hofmann was gone. Dewey had won the presidency, and McNutt had failed to win a single one of the nation’s 531 electoral votes. His wife was still asleep.</p><p>McNutt sighed. It seemed that even in his dreams, he couldn't become President.</p></div>";
 const mcnuttSweep = "<h3>Empire</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>Paul McNutt was elected in 1948</p><p>Elected again in 1952</p><p>He would have served for life, if he did not die.</p><p>His Vice President took over.</p><p>And ruled for many more years.</p><p>The Republicans were nowhere to be found. All that was left was the Democrats, headquartered in the new American capital of Indianapolis.</p><p>By 1989 a beautiful young buck from the imperial capital state, James Danforth Quayle ruled the land - and peace and freedom would forever ring out.</p><p>What a wonderful day.</p></div>";
-if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
+if (campaignTrail_temp.candidate_last_name == "Wallace" && playerEV >= 266) {
     if (used != true) {
         const playlist = new Playlist();
         const song = new Song(
@@ -17159,7 +17159,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && out == "win") {
         used = true;
     }
     return setDawnEndingImage(wallaceWinEnding, "https://file.garden/aNtjn2887DiA_8HP/berrymanbig.jpeg");
-} else if (campaignTrail_temp.candidate_last_name == "Humphrey" && out == "win") {
+} else if (campaignTrail_temp.candidate_last_name == "Humphrey" && playerEV >= 266) {
     if (used != true) {
         const playlist = new Playlist();
         const song = new Song(
