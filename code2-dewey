@@ -12201,6 +12201,32 @@ campaignTrail_temp.multiple_endings = true
 
 var used = false;
 
+let dawnEndingImageUrl = "";
+
+function applyDawnEndingImage() {
+    if (!dawnEndingImageUrl || !document.getElementById("final_results_description")) {
+        return;
+    }
+
+    const candImg = document.querySelector(".person_image");
+    if (!candImg || (candImg.getAttribute("data-dawn-ending-image") == dawnEndingImageUrl && candImg.getAttribute("src") == dawnEndingImageUrl)) {
+        return;
+    }
+
+    candImg.src = dawnEndingImageUrl;
+    candImg.style.width = "auto";
+    candImg.style.height = "auto";
+    candImg.style.maxWidth = "24%";
+    candImg.style.maxHeight = "250px";
+    candImg.setAttribute("data-dawn-ending-image", dawnEndingImageUrl);
+}
+
+function setDawnEndingImage(ending, imageUrl) {
+    dawnEndingImageUrl = imageUrl;
+    setTimeout(applyDawnEndingImage, 10);
+    return ending;
+}
+
 endingPicker = (out, totv, aa, quickstats) => {
 const playerID = campaignTrail_temp.candidate_id;
 const playerEV = Number(quickstats[0]);
@@ -12254,7 +12280,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return deweySweep;
+    return setDawnEndingImage(deweySweep, "https://file.garden/aNtjn2887DiA_8HP/XGD5_027_56ebee25-4ccc-46b4-a4ca-7c9a545a7808_900x.jpg");
 } else if (playerID == 117 && playerEV == 0 && mcnuttEV >= 266) {
     if (used != true) {
         const playlist = new Playlist();
@@ -12268,7 +12294,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return deweyNoStates;
+    return setDawnEndingImage(deweyNoStates, "https://file.garden/aNtjn2887DiA_8HP/q2z4MgGkytfTRC-6zHBeVnjhvouup8LqGfRjw1VSdkfBEp6Ki3gFEYl34Ntl7NsZcezMpve0eG4sR9R07nAWVsBMQ_SZ4Huct34MthHB6tTPh8pqwKq3tKsGfWVo8rx3J7No4HhyIBncBLmxyMyK4L-qZZ3-wtGUylHMII0rHRfwWfFPLG-rA0g764uUGYTC.jpg");
 } else if (out == "tie") {
     if (used != true) {
         const playlist = new Playlist();
@@ -12282,7 +12308,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return deweyDeadlock;
+    return setDawnEndingImage(deweyDeadlock, "https://file.garden/aNtjn2887DiA_8HP/1%20(1).jpg");
 } else if (out == "win") {
     if (playerEV >= 400) {
         if (used != true) {
@@ -12297,7 +12323,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return deweyBig;
+    return setDawnEndingImage(deweyBig, "https://file.garden/aNtjn2887DiA_8HP/images%20(74).jpg");
     } else if (playerEV >= 310) {
         if (used != true) {
         const playlist = new Playlist();
@@ -12311,7 +12337,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return deweyMiddle;
+    return setDawnEndingImage(deweyMiddle, "https://file.garden/aNtjn2887DiA_8HP/images%20(73).jpg");
     } else {
         if (used != true) {
         const playlist = new Playlist();
@@ -12325,7 +12351,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return deweyLittle;
+    return setDawnEndingImage(deweyLittle, "https://file.garden/aNtjn2887DiA_8HP/dp-505847-22.jpg");
     }
 } else if (oppEV >= 320) {
     if (used != true) {
@@ -12340,7 +12366,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return deweyLossBig;
+    return setDawnEndingImage(deweyLossBig, "https://file.garden/aNtjn2887DiA_8HP/d25aa6a54bf87aa09df15bb12d7469ce.jpg");
 } else {
     if (used != true) {
         const playlist = new Playlist();
@@ -12354,7 +12380,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return deweyLossLittle;
+    return setDawnEndingImage(deweyLossLittle, "https://file.garden/aNtjn2887DiA_8HP/Thomas-E-Dewey-voting-booth-Nov-2-1948.jpg");
 }
 };
 
@@ -12415,11 +12441,15 @@ function addRunningMateColumn() {
 const gameWindowNode = document.getElementById("game_window");
 
 if (gameWindowNode) {
-    const vpObserver = new MutationObserver(addRunningMateColumn);
+    const vpObserver = new MutationObserver(() => {
+        addRunningMateColumn();
+        applyDawnEndingImage();
+    });
     vpObserver.observe(gameWindowNode, {
         attributes: true,
         childList: true,
         subtree: true
     });
     addRunningMateColumn();
+    applyDawnEndingImage();
 }
