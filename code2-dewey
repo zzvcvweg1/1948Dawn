@@ -12387,7 +12387,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweyDeadlock, "https://file.garden/aNtjn2887DiA_8HP/1%20(1).jpg");
+    return setDawnEndingImage(deweyDeadlock, "https://file.garden/aNtjn2887DiA_8HP/51E-H8rqaXeX44d6jCzUooDpD7yAJ9r47vyycHV8YEqjOJnJCIVfbscmxZ2VkPcshuuzUq-Yn99pqzDbyYMbJ4qbHbrSMcbVGW6cPPW5CH4GM9FOLJ7suw25M5u1HR9HsUwNkNIwesJhTbyutKxyJAbPP9s7C4HL6uAAIlw5ehcJWWagcb3Pi6f4SfrVksEr.jpg");
 } else if (out == "win") {
     if (playerEV >= 400) {
         if (used != true) {
