@@ -16290,7 +16290,7 @@ $(`<style>
     font-weight: 600 !important;
 }
 #campaign_sign {
-    background-image: url("https://file.garden/aNtjn2887DiA_8HP/5F357869-44B9-43F8-8890-96411C7AE90E.png");
+    background-image: url("https://file.garden/aNtjn2887DiA_8HP/3EBE3389-E9AF-4B52-96A4-763070EBC388.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
