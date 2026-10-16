@@ -497,11 +497,11 @@ RecReading=true
     alert(text)
 }
 
-HistHexcolour = ["#CC485A", "#5757B0", "#ff880b", "#765049"];
-HistName = [" Harold Stassen", " Henry Wallace", " Richard Russell", " Norman Thomas"];
-HistEV = [301, 171, 59, 0];
-HistPV = ["23,366,892", "22,568,557", "2,014,903", "110,022"];
-HistPVP = ["48.6%", "47.0%", "4.2%", "0.2%"];
+HistHexcolour = ["#CC485A", "#5757B0", "#EEB82D", "#3AA964", "#765049"];
+HistName = ["Thomas E. Dewey & John W. Bricker", "Paul V. McNutt & Burnet R. Maybank", "Harry F. Byrd & Various", "Hugh De Lacy & Albert J. Fitzgerald", "Norman Thomas/Others & Tucker P. Smith/Others"];
+HistEV = [324, 187, 20, 0, 0];
+HistPV = ["23,950,307", "23,119,051", "452,096", "784,116", "232,279"];
+HistPVP = ["49.3%", "47.6%", "0.9%", "1.6%", "0.5%"];
 
 $("#game_window")[0].style.borderColor = "#4E4C9A"
 $(".container")[0].style.backgroundColor = "#5855AF"
