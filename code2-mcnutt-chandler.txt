@@ -17359,8 +17359,8 @@ cyoAdventure = function(a) {
         e.candidate_first_name = "Henry A.";
         e.candidate_last_name = "Wallace";
         e.candidate_image_url = "https://i.imgur.com/f8FSvKA.png";
-        campaignTrail_temp.candidate_json[1]["fields"].color_hex = "#6550C5";
-        campaignTrail_temp.candidate_json[1]["fields"].secondary_color_hex = "#6550C5";
+        campaignTrail_temp.candidate_json[1]["fields"].color_hex = "#008C89";
+        campaignTrail_temp.candidate_json[1]["fields"].secondary_color_hex = "#008C89";
         e.running_mate_last_name = "Taylor";
         e.running_mate_image_url = "https://i.imgur.com/wzQDcrq.png";
         e.running_mate_state_id = 343;
@@ -17372,8 +17372,8 @@ cyoAdventure = function(a) {
             candidate.fields.last_name = "Wallace";
             candidate.fields.state = "Iowa";
             candidate.fields.image_url = "https://i.imgur.com/f8FSvKA.png";
-            candidate.fields.color_hex = "#6550C5";
-            candidate.fields.secondary_color_hex = "#6550C5";
+            candidate.fields.color_hex = "#008C89";
+            candidate.fields.secondary_color_hex = "#008C89";
         }
 
         let runningMate = e.candidate_json.find(candidate => candidate.pk == 120);
