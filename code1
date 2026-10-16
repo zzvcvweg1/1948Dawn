@@ -60,8 +60,8 @@ campaignTrail_temp.candidate_json = [
             "state": "Indiana",
             "priority": 1,
             "description": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>With the collapse of Franklin Roosevelt’s hegemony over American politics and the Democratic Party at large, Paul V. McNutt has to fill perhaps the largest shoes of any president since Adams succeeded Washington. Despite the expectations of the party to nominate someone like Roosevelt, they have decided to nominate a candidate that has Roosevelt rolling in his grave.</p><p>Oftentimes combative towards the former president, McNutt still believes that Roosevelt liked him. He followed him wherever he went, begging for his support even though he did not give him his own. However, his loyalty is no longer in question, taking the nomination from prospective progressive candidates through the support of various urban machines.</p><p>In order to defeat President Dewey, McNutt must balance the vast and unstable Roosevelt coalition - touting his humanitarian accomplishments, his support for the New Deal, and mitigating his frosty relationship with labor, all with the risk of a progressive splinter forming should he offend or ignore that faction.</p></div>",
-            "color_hex": "#5757B0",
-            "secondary_color_hex": "#5757B0",
+            "color_hex": "#6750B5",
+            "secondary_color_hex": "#6750B5",
             "is_active": 1,
             "image_url": "https://i.imgur.com/0cudDE6.png",
             "electoral_victory_message": "",
@@ -633,7 +633,7 @@ RecReading=true
     alert(text)
 }
 
-HistHexcolour = ["#CC485A", "#5757B0", "#EEB82D", "#3AA964", "#765049"];
+HistHexcolour = ["#CC485A", "#6750B5", "#EEB82D", "#3AA964", "#765049"];
 HistName = ["Thomas E. Dewey", "Paul V. McNutt", "Harry F. Byrd", "Hugh De Lacy", "Norman Thomas/Others"];
 HistEV = [324, 187, 20, 0, 0];
 HistPV = ["23,950,307", "23,119,051", "452,096", "784,116", "232,279"];
