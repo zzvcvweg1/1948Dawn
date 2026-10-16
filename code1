@@ -3,7 +3,7 @@ campaignTrail_temp.modBoxTheme = {
     "header_text_color": "#FFFFFF",
     "description_text_color": "#FFFFFF",
     "description_background_color": "#CB495E",
-    "main_color": "#808080",
+    "main_color": "#78717C",
     "secondary_color": "#5855AF",
     "ui_text_color": "#FFFFFF"
 }
@@ -561,12 +561,12 @@ if (dawnHistoricResultsWindow) {
     addHistoricalRunningMateColumn();
 }
 
-$("#game_window")[0].style.borderColor = "#4E4C9A"
+$("#game_window")[0].style.borderColor = "#4E4D9F"
 $(".container")[0].style.backgroundColor = "#5855AF"
 $("#game_window")[0].style.backgroundColor = "#F3C1BF"
 
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#CB495E"
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#808080"
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#78717C"
 
 document.head.innerHTML += "<style>#results_container { color: #000000; } .inner_window_w_desc { background-color: #F3C1BF !important; }</style>";
 
@@ -607,7 +607,7 @@ dawnStyle.innerHTML = `
 
   #campaign_sign {
     background-color: #CB495E;
-    border-color: #4E4C9A;
+    border-color: #4E4D9F;
   }
 
   #map_container {
