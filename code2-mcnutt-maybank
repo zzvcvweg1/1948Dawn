@@ -15932,6 +15932,163 @@ campaignTrail_temp.jet_data = [{}]
 
 e = campaignTrail_temp;
 e.cyoa = true;
+
+campaignTrail_temp.dawnAchievementsChecked = false;
+
+function ctsAchievement(achievement) {
+    if (campaignTrail_temp.CTS) {
+        unlockAchievement(achievement);
+    }
+}
+
+function dawnHasAnswer(pk) {
+    return Array.isArray(campaignTrail_temp.player_answers) && campaignTrail_temp.player_answers.some(function(answer) {
+        return Number(answer) === Number(pk);
+    });
+}
+
+function dawnCandidateByPk(pk) {
+    return (campaignTrail_temp.candidate_json || []).find(function(candidate) {
+        return Number(candidate.pk) === Number(pk);
+    });
+}
+
+function dawnRunningMateLastName() {
+    var runningMate = dawnCandidateByPk(campaignTrail_temp.running_mate_id);
+    return String(runningMate && runningMate.fields ? runningMate.fields.last_name || "" : "").toLowerCase();
+}
+
+function dawnPopularVotePercent(candidatePk) {
+    var results = campaignTrail_temp.final_overall_results || [];
+    var totalVotes = results.reduce(function(sum, result) {
+        return sum + (Number(result.popular_votes) || 0);
+    }, 0);
+    var row = results.find(function(result) {
+        return Number(result.candidate) === Number(candidatePk);
+    });
+    if (!row || totalVotes <= 0) {
+        return 0;
+    }
+    return ((Number(row.popular_votes) || 0) / totalVotes) * 100;
+}
+
+function dawnStatePkByName(stateName) {
+    var state = (campaignTrail_temp.states_json || []).find(function(entry) {
+        return String(entry.fields && entry.fields.name ? entry.fields.name : "").toLowerCase() === String(stateName).toLowerCase();
+    });
+    return state ? state.pk : null;
+}
+
+function dawnCandidateWonState(candidatePk, stateName) {
+    var statePk = dawnStatePkByName(stateName);
+    if (!statePk) {
+        return false;
+    }
+    var row = (campaignTrail_temp.final_state_results || []).find(function(result) {
+        return Number(result.state) === Number(statePk);
+    });
+    if (!row || !Array.isArray(row.result) || !row.result.length) {
+        return false;
+    }
+    var winner = row.result.slice().sort(function(a, b) {
+        return (Number(b.percent) || 0) - (Number(a.percent) || 0);
+    })[0];
+    return !!winner && Number(winner.candidate) === Number(candidatePk);
+}
+
+function dawnWonAnySouthernState(candidatePk) {
+    var southernStates = ["Alabama", "Arkansas", "Florida", "Georgia", "Kentucky", "Louisiana", "Mississippi", "North Carolina", "Oklahoma", "South Carolina", "Tennessee", "Texas", "Virginia"];
+    return southernStates.some(function(stateName) {
+        return dawnCandidateWonState(candidatePk, stateName);
+    });
+}
+
+function dawnNoRedBaitDewey() {
+    return ![49021, 49054, 49069, 49073].some(dawnHasAnswer);
+}
+
+function dawnConservativeDeweyPath() {
+    return [49015, 49016, 49021, 49046, 49069].every(dawnHasAnswer) && [49061, 49103].some(dawnHasAnswer);
+}
+
+function dawnSuperLiberalMcNutt() {
+    var score = 0;
+    if (dawnHasAnswer(49008)) score++;
+    if ([49022, 49025].some(dawnHasAnswer)) score++;
+    if (dawnHasAnswer(49029)) score++;
+    if (dawnHasAnswer(49041)) score++;
+    if (dawnHasAnswer(49048)) score++;
+    if (dawnHasAnswer(49055)) score++;
+    if (dawnHasAnswer(49057)) score++;
+    if (dawnHasAnswer(49067)) score++;
+    return score >= 6;
+}
+
+function evaluateDawnAchievements(out, quickstats) {
+    if (!campaignTrail_temp.CTS || campaignTrail_temp.dawnAchievementsChecked) {
+        return;
+    }
+    campaignTrail_temp.dawnAchievementsChecked = true;
+
+    var playerId = Number(campaignTrail_temp.candidate_id);
+    var isDewey = playerId === 117;
+    var isMcNutt = playerId === 116;
+    var playerWon = out === "win";
+    var playerTied = out === "tie";
+    var playerEV = Number(quickstats && quickstats[0] ? quickstats[0] : 0);
+    var playerPV = dawnPopularVotePercent(playerId);
+    var runningMateLastName = dawnRunningMateLastName();
+
+    if (playerTied && (isDewey || isMcNutt)) {
+        ctsAchievement("Hung Jury");
+    }
+
+    if (isDewey) {
+        if (dawnCandidateWonState(117, "Tennessee")) {
+            ctsAchievement("To Kill a Mocking Bird");
+        }
+        if (dawnHasAnswer(49005)) {
+            ctsAchievement("RED");
+        }
+        if (dawnConservativeDeweyPath()) {
+            ctsAchievement("People vs Dewey");
+        }
+        if (playerWon) {
+            ctsAchievement("Written In The Stars");
+        }
+        if (playerWon && dawnHasAnswer(49005) && dawnNoRedBaitDewey()) {
+            ctsAchievement("Jurisprudence");
+        }
+        if (playerWon && dawnHasAnswer(49044) && dawnHasAnswer(49058) && dawnHasAnswer(49053) && dawnNoRedBaitDewey()) {
+            ctsAchievement("Dewey Socialists of America");
+        }
+    }
+
+    if (isMcNutt) {
+        if (playerWon && playerEV >= 449) {
+            ctsAchievement("Just A Bump In The Road");
+        }
+        if (playerWon && !dawnCandidateWonState(116, "Indiana")) {
+            ctsAchievement("Rusty");
+        }
+        if (playerWon && dawnSuperLiberalMcNutt()) {
+            ctsAchievement("Out Of The Shadow");
+        }
+        if (playerWon && dawnHasAnswer(49008) && dawnHasAnswer(49048) && dawnWonAnySouthernState(116)) {
+            ctsAchievement("The Victor and The Judge");
+        }
+        if (dawnHasAnswer(49050) || (dawnHasAnswer(49007) && dawnHasAnswer(49049))) {
+            ctsAchievement("Identity War");
+        }
+        if (playerWon && dawnHasAnswer(49030) && dawnHasAnswer(49069)) {
+            ctsAchievement("Roosevelt Rolling");
+        }
+        if (playerWon && runningMateLastName.indexOf("barkley") !== -1 && playerPV >= 48.99 && playerPV <= 49.99) {
+            ctsAchievement("Give 'Em Hell");
+        }
+    }
+}
+
 e.global_parameter_json[0].fields.question_count = 28;
 
 $(`<style>
@@ -17133,6 +17290,7 @@ for (let i = 0; i < aa.length; i++) {
 if (!oppEV) {
     oppEV = 531 - playerEV;
 }
+evaluateDawnAchievements(out, quickstats);
 const mcnuttLossLittle = "<h3>Though the Heavens Fall</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>It’s over. It was finally over.</p><p>Paul McNutt stood up from the desk he had waited at all night and promptly collapsed on his hotel bed. Was it all worth it? The months of grueling campaigning, the millions of dollars spent, just for a reset back to the status quo. He thought long and hard about all those millions of people that voted for him, but more importantly, he thought about those that hadn’t. How could they betray him? Had he not made his plans clear? That he wanted the best for-</p><p>It was a quick bereavement, however, as he soon received a telephone call. It was the President.</p><p>“Paul!” the President solemnly exclaimed. “It’s so good to talk to you. How is the wife? Is she alright? Have you told her yet?”</p><p>“No,” McNutt said, “I haven’t. Maybe I’ll sleep on it…”</p><p>“Now there,” Dewey said. He knew this was a bittersweet moment for McNutt - no need to rub a victory in. “You oughta tell her. She’s the only person that was always by your side, you know?”</p><p>McNutt knew deep down that Tom was right. But he still hated it. The butterflies in his stomach had turned into wasps over the campaign cycle, and it was a big culture shock to speak to Dewey like he was just another old friend. “Sure. I’ll…I’ll do that at some point.”</p><p>“Okay then. Welp, I gotta get going. Give my speech, you know? Say, I’ll do you a favor. You’re invited to come along to the inauguration in January! Bring Kathleen, make it a date.” McNutt knew Dewey was just being cordial, but it still stung like sanitizer in his wounds. And besides, he had to give his own speech too.</p><p>Propped upright on the bed, McNutt rubbed his temples in an attempt to quell the frustration headache that he had caught. He sighed and looked out his window. It was pitch black outside. Maybe that was the perfect environment for some time alone…</p></div>";
 const mcnuttWinLittle = "<h3>An Upset of the Greatest Tier</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>You almost couldn’t believe it yourself. President Dewey, once thought to be close to unbeatable, has now lost to you. The radio blares your victory to the millions listening at home, all thankful that a Democrat is now back in the White House. The urban party chairs are among the first to call you, offering you congratulations and good fortune for the term ahead. You then call the President, who quietly offers you some advice of his own.</p><p>A call comes in from Iowa, which surprises you. On the other end is Henry Wallace, who tells you that now, the two of you can set aside your differences for the sake of the party. You tell him that it is a wonderful idea, and you promise to include some of his men in your cabinet. You put the phone down, hoping that your term will not be filled with all the same twists and turns as Dewey’s had been.</p><p>You will need all the help you can get, but if you can bring enough of the New Deal spirit into your governance, all the Democrats will be sure to back you again in 1952, and hopefully bring another generation into the warmth of the New Deal era.</p></div>";
 const mcnuttWinMiddle = "<h3>A Resounding Victory</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>It was not what Franklin Roosevelt was able to accomplish, but you have still defeated the popular President Dewey by a comfortable margin. He calls to concede moments later, expressing his desire to serve some other purpose after he leaves the White House. You tell him that he has the right idea, and that you would love to see him do more after his presidency.</p><p>You end up heading to meetings with many of the Democrats cast out of executive policymaking in 1944, plotting what your future administration will do after that small setback. They are all excited for both the new administration and the new decade on the horizon, sure to bring even more prosperity than the 1940s, a time of rebuilding for the peoples of the world.</p><p>And you, Governor, are the beginning of that new era. Not presiding over an America in turmoil, war, or depression, you now get to set your sights on making things better than they already are, making every American truly happy.</p><p>That’s what being president is all about, you think.</p></div>";
