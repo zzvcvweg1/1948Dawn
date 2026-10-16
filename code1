@@ -818,6 +818,7 @@ let ytPlayerReady = false;
 let ytConstructing = false;
 let ytReadyPending = false;
 let ytProgressTimer = null;
+let ytApiTimer = null;
 let backendVolume = 1;
 
 const ytHooks = {
@@ -878,6 +879,7 @@ function ensureYTPlayer(onReady) {
   if (ytConstructing) return;
 
   const createPlayer = () => {
+    if (ytPlayer || ytConstructing) return;
     const holder = document.getElementById("ytplayer") || (() => {
       const el = document.createElement("div");
       el.id = "ytplayer";
@@ -941,10 +943,11 @@ function ensureYTPlayer(onReady) {
 
   if (ytApiReady && window.YT && window.YT.Player) {
     createPlayer();
-  } else {
-    const timer = setInterval(() => {
+  } else if (!ytApiTimer) {
+    ytApiTimer = setInterval(() => {
       if (ytApiReady && window.YT && window.YT.Player) {
-        clearInterval(timer);
+        clearInterval(ytApiTimer);
+        ytApiTimer = null;
         createPlayer();
       }
     }, 50);
@@ -960,6 +963,7 @@ function stopYTProgressPump() {
 
 function startYTProgressPump() {
   stopYTProgressPump();
+  if (!isYouTubeSong(ytCurrentSong())) return;
   ytProgressTimer = setInterval(() => {
     ytHooks.onProgress?.(backendGetCurrentTime(), backendGetDuration());
   }, 250);
@@ -967,6 +971,8 @@ function startYTProgressPump() {
 
 function backendSetSrcAndLoad(song, audio) {
   if (!song) return;
+  const progressBar = document.getElementById("progress-bar");
+  if (progressBar) progressBar.value = 0;
 
   if (isYouTubeSong(song)) {
     stopYTProgressPump();
@@ -1005,6 +1011,7 @@ function backendPlay(audio) {
 
   return audio.play().catch(e => {
     console.log("Playback deferred for user interaction.", e);
+    if (ytCurrentSong() === song) updatePlayPauseIcon(false);
   });
 }
 
@@ -1343,8 +1350,10 @@ function setupMusicPlayer() {
   };
   ytHooks.onEnded = advanceToNextSong;
   const paintProgress = (current, duration) => {
-    if (Number.isFinite(duration) && duration > 0) {
+    if (Number.isFinite(current) && Number.isFinite(duration) && duration > 0) {
       progressBar.value = (current / duration) * 100;
+    } else {
+      progressBar.value = 0;
     }
   };
   ytHooks.onProgress = paintProgress;
@@ -1405,7 +1414,7 @@ function setupMusicPlayer() {
   updateUI(activePlaylist);
   startYTProgressPump();
   backendPlay(audio)
-    .then(() => updatePlayPauseIcon(true))
+    .then(() => updatePlayPauseIcon(isYouTubeSong(ytCurrentSong()) || !audio.paused))
     .catch(() => updatePlayPauseIcon(false));
 }
 
