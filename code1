@@ -498,10 +498,68 @@ RecReading=true
 }
 
 HistHexcolour = ["#CC485A", "#5757B0", "#EEB82D", "#3AA964", "#765049"];
-HistName = ["Thomas E. Dewey & John W. Bricker", "Paul V. McNutt & Burnet R. Maybank", "Harry F. Byrd & Various", "Hugh De Lacy & Albert J. Fitzgerald", "Norman Thomas/Others & Tucker P. Smith/Others"];
+HistName = ["Thomas E. Dewey", "Paul V. McNutt", "Harry F. Byrd", "Hugh De Lacy", "Norman Thomas/Others"];
 HistEV = [324, 187, 20, 0, 0];
 HistPV = ["23,950,307", "23,119,051", "452,096", "784,116", "232,279"];
 HistPVP = ["49.3%", "47.6%", "0.9%", "1.6%", "0.5%"];
+
+vpTableHistorical = {
+    "Thomas E. Dewey": "John W. Bricker",
+    "Paul V. McNutt": "Burnet R. Maybank",
+    "Harry F. Byrd": "Various",
+    "Hugh De Lacy": "Albert J. Fitzgerald",
+    "Norman Thomas/Others": "Tucker P. Smith/Others"
+};
+
+function addHistoricalRunningMateColumn() {
+    const holder = document.getElementById("overall_details_container");
+    if (!holder) {
+        return;
+    }
+
+    const tables = holder.querySelectorAll("table");
+    if (tables.length < 2) {
+        return;
+    }
+
+    const historicalTable = tables[tables.length - 1];
+    const rows = historicalTable.rows;
+    if (rows.length != HistName.length + 1 || rows[0].cells.length != 4) {
+        return;
+    }
+
+    for (let i = 1; i < rows.length; i++) {
+        if (!rows[i].cells[0] || rows[i].cells.length != 4) {
+            return;
+        }
+        const name = rows[i].cells[0].textContent.replace(/^[\s\-]+/, "").replace(/\s+/g, " ").trim();
+        if (name != HistName[i - 1] || !Object.prototype.hasOwnProperty.call(vpTableHistorical, name)) {
+            return;
+        }
+    }
+
+    const heading = rows[0].cells[0].cloneNode(false);
+    heading.textContent = "Running Mate";
+    heading.removeAttribute("id");
+    heading.id = "running-mate-historical";
+    rows[0].insertBefore(heading, rows[0].cells[1]);
+
+    for (let i = 1; i < rows.length; i++) {
+        const name = HistName[i - 1];
+        const cell = rows[i].insertCell(1);
+        cell.textContent = vpTableHistorical[name];
+    }
+}
+
+const dawnHistoricResultsWindow = document.getElementById("game_window");
+if (dawnHistoricResultsWindow) {
+    const dawnHistoricResultsObserver = new MutationObserver(addHistoricalRunningMateColumn);
+    dawnHistoricResultsObserver.observe(dawnHistoricResultsWindow, {
+        childList: true,
+        subtree: true
+    });
+    addHistoricalRunningMateColumn();
+}
 
 $("#game_window")[0].style.borderColor = "#4E4C9A"
 $(".container")[0].style.backgroundColor = "#5855AF"
