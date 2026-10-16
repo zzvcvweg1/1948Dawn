@@ -17479,8 +17479,8 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && playerEV >= 266) {
 vpTable = {
     "Thomas E. Dewey": "John W. Bricker",
     "Paul V. McNutt": "Burnet R. Maybank",
-    "Henry Wallace": "Glen Taylor",
-    "Hubert Humphrey": "Sam Rayburn",
+    "Henry A. Wallace": "Glen H. Taylor",
+    "Hubert H. Humphrey": "Sam T. Rayburn",
     "Strom Thurmond": "Fielding L. Wright",
     "Harry F. Byrd": "Various",
     "Hugh De Lacy": "Albert J. Fitzgerald",
