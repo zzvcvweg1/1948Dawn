@@ -122,7 +122,7 @@ campaignTrail_temp.candidate_json = [
         "model": "campaign_trail.candidate",
         "pk": 120,
         "fields": {
-            "first_name": "Burnet R",
+            "first_name": "Burnet R.",
             "last_name": "Maybank",
             "election": 12,
             "party": "Democrat",
@@ -205,7 +205,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "'",
             "electoral_loss_message": "'",
             "no_electoral_majority_message": "'",
-            "description_as_running_mate": "<div class='dawn-description-scroll' style='overflow-y:scroll;height:200px;'><p>There are many reasons why choosing Douglas MacArthur as your running mate is a poor idea.  Firstly, he is a Republican, and has expressed tepid support for desegregation during his short-lived 1944 presidential campaign. </p><p>Secondly, he has grown to be something of a pariah since he led the failed Operation Downfall and was subsequently fired from his position as Supreme Allied Commander.  His overambitious and costly maneuvers were widely criticized by Democrats and he soon became a fall guy for the administration, though MacArthur denies that he holds any responsibility for the failed invasion fervently.</p><p>His selection would be widely controversial, but his extremely tough-on-defense policies would allow Russell to run a more broad campaign.  As well, MacArthur claims to have hold of “secret information” that, if presented, would unequivocally prove that Wallace is a communist.</p></div>",
+            "description_as_running_mate": "",
             "candidate_score": 0.0,
             "running_mate": true
         }
