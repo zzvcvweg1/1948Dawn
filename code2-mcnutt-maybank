@@ -363,7 +363,7 @@ campaignTrail_temp.answers_json = [
         "pk": 49014,
         "fields": {
             "question": 48005,
-            "description": "Mike Monroney is a person I’ve had my eye on ever since he entered Congress. He has been a wonderful advocate for humanitarian aid around the world done right, not like the way the Dewey Administration has run it with rich businessmen and politicians deciding the fate of many European nations. Monroney knows how that can be done better."
+            "description": "Burnet Maybank is by far the most sensible man to grace the Vice Presidential slot in many decades. He is principled and a wonderful blend of the southern traditionalism of the past and modernist nuance that we require most in our party today. I cannot think of a better man to serve under me in my administration."
         }
     },
     {
@@ -6774,7 +6774,7 @@ campaignTrail_temp.answer_score_global_json = [
             "answer": 49014,
             "candidate": 116,
             "affected_candidate": 118,
-            "global_multiplier": 0.002
+            "global_multiplier": -0.004
         }
     },
     {
@@ -7766,7 +7766,7 @@ campaignTrail_temp.answer_score_issue_json = [
         "fields": {
             "answer": 49014,
             "issue": 43,
-            "issue_score": 0.2,
+            "issue_score": -0.2,
             "issue_importance": 2
         }
     },
@@ -7776,7 +7776,7 @@ campaignTrail_temp.answer_score_issue_json = [
         "fields": {
             "answer": 49014,
             "issue": 44,
-            "issue_score": 0.4,
+            "issue_score": 0.35,
             "issue_importance": 2
         }
     },
@@ -10928,13 +10928,13 @@ campaignTrail_temp.answer_score_state_json = [
     },
     {
         "model": "campaign_trail.answer_score_state",
-        "pk": 53029,
+        "pk": 53033,
         "fields": {
             "answer": 49014,
-            "state": 367,
+            "state": 334,
             "candidate": 116,
             "affected_candidate": 116,
-            "state_multiplier": 0.026
+            "state_multiplier": 0.002
         }
     },
     {
@@ -10942,10 +10942,21 @@ campaignTrail_temp.answer_score_state_json = [
         "pk": 53030,
         "fields": {
             "answer": 49014,
-            "state": 347,
+            "state": 342,
             "candidate": 116,
             "affected_candidate": 116,
-            "state_multiplier": 0.012
+            "state_multiplier": 0.004
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_state",
+        "pk": 53034,
+        "fields": {
+            "answer": 49014,
+            "state": 355,
+            "candidate": 116,
+            "affected_candidate": 116,
+            "state_multiplier": 0.002
         }
     },
     {
@@ -10953,7 +10964,18 @@ campaignTrail_temp.answer_score_state_json = [
         "pk": 53031,
         "fields": {
             "answer": 49014,
-            "state": 338,
+            "state": 364,
+            "candidate": 116,
+            "affected_candidate": 116,
+            "state_multiplier": 0.003
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_state",
+        "pk": 53029,
+        "fields": {
+            "answer": 49014,
+            "state": 371,
             "candidate": 116,
             "affected_candidate": 116,
             "state_multiplier": 0.007
@@ -10964,65 +10986,10 @@ campaignTrail_temp.answer_score_state_json = [
         "pk": 53032,
         "fields": {
             "answer": 49014,
-            "state": 336,
+            "state": 377,
             "candidate": 116,
             "affected_candidate": 116,
             "state_multiplier": 0.003
-        }
-    },
-    {
-        "model": "campaign_trail.answer_score_state",
-        "pk": 53033,
-        "fields": {
-            "answer": 49014,
-            "state": 355,
-            "candidate": 116,
-            "affected_candidate": 116,
-            "state_multiplier": 0.003
-        }
-    },
-    {
-        "model": "campaign_trail.answer_score_state",
-        "pk": 53034,
-        "fields": {
-            "answer": 49014,
-            "state": 374,
-            "candidate": 116,
-            "affected_candidate": 116,
-            "state_multiplier": 0.002
-        }
-    },
-    {
-        "model": "campaign_trail.answer_score_state",
-        "pk": 54300,
-        "fields": {
-            "answer": 49014,
-            "state": 363,
-            "candidate": 116,
-            "affected_candidate": 116,
-            "state_multiplier": 0.003
-        }
-    },
-    {
-        "model": "campaign_trail.answer_score_state",
-        "pk": 54301,
-        "fields": {
-            "answer": 49014,
-            "state": 371,
-            "candidate": 116,
-            "affected_candidate": 116,
-            "state_multiplier": -0.063
-        }
-    },
-    {
-        "model": "campaign_trail.answer_score_state",
-        "pk": 54302,
-        "fields": {
-            "answer": 49014,
-            "state": 371,
-            "candidate": 116,
-            "affected_candidate": 118,
-            "state_multiplier": 0.022
         }
     },
     {
@@ -15232,7 +15199,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 49014,
             "candidate": 116,
-            "answer_feedback": "It's no secret that Dewey’s employment of President Hoover as the overseer of postwar aid to Europe is controversial. Most of the country’s electorate still remember just how bad Hoover was for them, and reminding them of it still works every time. Monroney also attracts many moderates in the Plains, now that they finally have a reliable spokesperson for their region."
+            "answer_feedback": "Maybank seems to offend almost nobody. He’s enough to give the southern delegates a reason to vote for you in November, and is not racist enough to make progressives become aghast at your campaign. He is a happy medium, all things considered."
         }
     },
     {
@@ -15959,7 +15926,7 @@ campaignTrail_temp.answer_feedback_json = [
 
 campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/0cudDE6.png';
 
-campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/M3rl3uA.png';
+campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/PEimFRD.png';
 
 campaignTrail_temp.jet_data = [{}]
 
@@ -16218,7 +16185,7 @@ $(`<style>
     font-weight: 600 !important;
 }
 #campaign_sign {
-    background-image: url("https://file.garden/aNtjn2887DiA_8HP/00A983AB-D6BF-47A7-82E4-A1B072A7D428.png");
+    background-image: url("https://file.garden/aNtjn2887DiA_8HP/5F357869-44B9-43F8-8890-96411C7AE90E.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -17110,21 +17077,6 @@ dawnMcNuttTooltipQueueScan();
 cyoAdventure = function(a) {
     ans = e.player_answers[e.player_answers.length - 1];
 
-    if (ans == 49014) {
-        e.running_mate_first_name = "Mike";
-        e.running_mate_last_name = "Monroney";
-        e.running_mate_image_url = "https://i.imgur.com/M3rl3uA.png";
-        e.running_mate_state_id = 367;
-        e.running_mate_issue_score_json.forEach(runningMate => {
-            runningMate.fields.candidate = 194801;
-            if (runningMate.fields.issue == 42) runningMate.fields.issue_score = 0.55;
-            if (runningMate.fields.issue == 43) runningMate.fields.issue_score = 0.25;
-            if (runningMate.fields.issue == 44) runningMate.fields.issue_score = 0.5;
-            if (runningMate.fields.issue == 45) runningMate.fields.issue_score = 0.3;
-            if (runningMate.fields.issue == 46) runningMate.fields.issue_score = -0.35;
-        });
-    }
-
     if (ans == 49001) {
         e.global_parameter_json[0].fields.question_count = 1;
         e.candidate_first_name = "Henry A.";
@@ -17526,7 +17478,7 @@ if (campaignTrail_temp.candidate_last_name == "Wallace" && playerEV >= 266) {
 
 vpTable = {
     "Thomas E. Dewey": "John W. Bricker",
-    "Paul V. McNutt": "Mike Monroney",
+    "Paul V. McNutt": "Burnet R. Maybank",
     "Henry Wallace": "Glen Taylor",
     "Hubert Humphrey": "Sam Rayburn",
     "Strom Thurmond": "Fielding L. Wright",
