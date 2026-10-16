@@ -423,6 +423,97 @@ campaignTrail_temp.running_mate_json = [
         }
     }
 ];
+
+campaignTrail_temp.achievements = {
+    "To Kill a Mocking Bird": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/360_F_2010080664_FmaDktyfyVIhOh7kF6lRPfQPSn3AjLDH.jpg",
+        "description": "Break the Democratic coalition",
+        "cannotBeCheated": true
+    },
+    "People vs Dewey": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/Senator_Robert_A._Taft_of_Ohio%2C_Thomas_E._Dewey%2C_and_Senator_Arthur_H._Vandenberg_of_Michigan_(cropped)%20(1).jpg",
+        "description": "Return the Republican Party to its roots",
+        "cannotBeCheated": true
+    },
+    "Give 'Em Hell": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/happy-chandler-95625733-f88f-47e1-b107-85116394ad2-resize-750.webp",
+        "description": "Win like Truman",
+        "cannotBeCheated": true
+    },
+    "Out Of The Shadow": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/images%20(79).jpg",
+        "description": "Step into the sunshine",
+        "cannotBeCheated": true
+    },
+    "Jurisprudence": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/images%20(78).jpeg",
+        "description": "Do the right thing.",
+        "cannotBeCheated": true
+    },
+    "Just A Bump In The Road": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/s-l400%20(11).jpg",
+        "description": "Out do Franklin Roosevelt in 1940",
+        "cannotBeCheated": true
+    },
+    "Dewey Socialists of America": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/3ca4c3e5-0838-4e90-92f6-8d4b159042a1%20(1).png",
+        "description": "Win after endsieg",
+        "cannotBeCheated": true
+    },
+    "The Victor and The Judge": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/jim-crow-protest-image.webp",
+        "description": "Pick a fight with a lion and win",
+        "cannotBeCheated": true
+    },
+    "Identity War": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/203hpr_ef4f6c5e5a15b4d-scaled.jpg",
+        "description": "As Paul McNutt, give in to the south's desires",
+        "cannotBeCheated": true
+    },
+    "Rusty": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/images%20(77).jpg",
+        "description": "Lose your hometown state, but still win the big prize",
+        "cannotBeCheated": true
+    },
+    "RED": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/fig0309.jpg",
+        "description": "Give the Soviet Union the edge",
+        "cannotBeCheated": true
+    },
+    "Hung Jury": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/12AngryMen.jpg",
+        "description": "Get a deadlocked election",
+        "cannotBeCheated": true
+    },
+    "Written In The Stars": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/Screenshot%202026-10-16%20020107%20(2).png",
+        "description": "Four More Years As Dewey",
+        "cannotBeCheated": true
+    },
+    "Roosevelt Rolling": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/2013-1465.webp",
+        "description": "As Paul McNutt, win while being as cold towards labor as possible",
+        "cannotBeCheated": true
+    }
+}
+
+let dawnAchievementStyle = document.createElement("style")
+dawnAchievementStyle.id = "dawn-achievement-style"
+dawnAchievementStyle.innerHTML = `
+img.achImage {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    box-sizing: border-box !important;
+    padding: 4px !important;
+    border: 2px solid #CB495E !important;
+    background-color: #F5EFE8 !important;
+    border-radius: 2px !important;
+}
+`
+document.head.appendChild(dawnAchievementStyle)
+
 campaignTrail_temp.opponents_default_json = [
     {
         "election": 12,
