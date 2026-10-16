@@ -16061,7 +16061,7 @@ $(`<style>
     font-weight: 600 !important;
 }
 #campaign_sign {
-    background-image: url("https://file.garden/aNtjn2887DiA_8HP/5F357869-44B9-43F8-8890-96411C7AE90E.png");
+    background-image: url("https://file.garden/aNtjn2887DiA_8HP/00A983AB-D6BF-47A7-82E4-A1B072A7D428.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
