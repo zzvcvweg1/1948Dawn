@@ -11161,6 +11161,163 @@ campaignTrail_temp.jet_data = [{}]
 e = campaignTrail_temp;
 e.cyoa = true;
 
+campaignTrail_temp.dawnAchievementsChecked = false;
+
+function ctsAchievement(achievement) {
+    if (campaignTrail_temp.CTS) {
+        unlockAchievement(achievement);
+    }
+}
+
+function dawnHasAnswer(pk) {
+    return Array.isArray(campaignTrail_temp.player_answers) && campaignTrail_temp.player_answers.some(function(answer) {
+        return Number(answer) === Number(pk);
+    });
+}
+
+function dawnCandidateByPk(pk) {
+    return (campaignTrail_temp.candidate_json || []).find(function(candidate) {
+        return Number(candidate.pk) === Number(pk);
+    });
+}
+
+function dawnRunningMateLastName() {
+    var runningMate = dawnCandidateByPk(campaignTrail_temp.running_mate_id);
+    return String(runningMate && runningMate.fields ? runningMate.fields.last_name || "" : "").toLowerCase();
+}
+
+function dawnPopularVotePercent(candidatePk) {
+    var results = campaignTrail_temp.final_overall_results || [];
+    var totalVotes = results.reduce(function(sum, result) {
+        return sum + (Number(result.popular_votes) || 0);
+    }, 0);
+    var row = results.find(function(result) {
+        return Number(result.candidate) === Number(candidatePk);
+    });
+    if (!row || totalVotes <= 0) {
+        return 0;
+    }
+    return ((Number(row.popular_votes) || 0) / totalVotes) * 100;
+}
+
+function dawnStatePkByName(stateName) {
+    var state = (campaignTrail_temp.states_json || []).find(function(entry) {
+        return String(entry.fields && entry.fields.name ? entry.fields.name : "").toLowerCase() === String(stateName).toLowerCase();
+    });
+    return state ? state.pk : null;
+}
+
+function dawnCandidateWonState(candidatePk, stateName) {
+    var statePk = dawnStatePkByName(stateName);
+    if (!statePk) {
+        return false;
+    }
+    var row = (campaignTrail_temp.final_state_results || []).find(function(result) {
+        return Number(result.state) === Number(statePk);
+    });
+    if (!row || !Array.isArray(row.result) || !row.result.length) {
+        return false;
+    }
+    var winner = row.result.slice().sort(function(a, b) {
+        return (Number(b.percent) || 0) - (Number(a.percent) || 0);
+    })[0];
+    return !!winner && Number(winner.candidate) === Number(candidatePk);
+}
+
+function dawnWonAnySouthernState(candidatePk) {
+    var southernStates = ["Alabama", "Arkansas", "Florida", "Georgia", "Kentucky", "Louisiana", "Mississippi", "North Carolina", "Oklahoma", "South Carolina", "Tennessee", "Texas", "Virginia"];
+    return southernStates.some(function(stateName) {
+        return dawnCandidateWonState(candidatePk, stateName);
+    });
+}
+
+function dawnNoRedBaitDewey() {
+    return ![49021, 49054, 49069, 49073].some(dawnHasAnswer);
+}
+
+function dawnConservativeDeweyPath() {
+    return [49015, 49016, 49021, 49046, 49069].every(dawnHasAnswer) && [49061, 49103].some(dawnHasAnswer);
+}
+
+function dawnSuperLiberalMcNutt() {
+    var score = 0;
+    if (dawnHasAnswer(49008)) score++;
+    if ([49022, 49025].some(dawnHasAnswer)) score++;
+    if (dawnHasAnswer(49029)) score++;
+    if (dawnHasAnswer(49041)) score++;
+    if (dawnHasAnswer(49048)) score++;
+    if (dawnHasAnswer(49055)) score++;
+    if (dawnHasAnswer(49057)) score++;
+    if (dawnHasAnswer(49067)) score++;
+    return score >= 6;
+}
+
+function evaluateDawnAchievements(out, quickstats) {
+    if (!campaignTrail_temp.CTS || campaignTrail_temp.dawnAchievementsChecked) {
+        return;
+    }
+    campaignTrail_temp.dawnAchievementsChecked = true;
+
+    var playerId = Number(campaignTrail_temp.candidate_id);
+    var isDewey = playerId === 117;
+    var isMcNutt = playerId === 116;
+    var playerWon = out === "win";
+    var playerTied = out === "tie";
+    var playerEV = Number(quickstats && quickstats[0] ? quickstats[0] : 0);
+    var playerPV = dawnPopularVotePercent(playerId);
+    var runningMateLastName = dawnRunningMateLastName();
+
+    if (playerTied && (isDewey || isMcNutt)) {
+        ctsAchievement("Hung Jury");
+    }
+
+    if (isDewey) {
+        if (dawnCandidateWonState(117, "Tennessee")) {
+            ctsAchievement("To Kill a Mocking Bird");
+        }
+        if (dawnHasAnswer(49005)) {
+            ctsAchievement("RED");
+        }
+        if (dawnConservativeDeweyPath()) {
+            ctsAchievement("People vs Dewey");
+        }
+        if (playerWon) {
+            ctsAchievement("Written In The Stars");
+        }
+        if (playerWon && dawnHasAnswer(49005) && dawnNoRedBaitDewey()) {
+            ctsAchievement("Jurisprudence");
+        }
+        if (playerWon && dawnHasAnswer(49044) && dawnHasAnswer(49058) && dawnHasAnswer(49053) && dawnNoRedBaitDewey()) {
+            ctsAchievement("Dewey Socialists of America");
+        }
+    }
+
+    if (isMcNutt) {
+        if (playerWon && playerEV >= 449) {
+            ctsAchievement("Just A Bump In The Road");
+        }
+        if (playerWon && !dawnCandidateWonState(116, "Indiana")) {
+            ctsAchievement("Rusty");
+        }
+        if (playerWon && dawnSuperLiberalMcNutt()) {
+            ctsAchievement("Out Of The Shadow");
+        }
+        if (playerWon && dawnHasAnswer(49008) && dawnHasAnswer(49048) && dawnWonAnySouthernState(116)) {
+            ctsAchievement("The Victor and The Judge");
+        }
+        if (dawnHasAnswer(49050) || (dawnHasAnswer(49007) && dawnHasAnswer(49049))) {
+            ctsAchievement("Identity War");
+        }
+        if (playerWon && dawnHasAnswer(49030) && dawnHasAnswer(49069)) {
+            ctsAchievement("Roosevelt Rolling");
+        }
+        if (playerWon && runningMateLastName.indexOf("barkley") !== -1 && playerPV >= 48.99 && playerPV <= 49.99) {
+            ctsAchievement("Give 'Em Hell");
+        }
+    }
+}
+
+
 $(`<style>
 .inner_window_question > .inner_inner_window,
 .dawn-ending-scroll {
@@ -12338,6 +12495,7 @@ for (let i = 0; i < aa.length; i++) {
 if (!oppEV) {
     oppEV = 531 - playerEV;
 }
+evaluateDawnAchievements(out, quickstats);
 const deweySweep = "<h3>Magnum Opus</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>Zero. No, not a margin of victory in a state, not the raw vote total - zero electoral votes for Paul McNutt. A landslide. A clean sweep of your principal opposition. The Democratic nominee had been wiped from the Electoral College. There was no amount of speeching, wording, or celebration that could handle this raw fact. And now, a mandate gifted to Thomas Edmund Dewey on a golden platter - not a mandate of the people, rather, <b>a mandate of heaven</b>.</p><p>Dewey leaned back in his bed as he simmered in the thoughts that drew him raw pleasure and euphoria in the moment. He never felt this good in his life, and doubted he would feel this good again. He felt almost inhuman, no, he was a God amongst men. He controlled millions, yes, millions of people now - all in the grasp of his hand.</p><p>Perhaps he would give his speech. Maybe he would strangle Congress with his newfound majorities - no doubt a devout following from the masses that would curb downballot races for years to come. Yes. Tom Dewey had come. He had seen. And now? He had conquered. There was little left to go off of now. Just raw pleasure and manlihood.</p><p>Now finally endowed with the power to confront his nation’s sins, Dewey relaxed. The pleasure had quickly worn off. But the mess was still there, and a clean-up was still needed.</p></div>";
 const deweyBig = "<h3>Res Ipsa Loquitur</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>You have done it. Not only are any remaining doubts about your mandate now smashed to pieces, you have won the popular vote, something that you failed to do four years ago. The Democratic Party reels from this loss. McNutt gives you a concession call, even shocking himself at just how much he lost by. More pained calls come in from other Democrats involved in the campaign. You can almost feel the fumes coming from Henry Wallace and his faction, wondering why the party put its trust into someone with hardly any ties to the groups that Democrats attract the most. You get a few calls from prominent Republicans as well, most notably President Hoover, overcome with pride at how much you have done for the party he nearly destroyed.</p><p>You ponder your next term deeply in the hours that follow, wondering how you will possibly manage both the fast-approaching end of the Chinese Civil War and a brand-new powder keg forming on the Korean Peninsula, one that Dulles is already beginning preparations for. The Democrats will surely return with a vengeance if you are to fail on both of these fronts. The pressure is on, Mr. President. If you can handle it, that will perhaps be your finest hour, and your successor will be well-equipped to have a far easier presidency than your own.</p><p>However, the real work begins now. Quickly, you move to your notebook, jotting down your future plans for an extremely pivotal term.</p></div>";
 const deweyLittle = "<h3>Preponderance of the Evidence</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>It was touch and go for a while, Mr. President, but you have captured the presidency for the second time in a row, becoming the first Republican President elected twice since William McKinley. Democrats, for their part, are disheartened at this second consecutive close loss, disillusioned with the way the party has been directed in recent years. You receive a concession call from Governor McNutt, who wishes you the best of luck in your term. You give him the same wishes as more and more calls flood your Manhattan Office, each one another prominent Republican giving you praise for your restoration of the Republican order that Roosevelt had seemingly killed.</p><p>You head to your next few cabinet meetings, wondering which ones should stay and which ones should go. Dulles, of course, will stay, but the rest of your cabinet is another matter. Stassen seems itching to leave his post, but you’ll cross that bridge when you get there.</p><p>You peer out from your office overlooking the Manhattan skyline, its lights shining brighter than those of any city in the world. It is the largest city, after all, and why shouldn’t it be? It was built by Americans, and solidified by Americans, a true testament to the liberty that the Constitution had enshrined. You wish that you could be back here full-time, serving the city you love the most and helping people where it matters.</p><p>But, you can’t. You must be president for another four years. The nation, and 200 million people, need you.</p></div>";
