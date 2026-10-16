@@ -1195,7 +1195,7 @@ function setupMusicPlayer() {
       height: 178px;
       width: 127px;
       margin-top: 3px;
-      margin-left: 5px;
+      margin-left: 0px;
       background-image: url("${ASSETS.infoBg}");
       background-size: cover;
       color: #6e441b;
