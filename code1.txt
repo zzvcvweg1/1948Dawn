@@ -494,12 +494,17 @@ campaignTrail_temp.achievements = {
         "image": "https://file.garden/aNtjn2887DiA_8HP/2013-1465.webp",
         "description": "<style>.achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) { height: 260px !important; max-height: 260px !important; flex-direction: column !important; flex-wrap: nowrap !important; align-items: center !important; justify-content: flex-start !important; } .achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) .achTitle { flex: 0 0 auto !important; width: 100% !important; height: auto !important; max-height: none !important; margin: 0 0 10px !important; line-height: 1.1 !important; } .achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) .achImageHolder { box-sizing: border-box !important; display: flex !important; align-items: center !important; justify-content: center !important; flex: 0 0 110px !important; width: 110px !important; height: 110px !important; margin: 0 auto 10px !important; } .achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) img.achImage { display: block !important; width: 100px !important; height: 100px !important; max-width: 100% !important; max-height: 100% !important; object-fit: contain !important; object-position: center !important; box-sizing: border-box !important; padding: 2px !important; border: 2px solid #CB495E !important; background-color: #F5EFE8 !important; border-radius: 2px !important; } .achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) .achText { box-sizing: border-box !important; flex: 0 1 auto !important; height: auto !important; min-height: 28px !important; max-height: 54px !important; width: 100% !important; margin: auto 0 0 !important; padding: 4px 5px !important; overflow-x: hidden !important; overflow-y: auto !important; font-size: 12px !important; line-height: 1.25 !important; scrollbar-width: thin; scrollbar-color: #C94960 #F8F8F8; }</style>As Paul McNutt, win while being as cold towards labor as possible",
         "cannotBeCheated": true
+    },
+    "The White-Haired Boy": {
+        "image": "https://file.garden/aNtjn2887DiA_8HP/3%20McNutt%20reading%20Independence%20Proclamation%20-%20Jeremy%20Collins%20copy.jpg",
+        "description": "<style>.achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) { height: 260px !important; max-height: 260px !important; flex-direction: column !important; flex-wrap: nowrap !important; align-items: center !important; justify-content: flex-start !important; } .achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) .achTitle { flex: 0 0 auto !important; width: 100% !important; height: auto !important; max-height: none !important; margin: 0 0 10px !important; line-height: 1.1 !important; } .achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) .achImageHolder { box-sizing: border-box !important; display: flex !important; align-items: center !important; justify-content: center !important; flex: 0 0 110px !important; width: 110px !important; height: 110px !important; margin: 0 auto 10px !important; } .achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) img.achImage { display: block !important; width: 100px !important; height: 100px !important; max-width: 100% !important; max-height: 100% !important; object-fit: contain !important; object-position: center !important; box-sizing: border-box !important; padding: 2px !important; border: 2px solid #CB495E !important; background-color: #F5EFE8 !important; border-radius: 2px !important; } .achBox:has(img.achImage:is([src^=\"https://file.garden/aNtjn2887DiA_8HP/\"], [data-src^=\"https://file.garden/aNtjn2887DiA_8HP/\"])) .achText { box-sizing: border-box !important; flex: 0 1 auto !important; height: auto !important; min-height: 28px !important; max-height: 54px !important; width: 100% !important; margin: auto 0 0 !important; padding: 4px 5px !important; overflow-x: hidden !important; overflow-y: auto !important; font-size: 12px !important; line-height: 1.25 !important; scrollbar-width: thin; scrollbar-color: #C94960 #F8F8F8; }</style>Win the White House",
+        "cannotBeCheated": true
     }
 }
 
-let dawnAchievementStyle = document.createElement("style")
-dawnAchievementStyle.id = "dawn-achievement-style"
-dawnAchievementStyle.innerHTML = `
+let achievementStyle = document.createElement("style")
+achievementStyle.id = "dawn-achievement-style"
+achievementStyle.innerHTML = `
 .achBox:has(img.achImage:is([src^="https://file.garden/aNtjn2887DiA_8HP/"], [data-src^="https://file.garden/aNtjn2887DiA_8HP/"])) {
     height: 260px !important;
     max-height: 260px !important;
@@ -557,7 +562,7 @@ dawnAchievementStyle.innerHTML = `
     scrollbar-color: #C94960 #F8F8F8;
 }
 `
-document.head.appendChild(dawnAchievementStyle)
+document.head.appendChild(achievementStyle)
 
 campaignTrail_temp.opponents_default_json = [
     {
@@ -687,10 +692,10 @@ function addHistoricalRunningMateColumn() {
     }
 }
 
-const dawnHistoricResultsWindow = document.getElementById("game_window");
-if (dawnHistoricResultsWindow) {
-    const dawnHistoricResultsObserver = new MutationObserver(addHistoricalRunningMateColumn);
-    dawnHistoricResultsObserver.observe(dawnHistoricResultsWindow, {
+const historicResultsWindow = document.getElementById("game_window");
+if (historicResultsWindow) {
+    const historicResultsObserver = new MutationObserver(addHistoricalRunningMateColumn);
+    historicResultsObserver.observe(historicResultsWindow, {
         childList: true,
         subtree: true
     });
@@ -706,10 +711,10 @@ nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#78717C"
 
 document.head.innerHTML += "<style>#results_container { color: #000000; } .inner_window_w_desc { background-color: #F3C1BF !important; }</style>";
 
-let dawnStyle = document.createElement("style")
-dawnStyle.type = "text/css"
-dawnStyle.id = "1948-dawn-style"
-dawnStyle.innerHTML = `
+let themeStyle = document.createElement("style")
+themeStyle.type = "text/css"
+themeStyle.id = "1948-dawn-style"
+themeStyle.innerHTML = `
   body {
     background:
       linear-gradient(rgba(243, 193, 191, 0.14), rgba(243, 193, 191, 0.14)),
@@ -934,7 +939,7 @@ dawnStyle.innerHTML = `
     color: #000000;
   }
 `
-document.head.appendChild(dawnStyle)
+document.head.appendChild(themeStyle)
 document.getElementById("header").src = "https://i.imgur.com/ihdwHVp.png"
 
 quotes = [
