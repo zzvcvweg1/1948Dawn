@@ -617,7 +617,7 @@ campaignTrail_temp.temp_election_list = [
         "id": 12,
         "year": 1948,
         "is_premium": 0,
-        "display_year": "1948Dawn"
+        "display_year": "1948 Dawn"
     }
 ];
 campaignTrail_temp.credits = "<button onclick='credits()'>Lookout Modding Team</button>";
