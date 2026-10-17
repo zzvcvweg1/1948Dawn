@@ -11183,161 +11183,6 @@ e.cyoa = true;
 
 campaignTrail_temp.dawnAchievementsChecked = false;
 
-function ctsAchievement(achievement) {
-    if (campaignTrail_temp.CTS) {
-        unlockAchievement(achievement);
-    }
-}
-
-function dawnHasAnswer(pk) {
-    return Array.isArray(campaignTrail_temp.player_answers) && campaignTrail_temp.player_answers.some(function(answer) {
-        return Number(answer) === Number(pk);
-    });
-}
-
-function dawnCandidateByPk(pk) {
-    return (campaignTrail_temp.candidate_json || []).find(function(candidate) {
-        return Number(candidate.pk) === Number(pk);
-    });
-}
-
-function dawnRunningMateLastName() {
-    var runningMate = dawnCandidateByPk(campaignTrail_temp.running_mate_id);
-    return String(runningMate && runningMate.fields ? runningMate.fields.last_name || "" : "").toLowerCase();
-}
-
-function dawnPopularVotePercent(candidatePk) {
-    var results = campaignTrail_temp.final_overall_results || [];
-    var totalVotes = results.reduce(function(sum, result) {
-        return sum + (Number(result.popular_votes) || 0);
-    }, 0);
-    var row = results.find(function(result) {
-        return Number(result.candidate) === Number(candidatePk);
-    });
-    if (!row || totalVotes <= 0) {
-        return 0;
-    }
-    return ((Number(row.popular_votes) || 0) / totalVotes) * 100;
-}
-
-function dawnStatePkByName(stateName) {
-    var state = (campaignTrail_temp.states_json || []).find(function(entry) {
-        return String(entry.fields && entry.fields.name ? entry.fields.name : "").toLowerCase() === String(stateName).toLowerCase();
-    });
-    return state ? state.pk : null;
-}
-
-function dawnCandidateWonState(candidatePk, stateName) {
-    var statePk = dawnStatePkByName(stateName);
-    if (!statePk) {
-        return false;
-    }
-    var row = (campaignTrail_temp.final_state_results || []).find(function(result) {
-        return Number(result.state) === Number(statePk);
-    });
-    if (!row || !Array.isArray(row.result) || !row.result.length) {
-        return false;
-    }
-    var winner = row.result.slice().sort(function(a, b) {
-        return (Number(b.percent) || 0) - (Number(a.percent) || 0);
-    })[0];
-    return !!winner && Number(winner.candidate) === Number(candidatePk);
-}
-
-function dawnWonAnySouthernState(candidatePk) {
-    var southernStates = ["Alabama", "Arkansas", "Florida", "Georgia", "Kentucky", "Louisiana", "Mississippi", "North Carolina", "Oklahoma", "South Carolina", "Tennessee", "Texas", "Virginia"];
-    return southernStates.some(function(stateName) {
-        return dawnCandidateWonState(candidatePk, stateName);
-    });
-}
-
-function dawnNoRedBaitDewey() {
-    return ![49021, 49054, 49069, 49073].some(dawnHasAnswer);
-}
-
-function dawnConservativeDeweyPath() {
-    return [49015, 49016, 49021, 49046, 49069].every(dawnHasAnswer) && [49061, 49103].some(dawnHasAnswer);
-}
-
-function dawnSuperLiberalMcNutt() {
-    var score = 0;
-    if (dawnHasAnswer(49008)) score++;
-    if ([49022, 49025].some(dawnHasAnswer)) score++;
-    if (dawnHasAnswer(49029)) score++;
-    if (dawnHasAnswer(49041)) score++;
-    if (dawnHasAnswer(49048)) score++;
-    if (dawnHasAnswer(49055)) score++;
-    if (dawnHasAnswer(49057)) score++;
-    if (dawnHasAnswer(49067)) score++;
-    return score >= 6;
-}
-
-function evaluateDawnAchievements(out, quickstats) {
-    if (!campaignTrail_temp.CTS || campaignTrail_temp.dawnAchievementsChecked) {
-        return;
-    }
-    campaignTrail_temp.dawnAchievementsChecked = true;
-
-    var playerId = Number(campaignTrail_temp.candidate_id);
-    var isDewey = playerId === 117;
-    var isMcNutt = playerId === 116;
-    var playerWon = out === "win";
-    var playerTied = out === "tie";
-    var playerEV = Number(quickstats && quickstats[0] ? quickstats[0] : 0);
-    var playerPV = dawnPopularVotePercent(playerId);
-    var runningMateLastName = dawnRunningMateLastName();
-
-    if (playerTied && (isDewey || isMcNutt)) {
-        ctsAchievement("Hung Jury");
-    }
-
-    if (isDewey) {
-        if (dawnCandidateWonState(117, "Tennessee")) {
-            ctsAchievement("To Kill a Mocking Bird");
-        }
-        if (dawnHasAnswer(49005)) {
-            ctsAchievement("RED");
-        }
-        if (dawnConservativeDeweyPath()) {
-            ctsAchievement("People vs Dewey");
-        }
-        if (playerWon) {
-            ctsAchievement("Written In The Stars");
-        }
-        if (playerWon && dawnHasAnswer(49005) && dawnNoRedBaitDewey()) {
-            ctsAchievement("Jurisprudence");
-        }
-        if (playerWon && dawnHasAnswer(49044) && dawnHasAnswer(49058) && dawnHasAnswer(49053) && dawnNoRedBaitDewey()) {
-            ctsAchievement("Dewey Socialists of America");
-        }
-    }
-
-    if (isMcNutt) {
-        if (playerWon && playerEV >= 449) {
-            ctsAchievement("Just A Bump In The Road");
-        }
-        if (playerWon && !dawnCandidateWonState(116, "Indiana")) {
-            ctsAchievement("Rusty");
-        }
-        if (playerWon && dawnSuperLiberalMcNutt()) {
-            ctsAchievement("Out Of The Shadow");
-        }
-        if (playerWon && dawnHasAnswer(49008) && dawnHasAnswer(49048) && dawnWonAnySouthernState(116)) {
-            ctsAchievement("The Victor and The Judge");
-        }
-        if (dawnHasAnswer(49050) || (dawnHasAnswer(49007) && dawnHasAnswer(49049))) {
-            ctsAchievement("Identity War");
-        }
-        if (playerWon && dawnHasAnswer(49030) && dawnHasAnswer(49069)) {
-            ctsAchievement("Roosevelt Rolling");
-        }
-        if (playerWon && runningMateLastName.indexOf("barkley") !== -1 && playerPV >= 48.99 && playerPV <= 49.99) {
-            ctsAchievement("Give 'Em Hell");
-        }
-    }
-}
-
-
 $(`<style>
 .inner_window_question > .inner_inner_window,
 .dawn-ending-scroll {
@@ -11373,7 +11218,7 @@ $(`<style>
 .dawn-ending-scroll {
     animation: dawn-ending-reveal 0.77s cubic-bezier(0.23, 0.63, 0.29, 1) both;
 }
-.person_image.dawn-ending-portrait {
+.person_image.ending-portrait {
     box-sizing: border-box;
     border: 4px double #CB495E;
     border-radius: 1px;
@@ -11383,21 +11228,21 @@ $(`<style>
     transform: translateY(2px);
     transition: opacity 0.72s cubic-bezier(0.23, 0.63, 0.29, 1), transform 0.34s ease-out, box-shadow 0.34s ease-out;
 }
-.person_image.dawn-ending-portrait.dawn-ending-portrait-ready {
+.person_image.ending-portrait.ending-portrait-ready {
     opacity: 1;
     transform: translateY(0);
 }
-.person_image.dawn-ending-portrait.dawn-ending-portrait-ready:hover {
+.person_image.ending-portrait.ending-portrait-ready:hover {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(48, 33, 41, 0.24);
 }
 @media (prefers-reduced-motion: reduce) {
-    .person_image.dawn-ending-portrait {
+    .person_image.ending-portrait {
         opacity: 1;
         transform: none;
         transition: none;
     }
-    .person_image.dawn-ending-portrait.dawn-ending-portrait-ready:hover {
+    .person_image.ending-portrait.ending-portrait-ready:hover {
         transform: none;
     }
 }
@@ -12406,81 +12251,53 @@ campaignTrail_temp.multiple_endings = true
 
 var used = false;
 
-let dawnEndingImageUrl = "";
+function updateEndingImage() {
+    if (!e.image || !document.getElementById("final_results_description")) return;
 
-function sizeDawnEndingImage(candImg) {
-    if (!candImg || !candImg.naturalWidth || !candImg.naturalHeight || !candImg.parentElement) return;
+    const img = document.querySelector(".person_image");
+    if (!img || (img.getAttribute("data-ending-image") == e.image && img.getAttribute("src") == e.image)) return;
 
-    const parent = candImg.parentElement;
-    const parentStyle = getComputedStyle(parent);
-    const parentWidth = parent.clientWidth - parseFloat(parentStyle.paddingLeft || 0) - parseFloat(parentStyle.paddingRight || 0);
-    if (parentWidth <= 0) return;
+    img.classList.add("ending-portrait");
+    img.classList.remove("ending-portrait-ready");
+    img.setAttribute("data-ending-image", e.image);
+    img.style.width = "auto";
+    img.style.height = "auto";
+    img.style.maxWidth = "27%";
+    img.style.maxHeight = "278px";
+    img.style.objectFit = "contain";
+    img.style.objectPosition = "center";
 
-    const imageStyle = getComputedStyle(candImg);
-    const frameWidth = parseFloat(imageStyle.borderLeftWidth || 0) + parseFloat(imageStyle.borderRightWidth || 0);
-    const frameHeight = parseFloat(imageStyle.borderTopWidth || 0) + parseFloat(imageStyle.borderBottomWidth || 0);
-    const maxWidth = Math.min(parentWidth * 0.27, 278);
-    const maxHeight = 278;
-    const scale = Math.min(1.14, (maxWidth - frameWidth - 2) / candImg.naturalWidth, (maxHeight - frameHeight - 2) / candImg.naturalHeight);
-    if (scale <= 0) return;
+    img.onload = () => {
+        if (!img.isConnected || img.getAttribute("data-ending-image") != e.image || !img.naturalWidth || !img.naturalHeight || !img.parentElement) return;
 
-    candImg.style.width = `${(candImg.naturalWidth * scale + frameWidth).toFixed(2)}px`;
-    candImg.style.height = `${(candImg.naturalHeight * scale + frameHeight).toFixed(2)}px`;
+        const parentStyle = getComputedStyle(img.parentElement);
+        const parentWidth = img.parentElement.clientWidth - parseFloat(parentStyle.paddingLeft || 0) - parseFloat(parentStyle.paddingRight || 0);
+        if (parentWidth <= 0) return;
+        const border = getComputedStyle(img);
+        const frameWidth = parseFloat(border.borderLeftWidth || 0) + parseFloat(border.borderRightWidth || 0);
+        const frameHeight = parseFloat(border.borderTopWidth || 0) + parseFloat(border.borderBottomWidth || 0);
+        const scale = Math.min(1.14, (Math.min(parentWidth * 0.27, 278) - frameWidth - 2) / img.naturalWidth, (278 - frameHeight - 2) / img.naturalHeight);
+        if (scale <= 0) return;
+        img.style.width = `${(img.naturalWidth * scale + frameWidth).toFixed(2)}px`;
+        img.style.height = `${(img.naturalHeight * scale + frameHeight).toFixed(2)}px`;
+        requestAnimationFrame(() => {
+            if (img.isConnected && img.getAttribute("data-ending-image") == e.image) img.classList.add("ending-portrait-ready");
+        });
+    };
+
+    img.src = e.image;
+    if (img.complete && img.naturalWidth > 0) img.onload();
 }
 
-function revealDawnEndingImage(event) {
-    const candImg = event.currentTarget;
-    if (candImg.getAttribute("data-dawn-ending-image") != dawnEndingImageUrl) {
-        return;
-    }
-    sizeDawnEndingImage(candImg);
-    requestAnimationFrame(() => {
-        if (candImg.isConnected && candImg.getAttribute("data-dawn-ending-image") == dawnEndingImageUrl) {
-            candImg.classList.add("dawn-ending-portrait-ready");
-        }
-    });
-}
-
-function applyDawnEndingImage() {
-    if (!dawnEndingImageUrl || !document.getElementById("final_results_description")) {
-        return;
-    }
-
-    const candImg = document.querySelector(".person_image");
-    if (!candImg || (candImg.getAttribute("data-dawn-ending-image") == dawnEndingImageUrl && candImg.getAttribute("src") == dawnEndingImageUrl)) {
-        return;
-    }
-
-    if (!candImg.hasAttribute("data-dawn-ending-image-listener")) {
-        candImg.addEventListener("load", revealDawnEndingImage);
-        candImg.setAttribute("data-dawn-ending-image-listener", "true");
-    }
-    candImg.classList.add("dawn-ending-portrait");
-    candImg.classList.remove("dawn-ending-portrait-ready");
-    candImg.setAttribute("data-dawn-ending-image", dawnEndingImageUrl);
-    candImg.src = dawnEndingImageUrl;
-    candImg.style.width = "auto";
-    candImg.style.height = "auto";
-    candImg.style.maxWidth = "27%";
-    candImg.style.maxHeight = "278px";
-    candImg.style.objectFit = "contain";
-    candImg.style.objectPosition = "center";
-    if (candImg.complete && candImg.naturalWidth > 0) {
-        revealDawnEndingImage({ currentTarget: candImg });
-    }
-}
-
-function setDawnEndingImage(ending, imageUrl) {
-    dawnEndingImageUrl = imageUrl;
-    setTimeout(applyDawnEndingImage, 10);
+function setImage(ending, image) {
+    e.image = image;
+    setTimeout(updateEndingImage, 10);
     return ending;
 }
 
 window.addEventListener("resize", () => {
-    const candImg = document.querySelector(".person_image.dawn-ending-portrait");
-    if (candImg && candImg.getAttribute("data-dawn-ending-image") == dawnEndingImageUrl) {
-        sizeDawnEndingImage(candImg);
-    }
+    const img = document.querySelector(".person_image.ending-portrait");
+    if (img && img.getAttribute("data-ending-image") == e.image && img.complete && img.naturalWidth) img.onload();
 });
 
 endingPicker = (out, totv, aa, quickstats) => {
@@ -12515,7 +12332,80 @@ for (let i = 0; i < aa.length; i++) {
 if (!oppEV) {
     oppEV = 531 - playerEV;
 }
-evaluateDawnAchievements(out, quickstats);
+if (campaignTrail_temp.CTS && !campaignTrail_temp.dawnAchievementsChecked) {
+    campaignTrail_temp.dawnAchievementsChecked = true;
+
+    const wonState = (candidate, stateName) => {
+        const state = (e.states_json || []).find(state => state.fields.name == stateName);
+        if (!state) return false;
+        const result = (e.final_state_results || []).find(result => result.state == state.pk);
+        if (!result || !result.result || !result.result.length) return false;
+        const winner = result.result.slice().sort((a, b) => (Number(b.percent) || 0) - (Number(a.percent) || 0))[0];
+        return winner.candidate == candidate;
+    };
+
+    if (out === "tie" && (playerID == 117 || playerID == 116)) {
+        unlockAchievement("Hung Jury");
+    }
+
+    if (playerID == 117) {
+        if (wonState(117, "Tennessee")) {
+            unlockAchievement("To Kill a Mocking Bird");
+        }
+        if (e.player_answers.includes(49005)) {
+            unlockAchievement("RED");
+        }
+        if ([49015, 49016, 49021, 49046, 49069].every(pk => e.player_answers.includes(pk)) &&
+            [49061, 49103].some(pk => e.player_answers.includes(pk))) {
+            unlockAchievement("People vs Dewey");
+        }
+        if (out === "win") {
+            unlockAchievement("Written In The Stars");
+        }
+        const noRedBait = ![49021, 49054, 49069, 49073].some(pk => e.player_answers.includes(pk));
+        if (out === "win" && e.player_answers.includes(49005) && noRedBait) {
+            unlockAchievement("Jurisprudence");
+        }
+        if (out === "win" && [49044, 49058, 49053].every(pk => e.player_answers.includes(pk)) && noRedBait) {
+            unlockAchievement("Dewey Socialists of America");
+        }
+    }
+
+    if (playerID == 116) {
+        if (playerEV >= 266 && e.candidate_json.some(candidate => candidate.pk == 116 && candidate.fields.last_name == "McNutt")) {
+            unlockAchievement("The White-Haired Boy");
+        }
+        if (out === "win" && playerEV >= 449) {
+            unlockAchievement("Just A Bump In The Road");
+        }
+        if (out === "win" && !wonState(116, "Indiana")) {
+            unlockAchievement("Rusty");
+        }
+        let liberalAnswers = [49008, 49029, 49041, 49048, 49055, 49057, 49067].filter(pk => e.player_answers.includes(pk)).length;
+        if ([49022, 49025].some(pk => e.player_answers.includes(pk))) liberalAnswers++;
+        if (out === "win" && liberalAnswers >= 6) {
+            unlockAchievement("Out Of The Shadow");
+        }
+        if (out === "win" && e.player_answers.includes(49008) && e.player_answers.includes(49048) &&
+            ["Alabama", "Arkansas", "Florida", "Georgia", "Kentucky", "Louisiana", "Mississippi", "North Carolina", "Oklahoma", "South Carolina", "Tennessee", "Texas", "Virginia"].some(state => wonState(116, state))) {
+            unlockAchievement("The Victor and The Judge");
+        }
+        if (e.player_answers.includes(49050) || (e.player_answers.includes(49007) && e.player_answers.includes(49049))) {
+            unlockAchievement("Identity War");
+        }
+        if (out === "win" && e.player_answers.includes(49030) && e.player_answers.includes(49069)) {
+            unlockAchievement("Roosevelt Rolling");
+        }
+        const runningMate = e.candidate_json.find(candidate => candidate.pk == e.running_mate_id);
+        const runningMateLastName = String(runningMate && runningMate.fields ? runningMate.fields.last_name || "" : "").toLowerCase();
+        const totalVotes = (e.final_overall_results || []).reduce((sum, result) => sum + (Number(result.popular_votes) || 0), 0);
+        const playerResult = (e.final_overall_results || []).find(result => result.candidate == playerID);
+        const playerPV = totalVotes > 0 && playerResult ? (Number(playerResult.popular_votes) || 0) / totalVotes * 100 : 0;
+        if (out === "win" && runningMateLastName.includes("barkley") && playerPV >= 48.99 && playerPV <= 49.99) {
+            unlockAchievement("Give 'Em Hell");
+        }
+    }
+}
 const deweySweep = "<h3>Magnum Opus</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>Zero. No, not a margin of victory in a state, not the raw vote total - zero electoral votes for Paul McNutt. A landslide. A clean sweep of your principal opposition. The Democratic nominee had been wiped from the Electoral College. There was no amount of speeching, wording, or celebration that could handle this raw fact. And now, a mandate gifted to Thomas Edmund Dewey on a golden platter - not a mandate of the people, rather, <b>a mandate of heaven</b>.</p><p>Dewey leaned back in his bed as he simmered in the thoughts that drew him raw pleasure and euphoria in the moment. He never felt this good in his life, and doubted he would feel this good again. He felt almost inhuman, no, he was a God amongst men. He controlled millions, yes, millions of people now - all in the grasp of his hand.</p><p>Perhaps he would give his speech. Maybe he would strangle Congress with his newfound majorities - no doubt a devout following from the masses that would curb downballot races for years to come. Yes. Tom Dewey had come. He had seen. And now? He had conquered. There was little left to go off of now. Just raw pleasure and manlihood.</p><p>Now finally endowed with the power to confront his nation’s sins, Dewey relaxed. The pleasure had quickly worn off. But the mess was still there, and a clean-up was still needed.</p></div>";
 const deweyBig = "<h3>Res Ipsa Loquitur</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>You have done it. Not only are any remaining doubts about your mandate now smashed to pieces, you have won the popular vote, something that you failed to do four years ago. The Democratic Party reels from this loss. McNutt gives you a concession call, even shocking himself at just how much he lost by. More pained calls come in from other Democrats involved in the campaign. You can almost feel the fumes coming from Henry Wallace and his faction, wondering why the party put its trust into someone with hardly any ties to the groups that Democrats attract the most. You get a few calls from prominent Republicans as well, most notably President Hoover, overcome with pride at how much you have done for the party he nearly destroyed.</p><p>You ponder your next term deeply in the hours that follow, wondering how you will possibly manage both the fast-approaching end of the Chinese Civil War and a brand-new powder keg forming on the Korean Peninsula, one that Dulles is already beginning preparations for. The Democrats will surely return with a vengeance if you are to fail on both of these fronts. The pressure is on, Mr. President. If you can handle it, that will perhaps be your finest hour, and your successor will be well-equipped to have a far easier presidency than your own.</p><p>However, the real work begins now. Quickly, you move to your notebook, jotting down your future plans for an extremely pivotal term.</p></div>";
 const deweyLittle = "<h3>Preponderance of the Evidence</h3><div class='dawn-ending-scroll' style='overflow-y:auto;height:200px;'><p>It was touch and go for a while, Mr. President, but you have captured the presidency for the second time in a row, becoming the first Republican President elected twice since William McKinley. Democrats, for their part, are disheartened at this second consecutive close loss, disillusioned with the way the party has been directed in recent years. You receive a concession call from Governor McNutt, who wishes you the best of luck in your term. You give him the same wishes as more and more calls flood your Manhattan Office, each one another prominent Republican giving you praise for your restoration of the Republican order that Roosevelt had seemingly killed.</p><p>You head to your next few cabinet meetings, wondering which ones should stay and which ones should go. Dulles, of course, will stay, but the rest of your cabinet is another matter. Stassen seems itching to leave his post, but you’ll cross that bridge when you get there.</p><p>You peer out from your office overlooking the Manhattan skyline, its lights shining brighter than those of any city in the world. It is the largest city, after all, and why shouldn’t it be? It was built by Americans, and solidified by Americans, a true testament to the liberty that the Constitution had enshrined. You wish that you could be back here full-time, serving the city you love the most and helping people where it matters.</p><p>But, you can’t. You must be president for another four years. The nation, and 200 million people, need you.</p></div>";
@@ -12537,7 +12427,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweySweep, "https://file.garden/aNtjn2887DiA_8HP/XGD5_027_56ebee25-4ccc-46b4-a4ca-7c9a545a7808_900x.jpg");
+    return setImage(deweySweep, "https://file.garden/aNtjn2887DiA_8HP/XGD5_027_56ebee25-4ccc-46b4-a4ca-7c9a545a7808_900x.jpg");
 } else if (playerID == 117 && playerEV == 0 && mcnuttEV >= 266) {
     if (used != true) {
         const playlist = new Playlist();
@@ -12551,7 +12441,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweyNoStates, "https://file.garden/aNtjn2887DiA_8HP/q2z4MgGkytfTRC-6zHBeVnjhvouup8LqGfRjw1VSdkfBEp6Ki3gFEYl34Ntl7NsZcezMpve0eG4sR9R07nAWVsBMQ_SZ4Huct34MthHB6tTPh8pqwKq3tKsGfWVo8rx3J7No4HhyIBncBLmxyMyK4L-qZZ3-wtGUylHMII0rHRfwWfFPLG-rA0g764uUGYTC.jpg");
+    return setImage(deweyNoStates, "https://file.garden/aNtjn2887DiA_8HP/q2z4MgGkytfTRC-6zHBeVnjhvouup8LqGfRjw1VSdkfBEp6Ki3gFEYl34Ntl7NsZcezMpve0eG4sR9R07nAWVsBMQ_SZ4Huct34MthHB6tTPh8pqwKq3tKsGfWVo8rx3J7No4HhyIBncBLmxyMyK4L-qZZ3-wtGUylHMII0rHRfwWfFPLG-rA0g764uUGYTC.jpg");
 } else if (out == "tie") {
     if (used != true) {
         const playlist = new Playlist();
@@ -12565,7 +12455,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweyDeadlock, "https://file.garden/aNtjn2887DiA_8HP/51E-H8rqaXeX44d6jCzUooDpD7yAJ9r47vyycHV8YEqjOJnJCIVfbscmxZ2VkPcshuuzUq-Yn99pqzDbyYMbJ4qbHbrSMcbVGW6cPPW5CH4GM9FOLJ7suw25M5u1HR9HsUwNkNIwesJhTbyutKxyJAbPP9s7C4HL6uAAIlw5ehcJWWagcb3Pi6f4SfrVksEr.jpg");
+    return setImage(deweyDeadlock, "https://file.garden/aNtjn2887DiA_8HP/51E-H8rqaXeX44d6jCzUooDpD7yAJ9r47vyycHV8YEqjOJnJCIVfbscmxZ2VkPcshuuzUq-Yn99pqzDbyYMbJ4qbHbrSMcbVGW6cPPW5CH4GM9FOLJ7suw25M5u1HR9HsUwNkNIwesJhTbyutKxyJAbPP9s7C4HL6uAAIlw5ehcJWWagcb3Pi6f4SfrVksEr.jpg");
 } else if (out == "win") {
     if (playerEV >= 400) {
         if (used != true) {
@@ -12580,7 +12470,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweyBig, "https://file.garden/aNtjn2887DiA_8HP/images%20(74).jpg");
+    return setImage(deweyBig, "https://file.garden/aNtjn2887DiA_8HP/images%20(74).jpg");
     } else if (playerEV >= 310) {
         if (used != true) {
         const playlist = new Playlist();
@@ -12594,7 +12484,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweyMiddle, "https://file.garden/aNtjn2887DiA_8HP/images%20(73).jpg");
+    return setImage(deweyMiddle, "https://file.garden/aNtjn2887DiA_8HP/images%20(73).jpg");
     } else {
         if (used != true) {
         const playlist = new Playlist();
@@ -12608,7 +12498,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweyLittle, "https://file.garden/aNtjn2887DiA_8HP/dp-505847-22.jpg");
+    return setImage(deweyLittle, "https://file.garden/aNtjn2887DiA_8HP/dp-505847-22.jpg");
     }
 } else if (oppEV >= 320) {
     if (used != true) {
@@ -12623,7 +12513,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweyLossBig, "https://file.garden/aNtjn2887DiA_8HP/d25aa6a54bf87aa09df15bb12d7469ce.jpg");
+    return setImage(deweyLossBig, "https://file.garden/aNtjn2887DiA_8HP/d25aa6a54bf87aa09df15bb12d7469ce.jpg");
 } else {
     if (used != true) {
         const playlist = new Playlist();
@@ -12637,7 +12527,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweyLossLittle, "https://file.garden/aNtjn2887DiA_8HP/two-presidential-possibilities-arrive-at-capital-on-same-train-washington-dc-dec-8-thomas-e-dewey-who-recently-announced-his-candidacy-for-the-republican-nomination-and-paul-v-mcnutt-social-security-administrator-.jpeg");
+    return setImage(deweyLossLittle, "https://file.garden/aNtjn2887DiA_8HP/two-presidential-possibilities-arrive-at-capital-on-same-train-washington-dc-dec-8-thomas-e-dewey-who-recently-announced-his-candidacy-for-the-republican-nomination-and-paul-v-mcnutt-social-security-administrator-.jpeg");
 }
 };
 
@@ -12700,7 +12590,7 @@ const gameWindowNode = document.getElementById("game_window");
 if (gameWindowNode) {
     const vpObserver = new MutationObserver(() => {
         addRunningMateColumn();
-        applyDawnEndingImage();
+        updateEndingImage();
         window.dataVisualizer?.refreshVisualization();
     });
     vpObserver.observe(gameWindowNode, {
@@ -12709,7 +12599,7 @@ if (gameWindowNode) {
         subtree: true
     });
     addRunningMateColumn();
-    applyDawnEndingImage();
+    updateEndingImage();
 }
 
 // The data visualizer from 2012LBM
