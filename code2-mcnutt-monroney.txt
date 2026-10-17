@@ -19325,8 +19325,9 @@ if (gameWindowNode) {
             let tables = holder.getElementsByTagName("table");
             let table = null;
             for (let i = 0; i < tables.length; i++) {
-                let content = tables[i].textContent || "";
-                if (content.includes("Thomas E. Dewey") && content.includes("Paul V. McNutt") && content.includes("Norman Thomas/Others")) {
+                let section = tables[i].closest("#overall_election_details");
+                let heading = section && section.querySelector("h4");
+                if (heading && heading.textContent.replace(/\s+/g, " ").trim() === "Results - Historical") {
                     table = tables[i];
                     break;
                 }
