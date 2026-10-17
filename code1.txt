@@ -626,7 +626,7 @@ RecReading=true
    credits = function() {
     c = [
         "Directed by Noise and Bigglesuede",
-        "Written by Noise, with Additional Writing by NebraskanDynasty and Bigglesuede",
+        "Written by Noise, with Additional Writing by NebraskanDynasty, Bigglesuede, and Steve_TheSquid48",
         "Produced and coded by Bigglesuede",
         "Art and Design by E and StrawberryMaster",
         "Soundtrack Curated by NebraskanDynasty, and Bigglesuede"
