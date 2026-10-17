@@ -12637,7 +12637,7 @@ if (playerID == 117 && out == "win" && playerEV == 531) {
         changePlaylist(playlist);
         used = true;
     }
-    return setDawnEndingImage(deweyLossLittle, "https://file.garden/aNtjn2887DiA_8HP/Thomas-E-Dewey-voting-booth-Nov-2-1948.jpg");
+    return setDawnEndingImage(deweyLossLittle, "https://file.garden/aNtjn2887DiA_8HP/two-presidential-possibilities-arrive-at-capital-on-same-train-washington-dc-dec-8-thomas-e-dewey-who-recently-announced-his-candidacy-for-the-republican-nomination-and-paul-v-mcnutt-social-security-administrator-.jpeg");
 }
 };
 
